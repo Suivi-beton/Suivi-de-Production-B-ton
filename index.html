@@ -1,0 +1,1917 @@
+<!DOCTYPE html>
+<html lang="fr"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Suivi de Production — Béton | Grand Stade de Casablanca</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&amp;family=Inter:wght@400;500;600&amp;family=IBM+Plex+Mono:wght@500;600&amp;display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy: #0b1f42;
+    --navy-soft: #17335e;
+    --navy-tint: #eef1f8;
+    --gold: #f2a900;
+    --gold-dark: #c98d00;
+    --ink: #10192b;
+    --ink-soft: #5b6478;
+    --line: #e1e4ec;
+    --paper: #f3f5f9;
+    --white: #ffffff;
+    --good: #2f8f5b;
+    --good-bg: #e6f4ec;
+    --bad: #c0392b;
+    --bad-bg: #fdecea;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Inter', sans-serif;
+    min-height:100vh;
+    padding:0 0 60px;
+  }
+
+  /* APP BAR */
+  .appbar{
+    background:var(--navy);
+    border-bottom:4px solid var(--gold);
+    padding:16px 20px;
+  }
+  .appbar-inner{
+    max-width:1440px;
+    margin:0 auto;
+    display:flex;
+    align-items:center;
+    gap:16px;
+  }
+  .sgtm-badge{
+    background:var(--gold);
+    color:var(--navy);
+    font-family:'Barlow Condensed', sans-serif;
+    font-weight:800;
+    font-size:15px;
+    letter-spacing:0.02em;
+    padding:8px 14px;
+    border-radius:4px;
+    flex-shrink:0;
+  }
+  .appbar-breadcrumb{
+    margin:0 0 2px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:var(--gold);
+  }
+  .appbar-title{
+    margin:0;
+    font-family:'Inter', sans-serif;
+    font-weight:600;
+    font-size:16px;
+    color:var(--white);
+  }
+
+  .wrap{max-width:1440px;margin:0 auto; padding:32px 24px 0;}
+
+  /* HEADER */
+  .head{
+    background:var(--white);
+    color:var(--ink);
+    border:1px solid var(--line);
+    border-left:5px solid var(--gold);
+    border-radius:4px;
+    padding:26px 32px;
+    position:relative;
+    overflow:hidden;
+    box-shadow:0 10px 24px -18px rgba(11,31,66,0.25);
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+    flex-wrap:wrap;
+  }
+  .export-btn{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    font-family:'Inter', sans-serif;
+    font-size:13px;
+    font-weight:600;
+    color:var(--white);
+    background:var(--navy);
+    border:1px solid var(--navy);
+    border-radius:4px;
+    padding:10px 18px;
+    cursor:pointer;
+    white-space:nowrap;
+  }
+  .export-btn:hover{background:var(--navy-soft); border-color:var(--navy-soft);}
+  .export-btn svg{width:15px; height:15px; flex-shrink:0;}
+  .export-btn.secondary{background:var(--white); color:var(--navy); border-color:var(--navy-soft);}
+  .export-btn.secondary:hover{background:var(--navy-tint);}
+  .head-actions{display:flex; flex-wrap:wrap; gap:10px;}
+  .print-only{display:none;}
+
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--gold-dark);
+    margin:0 0 6px;
+  }
+  .title{
+    font-family:'Barlow Condensed', sans-serif;
+    font-weight:800;
+    font-size:34px;
+    letter-spacing:0.01em;
+    line-height:1;
+    margin:0 0 4px;
+    text-transform:uppercase;
+    color:var(--navy);
+  }
+  .subtitle{
+    font-family:'Barlow Condensed', sans-serif;
+    font-weight:600;
+    font-size:16px;
+    color:var(--gold-dark);
+    margin:0;
+    letter-spacing:0.02em;
+  }
+
+  .weekbar{
+    display:flex;
+    flex-wrap:wrap;
+    align-items:center;
+    gap:14px;
+    background:var(--white);
+    border:1px solid var(--line);
+    border-radius:4px;
+    padding:14px 20px;
+    margin-top:18px;
+    box-shadow:0 6px 16px -12px rgba(11,31,66,0.2);
+  }
+  .weekbar .tag{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    color:var(--ink-soft);
+  }
+  .weekbar select, .weekbar input[type=date]{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px;
+    padding:6px 10px;
+    border:1px solid var(--line);
+    border-radius:3px;
+    background:var(--white);
+    color:var(--ink);
+  }
+  .weekbar .badge{
+    margin-left:auto;
+    font-family:'Barlow Condensed', sans-serif;
+    font-weight:800;
+    font-size:15px;
+    background:var(--gold);
+    color:var(--navy);
+    padding:6px 14px;
+    border-radius:3px;
+    letter-spacing:0.02em;
+  }
+  .weekbar .reset-btn{
+    font-family:'Inter',sans-serif;
+    font-size:12px;
+    font-weight:600;
+    color:var(--white);
+    background:var(--navy);
+    border:1px solid var(--navy);
+    border-radius:3px;
+    padding:7px 14px;
+    cursor:pointer;
+  }
+  .weekbar .reset-btn:hover{background:var(--navy-soft); border-color:var(--navy-soft);}
+
+
+  .conducteur-dropdown{position:relative; width:270px;}
+  .conducteur-toggle{width:100%; text-align:left; font-family:'IBM Plex Mono', monospace; font-size:13px; padding:8px 12px; border:1px solid var(--line); border-radius:3px; background:var(--white); color:var(--ink); cursor:pointer;}
+  .conducteur-menu{display:none; position:absolute; top:calc(100% + 4px); left:0; right:0; z-index:20; background:white; border:1px solid var(--line); box-shadow:0 8px 20px rgba(0,0,0,.12); max-height:260px; overflow:auto;}
+  .conducteur-menu.open{display:block;}
+  .conducteur-menu label{display:block; padding:8px 12px; font-family:'IBM Plex Mono', monospace; font-size:13px; cursor:pointer;}
+  .conducteur-menu label:hover{background:var(--navy-tint);}
+  .conducteur-multi{
+    display:flex;
+    flex-wrap:wrap;
+    align-items:center;
+    gap:8px;
+  }
+  .conducteur-choice{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    font-family:'Inter', sans-serif;
+    font-size:12px;
+    font-weight:600;
+    color:var(--navy);
+    background:var(--white);
+    border:1px solid var(--line);
+    border-radius:3px;
+    padding:6px 9px;
+    cursor:pointer;
+    user-select:none;
+  }
+  .conducteur-choice:hover{background:var(--navy-tint);}
+  .conducteur-choice input{
+    margin:0;
+    accent-color:var(--navy);
+  }
+
+  /* TABLE CARD */
+  .card{
+    background:var(--white);
+    border:1px solid var(--line);
+    border-radius:4px;
+    margin-top:22px;
+    overflow:hidden;
+    box-shadow:0 10px 24px -18px rgba(11,31,66,0.22);
+  }
+  .card-head{
+    display:flex; align-items:baseline; justify-content:space-between;
+    padding:16px 22px;
+    background:var(--navy);
+  }
+  .card-head h2{
+    font-family:'Barlow Condensed', sans-serif;
+    font-weight:700;
+    font-size:19px;
+    text-transform:uppercase;
+    letter-spacing:0.03em;
+    margin:0;
+    color:var(--white);
+  }
+  .card-head span{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    color:var(--gold);
+  }
+
+  table{width:100%; border-collapse:collapse;}
+  thead th{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:10.5px;
+    text-transform:uppercase;
+    letter-spacing:0.06em;
+    color:var(--gold);
+    text-align:right;
+    padding:12px 18px;
+    background:var(--navy);
+    border-bottom:1px solid var(--navy-soft);
+  }
+  thead th:first-child{text-align:left;}
+  tbody td, tfoot td{
+    padding:12px 18px;
+    text-align:right;
+    border-bottom:1px solid var(--line);
+    font-family:'IBM Plex Mono', monospace;
+    font-size:14.5px;
+  }
+  tbody td:first-child, tfoot td:first-child{
+    text-align:left;
+    font-family:'Barlow Condensed', sans-serif;
+    font-weight:700;
+    font-size:16px;
+    letter-spacing:0.01em;
+    color:var(--navy);
+  }
+  tbody tr:hover{background:var(--navy-tint);}
+
+  .realise-input{
+    width:100px;
+    text-align:right;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:14.5px;
+    font-weight:600;
+    padding:6px 8px;
+    border:1.5px solid var(--navy-soft);
+    border-radius:3px;
+    background:var(--navy-tint);
+    color:var(--ink);
+  }
+  .realise-input:focus{outline:none; border-color:var(--gold); background:#fff;}
+  .realise-input::placeholder{color:#a7aec0; font-weight:400;}
+
+  .ecart-pos{color:var(--good); font-weight:600;}
+  .ecart-neg{color:var(--bad); font-weight:600;}
+  .pct-pos{background:var(--good-bg); color:var(--good);}
+  .pct-neg{background:var(--bad-bg); color:var(--bad);}
+  .pct-chip{
+    display:inline-block;
+    padding:2px 8px;
+    border-radius:20px;
+    font-size:12px;
+    font-weight:600;
+  }
+
+  .bar-cell{width:120px;}
+  .bar-track{
+    width:100%; height:6px; background:var(--navy-tint);
+    border-radius:3px; position:relative; overflow:hidden;
+  }
+  .bar-fill{
+    position:absolute; top:0; bottom:0; left:50%;
+    border-radius:3px;
+  }
+
+  tr.total-row td{
+    background:var(--navy-tint);
+    border-top:2px solid var(--navy);
+    border-bottom:none;
+    padding-top:14px; padding-bottom:14px;
+    font-weight:700;
+  }
+  tr.total-row td:first-child{
+    font-size:17px;
+    text-transform:uppercase;
+    color:var(--navy);
+  }
+
+  .foot-note{
+    padding:14px 22px 18px;
+    font-family:'Inter', sans-serif;
+    font-size:12px;
+    color:var(--ink-soft);
+    line-height:1.5;
+    border-top:1px dashed var(--line);
+  }
+  .foot-note b{color:var(--ink);}
+
+  .save-status{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    color:var(--ink-soft);
+    text-align:right;
+    padding:4px 22px 16px;
+  }
+  .save-status.ok{color:var(--good);}
+
+  .table-footer{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:12px 22px 16px;
+  }
+  .table-footer .save-status{padding:0;}
+
+  /* PROJECTION CHART */
+  .chart-legend{
+    display:flex;
+    flex-wrap:wrap;
+    gap:22px;
+    align-items:center;
+  }
+  .chart-legend .item{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    font-family:'Inter', sans-serif;
+    font-size:12.5px;
+    font-weight:600;
+    color:var(--ink-soft);
+  }
+  .chart-legend .swatch{
+    width:22px;
+    height:3px;
+    border-radius:2px;
+    display:inline-block;
+  }
+  .chart-legend .swatch.dashed{
+    background:repeating-linear-gradient(90deg, var(--ink-soft) 0 5px, transparent 5px 9px);
+    height:2px;
+  }
+  .lecture{
+    background:var(--white);
+    border:1px solid var(--line);
+    border-left:4px solid var(--gold);
+    border-radius:4px;
+    padding:16px 22px;
+    margin-top:22px;
+    box-shadow:0 10px 24px -18px rgba(11,31,66,0.22);
+  }
+  .lecture h3{
+    font-family:'Barlow Condensed', sans-serif;
+    font-weight:700;
+    font-size:15px;
+    text-transform:uppercase;
+    letter-spacing:0.04em;
+    color:var(--navy);
+    margin:0 0 10px;
+  }
+  .lecture ul{
+    margin:0;
+    padding-left:0;
+    list-style:none;
+  }
+  .lecture li{
+    position:relative;
+    padding-left:16px;
+    margin-bottom:8px;
+    font-family:'Inter', sans-serif;
+    font-size:13px;
+    line-height:1.5;
+    color:var(--ink-soft);
+  }
+  .lecture li::before{
+    content:"•";
+    position:absolute;
+    left:0;
+    color:var(--gold-dark);
+    font-weight:700;
+  }
+  .lecture li:last-child{margin-bottom:0;}
+  .lecture li b{color:var(--ink);}
+
+  @media (max-width:640px){
+    .title{font-size:26px;}
+    thead th, tbody td, tfoot td{padding:9px 8px; font-size:12.5px;}
+    .realise-input{width:78px; font-size:12.5px;}
+    .bar-cell{display:none;}
+    .appbar-title{font-size:14px;}
+  }
+
+  @media print{
+    *{ -webkit-print-color-adjust:exact; print-color-adjust:exact; color-adjust:exact; }
+    body{ background:var(--white); padding:0; }
+    .no-print{ display:none !important; }
+    .print-only{ display:block !important; }
+    .appbar{ border-bottom:2px solid var(--gold); }
+    .wrap{ max-width:100%; padding:16px 10px 0; }
+    .card, .head, .weekbar, .lecture{ box-shadow:none !important; break-inside:avoid; page-break-inside:avoid; }
+    .card{ margin-top:14px; }
+    table{ break-inside:auto; }
+    tbody tr, thead, tfoot{ break-inside:avoid; page-break-inside:avoid; }
+    .weekbar select, .weekbar input[type=date]{
+      border:none; background:none; padding:2px 4px; -webkit-appearance:none; appearance:none;
+    }
+    .realise-input{ border:1px solid var(--line); background:none; }
+    .export-meta{
+      font-family:'IBM Plex Mono', monospace;
+      font-size:11px;
+      color:var(--ink-soft);
+      text-align:right;
+      margin:0 0 10px;
+    }
+  }
+
+  .kpi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:22px;}
+  .kpi{background:#fff;border:1px solid var(--line);border-radius:4px;padding:18px;box-shadow:0 10px 24px -18px rgba(11,31,66,.22);display:flex;align-items:center;gap:14px;}
+  .kpi-icon{
+    width:44px;height:44px;flex-shrink:0;border-radius:6px;
+    background:var(--navy);
+    display:flex;align-items:center;justify-content:center;
+  }
+  .kpi-icon svg{width:22px;height:22px;stroke:var(--gold);}
+  .kpi-body{min-width:0;}
+  .kpi .label{font-size:10.5px;text-transform:uppercase;color:var(--ink-soft);font-family:'IBM Plex Mono';letter-spacing:0.04em;}
+  .kpi .value{font-size:24px;font-weight:800;color:var(--navy);margin-top:4px;font-family:'Barlow Condensed';}
+  .kpi .sub{font-size:11px;color:var(--ink-soft);margin-top:2px;font-family:'Inter',sans-serif;}
+  .kpi-ring-wrap{display:flex;align-items:center;gap:14px;}
+  .kpi-ring{width:64px;height:64px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;}
+  .kpi-ring span{background:#fff;width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px;color:var(--good);}
+  .manual-table .realise-input{width:125px}
+  .dash-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:22px}
+  @media(max-width:800px){.kpi-grid,.dash-grid{grid-template-columns:1fr}}
+
+  /* FILTER BAR */
+  .filterbar{align-items:flex-end;}
+  .filter-field{display:flex;flex-direction:column;gap:6px;}
+  .filter-field .tag{font-size:11px;}
+  .filterbar .apply-btn{margin-left:4px;}
+
+  /* EVOLUTION CHART */
+  .evo-bar{fill:var(--navy);}
+
+  /* CADENCE HEBDOMADAIRE */
+  .cadence-row{margin-bottom:16px;}
+  .cadence-row:last-child{margin-bottom:0;}
+  .cadence-row .cadence-label{
+    display:flex; justify-content:space-between; align-items:baseline;
+    font-family:'Inter',sans-serif; font-size:13px; font-weight:600; color:var(--navy);
+    margin-bottom:5px;
+  }
+  .cadence-row .cadence-values{
+    font-family:'IBM Plex Mono',monospace; font-size:11.5px; font-weight:600; color:var(--ink-soft);
+  }
+  .cadence-track{
+    position:relative; height:14px; border-radius:7px; background:#e6e9f0; overflow:hidden;
+  }
+  .cadence-fill{
+    position:absolute; top:0; left:0; height:100%; border-radius:7px;
+    background:var(--good); transition:width .3s ease;
+  }
+  .cadence-fill.under{background:var(--bad);}
+  .cadence-mark{
+    position:absolute; top:-3px; bottom:-3px; width:2px; background:var(--navy);
+  }
+  .evo-value{font-family:'IBM Plex Mono', monospace;font-size:11px;fill:var(--navy);font-weight:600;}
+  .evo-prevu-value{font-family:'IBM Plex Mono', monospace;font-size:10px;fill:var(--gold-dark);font-weight:600;}
+
+<style>
+.kpi-row-bottom{display:grid;grid-template-columns:1.1fr 1fr;gap:22px;margin-top:22px}
+.summary-table th,.summary-table td{padding:10px 14px}
+.small-kpi{background:#fff;border:1px solid var(--line);border-radius:4px;padding:18px}
+.small-kpi h3{font-family:'Barlow Condensed';text-transform:uppercase;color:var(--navy);font-size:15px;margin:0 0 15px}
+.driver-box{display:flex;align-items:center;gap:25px}
+.donut{width:120px;height:120px;border-radius:50%;background:conic-gradient(var(--navy) 0 43%,var(--gold) 43% 72%,#72809a 72% 90%,#d5d9e3 90%);display:flex;align-items:center;justify-content:center}
+.donut span{background:white;width:75px;height:75px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800}
+.legend-row{font-size:12px;margin:5px 0}
+.progress-donut{width:140px;height:140px;border-radius:50%;background:conic-gradient(var(--good) 0 100%,#ddd 100%);display:flex;align-items:center;justify-content:center}
+.progress-donut span{background:#fff;border-radius:50%;width:90px;height:90px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:22px;color:var(--good)}
+@media(max-width:800px){.kpi-row-bottom{grid-template-columns:1fr}}
+</style>
+
+</head>
+<body>
+
+<div class="appbar">
+  <div class="appbar-inner">
+    <span class="sgtm-badge">SGTM</span>
+    <div>
+      <p class="appbar-breadcrumb">Grand Stade de Casablanca · Lot Gros Œuvre</p>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <div class="print-only export-meta" id="exportMeta"></div>
+
+  <div class="head">
+    <h1 class="title">Suivi de Production Béton</h1>
+    <div class="head-actions no-print">
+      <button class="export-btn secondary" id="exportDataHtmlBtn" title="Télécharger une copie de ce fichier avec toutes les données saisies intégrées dedans" disabled="">Préparation…</button>
+      <button class="export-btn" id="exportPdfBtn" title="Enregistrer une version PDF de l'état actuel">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"></path><path d="M7 10l5 5 5-5"></path><path d="M5 21h14"></path></svg>
+        Exporter en PDF
+      </button>
+    </div>
+  </div>
+
+  <div class="weekbar filterbar" style="margin-top:18px;">
+    <div class="filter-field">
+      <span class="tag">Date du jour</span>
+      <input type="date" id="dayPicker">
+    </div>
+    <div class="filter-field">
+      <span class="tag">Semaine de référence</span>
+      <select id="weekSelect"><option value="0">Base — jusqu'au 20/06/2026</option><option value="1">Semaine 2026-06-21 → 2026-06-27</option><option value="2">Semaine 2026-06-28 → 2026-07-04</option><option value="3">Semaine 2026-07-05 → 2026-07-11</option><option value="4">Semaine 2026-07-12 → 2026-07-18</option><option value="5">Semaine 2026-07-19 → 2026-07-25</option><option value="6">Semaine 2026-07-26 → 2026-08-01</option><option value="7">Semaine 2026-08-02 → 2026-08-08</option><option value="8">Semaine 2026-08-09 → 2026-08-15</option><option value="9">Semaine 2026-08-16 → 2026-08-22</option><option value="10">Semaine 2026-08-23 → 2026-08-29</option><option value="11">Semaine 2026-08-30 → 2026-09-05</option><option value="12">Semaine 2026-09-06 → 2026-09-12</option><option value="13">Semaine 2026-09-13 → 2026-09-19</option><option value="14">Semaine 2026-09-20 → 2026-09-26</option><option value="15">Semaine 2026-09-27 → 2026-10-03</option><option value="16">Semaine 2026-10-04 → 2026-10-10</option><option value="17">Semaine 2026-10-11 → 2026-10-17</option><option value="18">Semaine 2026-10-18 → 2026-10-24</option><option value="19">Semaine 2026-10-25 → 2026-10-31</option><option value="20">Semaine 2026-11-01 → 2026-11-07</option><option value="21">Semaine 2026-11-08 → 2026-11-14</option><option value="22">Semaine 2026-11-15 → 2026-11-21</option><option value="23">Semaine 2026-11-22 → 2026-11-28</option><option value="24">Semaine 2026-11-29 → 2026-12-05</option></select>
+    </div>
+    <div class="filter-field">
+      <span class="tag">Conducteurs</span>
+      <div id="conducteurFilter" class="conducteur-dropdown" aria-label="Filtre conducteurs">
+    <button type="button" class="conducteur-toggle">Tous les conducteurs ▼</button>
+    <div class="conducteur-menu">
+      <label><input type="checkbox" data-all="1" checked=""> Tous les conducteurs</label>
+      <label><input type="checkbox" value="BOUHOU"> BOUHOU</label><label><input type="checkbox" value="AITALI"> AIT ALI</label><label><input type="checkbox" value="NABLI"> NABLI</label><label><input type="checkbox" value="OBAMA"> OBAMA + KARTER</label><label><input type="checkbox" value="HAMADA"> HAMADA</label>
+    </div></div>
+    </div>
+    <button class="export-btn apply-btn no-print" id="applyBtn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 3 11 14"></path><path d="M22 3 15 22l-4-9-9-4Z"></path></svg>
+      Appliquer
+    </button>
+    <button class="reset-btn no-print" id="resetAllBtn" title="Revenir à aujourd'hui">↺ Réinitialiser</button>
+    <span class="badge" id="dayBadge" style="display:none;">S10</span>
+    <span class="badge" id="weekBadge" style="display:none;">S10</span>
+    <input type="date" id="dateOverride" style="display:none;">
+  </div>
+
+  <div class="kpi-grid">
+    <div class="kpi">
+      <div class="kpi-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="5"></circle><path d="M8.5 13 6 22l6-3 6 3-2.5-9"></path></svg></div>
+      <div class="kpi-body">
+        <div class="label">Réalisé (jour)</div>
+        <div class="value" id="kpiRealise">23 m³</div>
+        <div class="sub">Total béton coulé</div>
+      </div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="12" r="5"></circle><circle cx="12" cy="12" r="1"></circle></svg></div>
+      <div class="kpi-body">
+        <div class="label">Prévu (jour)</div>
+        <div class="value" id="kpiPrevu">189 247 m³</div>
+        <div class="sub">Objectif du jour</div>
+      </div>
+    </div>
+    <div class="kpi kpi-ring-wrap">
+      <div class="kpi-ring" id="kpiPctRing" style="background: conic-gradient(var(--bad) 0 0%, #d5d9e3 0% 100%);"><span id="kpiPct">-3400%</span></div>
+      <div class="kpi-body">
+        <div class="label">Taux d'avancement hebdomadaire</div>
+        <div class="sub">Réalisé / Prévu de la semaine</div>
+      </div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18"></path><path d="M5 7h4l-2 5a2.5 2.5 0 0 0 5 0L10 7"></path><path d="M15 7h4l-2 5a2.5 2.5 0 0 0 5 0L21 7"></path><path d="M5 7h14"></path></svg></div>
+      <div class="kpi-body">
+        <div class="label">Écart (jour)</div>
+        <div class="value" id="kpiEcart">-189 224 m³</div>
+        <div class="sub">Écart total</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="dash-grid">
+  <div class="card manual-table">
+    <div class="card-head">
+      <h2>Suivi journalier — Prévu vs Réalisé (m³/jour)</h2>
+      <span id="dayAsOf">lundi 24 août 2026 · semaine 2026-08-22 → 2026-08-29</span>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>Conducteur</th>
+          <th>Réalisé (m³)</th>
+          <th>Prévu (m³)</th>
+          <th>Écart (m³)</th>
+          <th>% Écart</th>
+          <th>Cadence (m³/j)</th>
+        </tr>
+      </thead>
+      <tbody id="dayTbody"><tr>
+      <td>BOUHOU</td>
+      <td><input class="realise-input" type="text" inputmode="decimal" autocomplete="off" placeholder="—" data-key="BOUHOU" value="23"></td>
+      <td>81 544</td>
+      <td class="ecart-neg">-81 521</td>
+      <td><span class="pct-chip pct-neg">-100.0%</span></td>
+      <td class="ecart-neg" title="Cible : 243 m³/j">-888 / 243</td>
+    </tr><tr>
+      <td>AIT ALI</td>
+      <td><input class="realise-input" type="text" inputmode="decimal" autocomplete="off" placeholder="—" data-key="AITALI" value=""></td>
+      <td>53 994</td>
+      <td class="">—</td>
+      <td>—</td>
+      <td class="" title="Cible : 171 m³/j">—</td>
+    </tr><tr>
+      <td>NABLI</td>
+      <td><input class="realise-input" type="text" inputmode="decimal" autocomplete="off" placeholder="—" data-key="NABLI" value=""></td>
+      <td>31 390</td>
+      <td class="">—</td>
+      <td>—</td>
+      <td class="" title="Cible : 86 m³/j">—</td>
+    </tr><tr>
+      <td>OBAMA + KARTER</td>
+      <td><input class="realise-input" type="text" inputmode="decimal" autocomplete="off" placeholder="—" data-key="OBAMA" value=""></td>
+      <td>18 448</td>
+      <td class="">—</td>
+      <td>—</td>
+      <td class="" title="Cible : 143 m³/j">—</td>
+    </tr><tr>
+      <td>HAMADA</td>
+      <td><input class="realise-input" type="text" inputmode="decimal" autocomplete="off" placeholder="—" data-key="HAMADA" value=""></td>
+      <td>3 872</td>
+      <td class="">—</td>
+      <td>—</td>
+      <td class="" title="Cible : 57 m³/j">—</td>
+    </tr></tbody>
+      <tfoot>
+        <tr class="total-row" id="dayTotalRow">
+          <td>Total</td>
+          <td id="dayTotalRealise">23</td>
+          <td id="dayTotalPrevu">189 247</td>
+          <td id="dayTotalEcart" class="ecart-neg">-189 224</td>
+          <td id="dayTotalPct"><span class="pct-chip pct-neg">-100.0%</span></td>
+          <td id="dayTotalCadence">-888 / 700</td>
+        </tr>
+      </tfoot>
+    </table>
+    <div class="table-footer">
+      <button class="export-btn secondary no-print" id="daySaveBtn" title="Enregistrer les valeurs saisies pour ce jour">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2Z"></path><path d="M17 21v-8H7v8"></path><path d="M7 3v5h8"></path></svg>
+        Enregistrer
+      </button>
+      <div class="save-status" id="daySaveStatus">&nbsp;</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-head">
+      <h2>Évolution journalière (m³)</h2>
+      <span>Réalisé vs Prévu</span>
+    </div>
+    <div style="padding:18px 20px 6px;">
+      <div class="chart-legend">
+        <span class="item"><span class="swatch" style="background:var(--navy);height:10px;border-radius:2px;"></span>Réalisé (m³)</span>
+        <span class="item"><span class="swatch" style="background:var(--gold-dark);"></span>Prévu (m³)</span>
+      </div>
+      <svg id="evoSvg" viewBox="0 0 520 340" style="width:100%; height:auto; display:block; margin-top:14px;"><line x1="56" y1="300" x2="508" y2="300" stroke="var(--line)" stroke-width="1"></line><text x="46" y="304" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="10" fill="var(--ink-soft)">0</text><line x1="56" y1="233.33683078281274" x2="508" y2="233.33683078281274" stroke="var(--line)" stroke-width="1"></line><text x="46" y="237.33683078281274" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="10" fill="var(--ink-soft)">57 000</text><line x1="56" y1="166.67366156562548" x2="508" y2="166.67366156562548" stroke="var(--line)" stroke-width="1"></line><text x="46" y="170.67366156562548" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="10" fill="var(--ink-soft)">114 000</text><line x1="56" y1="100.0104923484382" x2="508" y2="100.0104923484382" stroke="var(--line)" stroke-width="1"></line><text x="46" y="104.0104923484382" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="10" fill="var(--ink-soft)">171 000</text><line x1="56" y1="34.516852415763026" x2="508" y2="34.516852415763026" stroke="var(--line)" stroke-width="1"></line><text x="46" y="38.516852415763026" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="10" fill="var(--ink-soft)">227 000</text><rect class="evo-bar" x="73.4342857142857" y="298.933389292525" width="29.702857142857145" height="1.0666107074749789" rx="2"></rect><text class="evo-value" x="88.28571428571428" y="290.933389292525" text-anchor="middle">912</text><text x="88.28571428571428" y="320" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">23/08</text><rect class="evo-bar" x="138.00571428571428" y="299.97310082645623" width="29.702857142857145" height="0.02689917354376803" rx="2"></rect><text class="evo-value" x="152.85714285714286" y="291.97310082645623" text-anchor="middle">23</text><text x="152.85714285714286" y="320" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">24/08</text><rect class="evo-bar" x="202.57714285714283" y="300" width="29.702857142857145" height="0" rx="2"></rect><text class="evo-value" x="217.42857142857142" y="292" text-anchor="middle">0</text><text x="217.42857142857142" y="320" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">25/08</text><rect class="evo-bar" x="267.1485714285714" y="300" width="29.702857142857145" height="0" rx="2"></rect><text class="evo-value" x="282" y="292" text-anchor="middle">0</text><text x="282" y="320" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">26/08</text><rect class="evo-bar" x="331.71999999999997" y="300" width="29.702857142857145" height="0" rx="2"></rect><text class="evo-value" x="346.57142857142856" y="292" text-anchor="middle">0</text><text x="346.57142857142856" y="320" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">27/08</text><rect class="evo-bar" x="396.2914285714285" y="300" width="29.702857142857145" height="0" rx="2"></rect><text class="evo-value" x="411.1428571428571" y="292" text-anchor="middle">0</text><text x="411.1428571428571" y="320" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">28/08</text><rect class="evo-bar" x="460.86285714285714" y="300" width="29.702857142857145" height="0" rx="2"></rect><text class="evo-value" x="475.7142857142857" y="292" text-anchor="middle">0</text><text x="475.7142857142857" y="320" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">29/08</text><polyline points="88.28571428571428,79.48829418139132 152.85714285714286,78.66962368223292 217.42857142857142,77.85095318307444 282,77.03228268391605 346.57142857142856,76.21361218475761 411.1428571428571,75.39494168559916 475.7142857142857,74.57627118644069" fill="none" stroke="var(--gold-dark)" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"></polyline><circle cx="88.28571428571428" cy="79.48829418139132" r="4" fill="var(--gold)" stroke="var(--white)" stroke-width="1.5"></circle><circle cx="152.85714285714286" cy="78.66962368223292" r="4" fill="var(--gold)" stroke="var(--white)" stroke-width="1.5"></circle><circle cx="217.42857142857142" cy="77.85095318307444" r="4" fill="var(--gold)" stroke="var(--white)" stroke-width="1.5"></circle><circle cx="282" cy="77.03228268391605" r="4" fill="var(--gold)" stroke="var(--white)" stroke-width="1.5"></circle><circle cx="346.57142857142856" cy="76.21361218475761" r="4" fill="var(--gold)" stroke="var(--white)" stroke-width="1.5"></circle><circle cx="411.1428571428571" cy="75.39494168559916" r="4" fill="var(--gold)" stroke="var(--white)" stroke-width="1.5"></circle><circle cx="475.7142857142857" cy="74.57627118644069" r="4" fill="var(--gold)" stroke="var(--white)" stroke-width="1.5"></circle><line x1="56" y1="300" x2="508" y2="300" stroke="var(--ink-soft)" stroke-width="1"></line></svg>
+    </div>
+  </div>
+  </div>
+
+  <div class="card" style="margin-top:22px;">
+    <div class="card-head">
+      <h2>Cadence hebdomadaire — Réalisé vs objectif conducteurs</h2>
+      <span id="cadenceAsOf">Semaine du 23/08/2026 au 29/08/2026</span>
+    </div>
+    <div style="padding:20px 22px;">
+      <div id="cadenceBars">
+      <div class="cadence-row">
+        <div class="cadence-label">
+          <span>BOUHOU</span>
+          <span class="cadence-values">-72 937 / 1 700 m³</span>
+        </div>
+        <div class="cadence-track">
+          <div class="cadence-fill under" style="width:0%;"></div>
+          <div class="cadence-mark" style="left:100%;"></div>
+        </div>
+      </div>
+      <div class="cadence-row">
+        <div class="cadence-label">
+          <span>AIT ALI</span>
+          <span class="cadence-values">-49 300 / 1 200 m³</span>
+        </div>
+        <div class="cadence-track">
+          <div class="cadence-fill under" style="width:0%;"></div>
+          <div class="cadence-mark" style="left:100%;"></div>
+        </div>
+      </div>
+      <div class="cadence-row">
+        <div class="cadence-label">
+          <span>NABLI</span>
+          <span class="cadence-values">— / 600 m³</span>
+        </div>
+        <div class="cadence-track">
+          <div class="cadence-fill " style="width:0%;"></div>
+          <div class="cadence-mark" style="left:100%;"></div>
+        </div>
+      </div>
+      <div class="cadence-row">
+        <div class="cadence-label">
+          <span>OBAMA + KARTER</span>
+          <span class="cadence-values">— / 1 000 m³</span>
+        </div>
+        <div class="cadence-track">
+          <div class="cadence-fill " style="width:0%;"></div>
+          <div class="cadence-mark" style="left:100%;"></div>
+        </div>
+      </div>
+      <div class="cadence-row">
+        <div class="cadence-label">
+          <span>HAMADA</span>
+          <span class="cadence-values">— / 400 m³</span>
+        </div>
+        <div class="cadence-track">
+          <div class="cadence-fill " style="width:0%;"></div>
+          <div class="cadence-mark" style="left:100%;"></div>
+        </div>
+      </div>
+    <div class="cadence-row" style="margin-top:20px; padding-top:14px; border-top:1px solid var(--line);">
+      <div class="cadence-label">
+        <span>TOTAL</span>
+        <span class="cadence-values">-122 236 / 4 900 m³ (0%)</span>
+      </div>
+      <div class="cadence-track" style="height:18px;">
+        <div class="cadence-fill under" style="width:0%;"></div>
+        <div class="cadence-mark" style="left:100%;"></div>
+      </div>
+    </div></div>
+      <div style="margin-top:14px; font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--ink-soft);">
+        Objectif hebdomadaire (m³/semaine) : BOUHOU 1700 · AIT ALI 1200 · OBAMA+KARTER 1000 · NABLI 600 · HAMADA 400.
+      </div>
+    </div>
+  </div>
+
+
+<div class="kpi-row-bottom">
+  <div class="card">
+    <div class="card-head"><h2>Récapitulatif hebdomadaire</h2><span id="weeklyRecapAsOf">Semaine 2026-08-23 → 2026-08-29</span></div>
+    <table class="summary-table">
+      <thead><tr><th>Jour</th><th>Réalisé (m³)</th><th>Prévu (m³)</th><th>Écart (m³)</th><th>% Écart</th><th>Qte réalisé (m³)</th></tr></thead>
+      <tbody id="weeklyRecapBody"><tr>
+      <td>SAM. 29/08</td>
+      <td>0</td>
+      <td>192 747</td>
+      <td class="ecart-neg">-192 747</td>
+      <td><span class="pct-chip pct-neg">-100.0%</span></td>
+      <td class="">—</td>
+    </tr><tr>
+      <td>VEN. 28/08</td>
+      <td>0</td>
+      <td>192 047</td>
+      <td class="ecart-neg">-192 047</td>
+      <td><span class="pct-chip pct-neg">-100.0%</span></td>
+      <td class="">—</td>
+    </tr><tr>
+      <td>JEU. 27/08</td>
+      <td>0</td>
+      <td>191 347</td>
+      <td class="ecart-neg">-191 347</td>
+      <td><span class="pct-chip pct-neg">-100.0%</span></td>
+      <td class="">—</td>
+    </tr><tr>
+      <td>MER. 26/08</td>
+      <td>0</td>
+      <td>190 647</td>
+      <td class="ecart-neg">-190 647</td>
+      <td><span class="pct-chip pct-neg">-100.0%</span></td>
+      <td class="">—</td>
+    </tr><tr>
+      <td>MAR. 25/08</td>
+      <td>0</td>
+      <td>189 947</td>
+      <td class="ecart-neg">-189 947</td>
+      <td><span class="pct-chip pct-neg">-100.0%</span></td>
+      <td class="">—</td>
+    </tr><tr>
+      <td>LUN. 24/08</td>
+      <td>23</td>
+      <td>189 247</td>
+      <td class="ecart-neg">-189 224</td>
+      <td><span class="pct-chip pct-neg">-100.0%</span></td>
+      <td class="ecart-neg">-889</td>
+    </tr><tr>
+      <td>DIM. 23/08</td>
+      <td>912</td>
+      <td>188 547</td>
+      <td class="ecart-neg">-187 635</td>
+      <td><span class="pct-chip pct-neg">-99.5%</span></td>
+      <td class="ecart-neg">-165 735</td>
+    </tr></tbody>
+      <tfoot><tr class="total-row" id="weeklyRecapTotalRow">
+    <td>TOTAL SEMAINE (au LUN. 24/08)</td>
+    <td>-166 624</td>
+    <td>4 900</td>
+    <td class="ecart-neg">-171 524</td>
+    <td><span class="pct-chip pct-neg">-3500.5%</span></td>
+    <td class="ecart-neg">-166 624</td></tr></tfoot>
+    </table>
+  </div>
+  <div>
+    <div class="small-kpi">
+      <h3>Cadence hebdomadaire : Actuelle vs Cible (m³/sem)</h3>
+      <div class="chart-legend" style="margin-top:6px;">
+        <span class="item"><span class="swatch" style="background:var(--navy);"></span>Cible (m³/sem)</span>
+        <span class="item"><span class="swatch" style="background:var(--gold);"></span>Actuel (m³/sem)</span>
+      </div>
+      <svg id="cadenceCompareSvg" viewBox="0 0 520 340" style="width: 609.15px; height: auto; display: block; margin-top: 14px; max-width: 609.15px;"><line x1="56" y1="290" x2="508" y2="290" stroke="var(--line)" stroke-width="1"></line><text x="48" y="293" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="9.5" fill="var(--ink-soft)">0</text><line x1="56" y1="224.90838958534235" x2="508" y2="224.90838958534235" stroke="var(--line)" stroke-width="1"></line><text x="48" y="227.90838958534235" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="9.5" fill="var(--ink-soft)">500</text><line x1="56" y1="159.8167791706847" x2="508" y2="159.8167791706847" stroke="var(--line)" stroke-width="1"></line><text x="48" y="162.8167791706847" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="9.5" fill="var(--ink-soft)">1 000</text><line x1="56" y1="81.70684667309547" x2="508" y2="81.70684667309547" stroke="var(--line)" stroke-width="1"></line><text x="48" y="84.70684667309547" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="9.5" fill="var(--ink-soft)">1 600</text><line x1="56" y1="16.61523625843778" x2="508" y2="16.61523625843778" stroke="var(--line)" stroke-width="1"></line><text x="48" y="19.61523625843778" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="9.5" fill="var(--ink-soft)">2 100</text><line x1="56" y1="290" x2="508" y2="290" stroke="var(--ink-soft)" stroke-width="1"></line><rect x="68.464" y="68.68852459016392" width="30.736000000000004" height="221.31147540983608" fill="var(--navy)" rx="1.5"></rect><text x="83.832" y="62.68852459016392" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10.5" font-weight="700" fill="var(--navy)">1 700</text><rect x="103.2" y="9785.147540983606" width="30.736000000000004" height="-9495.147540983606" fill="var(--gold)" rx="1.5"></rect><text x="118.56800000000001" y="9779.147540983606" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10.5" font-weight="700" fill="var(--gold-dark)">-72 937</text><text x="101.2" y="308" text-anchor="middle" font-family="Inter, sans-serif" font-size="10.5" font-weight="600" fill="var(--navy)">BOUHOU</text><rect x="158.86400000000003" y="133.7801350048216" width="30.736000000000004" height="156.2198649951784" fill="var(--navy)" rx="1.5"></rect><text x="174.23200000000003" y="127.7801350048216" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10.5" font-weight="700" fill="var(--navy)">1 200</text><rect x="193.60000000000002" y="6707.974204435873" width="30.736000000000004" height="-6417.974204435873" fill="var(--gold)" rx="1.5"></rect><text x="208.96800000000002" y="6701.974204435873" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10.5" font-weight="700" fill="var(--gold-dark)">-49 300</text><text x="191.60000000000002" y="308" text-anchor="middle" font-family="Inter, sans-serif" font-size="10.5" font-weight="600" fill="var(--navy)">AIT ALI</text><rect x="249.264" y="211.8900675024108" width="30.736000000000004" height="78.1099324975892" fill="var(--navy)" rx="1.5"></rect><text x="264.632" y="205.8900675024108" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10.5" font-weight="700" fill="var(--navy)">600</text><rect x="284" y="290" width="30.736000000000004" height="0" fill="var(--gold)" rx="1.5"></rect><text x="299.368" y="284" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10.5" font-weight="700" fill="var(--gold-dark)">—</text><text x="282" y="308" text-anchor="middle" font-family="Inter, sans-serif" font-size="10.5" font-weight="600" fill="var(--navy)">NABLI</text><rect x="339.66400000000004" y="159.8167791706847" width="30.736000000000004" height="130.1832208293153" fill="var(--navy)" rx="1.5"></rect><text x="355.03200000000004" y="153.8167791706847" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10.5" font-weight="700" fill="var(--navy)">1 000</text><rect x="374.40000000000003" y="290" width="30.736000000000004" height="0" fill="var(--gold)" rx="1.5"></rect><text x="389.76800000000003" y="284" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10.5" font-weight="700" fill="var(--gold-dark)">—</text><text x="372.40000000000003" y="308" text-anchor="middle" font-family="Inter, sans-serif" font-size="10.5" font-weight="600" fill="var(--navy)">OBAMA +</text><text x="372.40000000000003" y="320" text-anchor="middle" font-family="Inter, sans-serif" font-size="10.5" font-weight="600" fill="var(--navy)">KARTER</text><rect x="430.064" y="237.92671166827384" width="30.736000000000004" height="52.07328833172616" fill="var(--navy)" rx="1.5"></rect><text x="445.432" y="231.92671166827384" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10.5" font-weight="700" fill="var(--navy)">400</text><rect x="464.8" y="290" width="30.736000000000004" height="0" fill="var(--gold)" rx="1.5"></rect><text x="480.168" y="284" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10.5" font-weight="700" fill="var(--gold-dark)">—</text><text x="462.8" y="308" text-anchor="middle" font-family="Inter, sans-serif" font-size="10.5" font-weight="600" fill="var(--navy)">HAMADA</text></svg>
+    </div>
+  </div>
+</div>
+
+<div class="card" style="margin-top:32px;">
+    <div class="card-head">
+      <h2>Projection hebdomadaire du béton coulé</h2>
+      <span>Situation au 15/08/2026</span>
+    </div>
+    <div style="padding:22px;">
+      <div class="chart-legend" id="chartLegend">
+        <span class="item"><span class="swatch" style="background:var(--navy);"></span>Cadence contractuelle (4 900 m³/sem)</span>
+        <span class="item"><span class="swatch" style="background:var(--bad);"></span>Rythme actuel (3 227 m³/sem)</span>
+        <span class="item"><span class="swatch dashed"></span>Quantité marché : 252 367 m³</span>
+      </div>
+      <svg id="projectionSvg" viewBox="0 0 920 420" style="width:100%; height:auto; display:block; margin-top:16px;"><line x1="68" y1="380" x2="904" y2="380" stroke="var(--line)" stroke-width="1"></line><text x="58" y="384" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">160 000</text><line x1="68" y1="343.6" x2="904" y2="343.6" stroke="var(--line)" stroke-width="1"></line><text x="58" y="347.6" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">170 000</text><line x1="68" y1="307.2" x2="904" y2="307.2" stroke="var(--line)" stroke-width="1"></line><text x="58" y="311.2" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">180 000</text><line x1="68" y1="270.79999999999995" x2="904" y2="270.79999999999995" stroke="var(--line)" stroke-width="1"></line><text x="58" y="274.79999999999995" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">190 000</text><line x1="68" y1="234.4" x2="904" y2="234.4" stroke="var(--line)" stroke-width="1"></line><text x="58" y="238.4" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">200 000</text><line x1="68" y1="198" x2="904" y2="198" stroke="var(--line)" stroke-width="1"></line><text x="58" y="202" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">210 000</text><line x1="68" y1="161.6" x2="904" y2="161.6" stroke="var(--line)" stroke-width="1"></line><text x="58" y="165.6" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">220 000</text><line x1="68" y1="125.20000000000002" x2="904" y2="125.20000000000002" stroke="var(--line)" stroke-width="1"></line><text x="58" y="129.20000000000002" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">230 000</text><line x1="68" y1="88.79999999999998" x2="904" y2="88.79999999999998" stroke="var(--line)" stroke-width="1"></line><text x="58" y="92.79999999999998" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">240 000</text><line x1="68" y1="52.39999999999999" x2="904" y2="52.39999999999999" stroke="var(--line)" stroke-width="1"></line><text x="58" y="56.39999999999999" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">250 000</text><line x1="68" y1="16" x2="904" y2="16" stroke="var(--line)" stroke-width="1"></line><text x="58" y="20" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">260 000</text><text x="68" y="400" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">S1</text><text x="98.96296296296296" y="400" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">S2</text><text x="129.92592592592592" y="400" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">S3</text><text x="160.88888888888889" y="400" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">S4</text><text x="191.85185185185185" y="400" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">S5</text><text x="222.8148148148148" y="400" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">S6</text><text x="253.77777777777777" y="400" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">S7</text><text x="284.74074074074076" y="400" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">S8</text><text x="315.7037037037037" y="400" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">S9</text><text x="346.66666666666663" y="400" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">S10</text><text x="377.6296296296296" y="400" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">S11</text><text x="408.59259259259255" y="400" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">S12</text><text x="439.55555555555554" y="400" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">S13</text><text x="470.5185185185185" y="400" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">S14</text><text x="501.48148148148147" y="400" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">S15</text><text x="532.4444444444445" y="400" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">S16</text><text x="563.4074074074074" y="400" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">S17</text><text x="594.3703703703704" y="400" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">S18</text><text x="625.3333333333333" y="400" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">S19</text><text x="656.2962962962963" y="400" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">S20</text><text x="687.2592592592592" y="400" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">S21</text><text x="718.2222222222223" y="400" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">S22</text><text x="749.1851851851851" y="400" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">S23</text><text x="780.1481481481482" y="400" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">S24</text><text x="811.1111111111111" y="400" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">S25</text><text x="842.0740740740741" y="400" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">S26</text><text x="873.037037037037" y="400" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">S27</text><text x="904" y="400" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">S28</text><line x1="68" y1="43.78412" x2="904" y2="43.78412" stroke="var(--ink-soft)" stroke-width="2" stroke-dasharray="6 5"></line><polyline points="68,349.71520000000004 98.96296296296296,331.8792 129.92592592592592,314.0432 160.88888888888889,296.2072 191.85185185185185,278.3712 222.8148148148148,260.5352 253.77777777777777,242.69920000000002 284.74074074074076,224.86319999999998 315.7037037037037,207.02719999999997 346.66666666666663,189.1912 377.6296296296296,171.3552 408.59259259259255,153.5192 439.55555555555554,135.6832 470.5185185185185,117.84720000000002 501.48148148148147,100.0112 532.4444444444445,82.17519999999999 563.4074074074074,64.3392 594.3703703703704,46.50319999999999 625.3333333333333,43.78412 656.2962962962963,43.78412 687.2592592592592,43.78412 718.2222222222223,43.78412 749.1851851851851,43.78412 780.1481481481482,43.78412 811.1111111111111,43.78412 842.0740740740741,43.78412 873.037037037037,43.78412 904,43.78412" fill="none" stroke="var(--navy)" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"></polyline><polyline points="68,355.80492 98.96296296296296,344.05863999999997 129.92592592592592,332.31236 160.88888888888889,320.56608 191.85185185185185,308.8198 222.8148148148148,297.07352 253.77777777777777,285.32724 284.74074074074076,273.58096 315.7037037037037,261.83468000000005 346.66666666666663,250.0884 377.6296296296296,238.34212 408.59259259259255,226.59583999999998 439.55555555555554,214.84955999999997 470.5185185185185,203.10327999999998 501.48148148148147,191.357 532.4444444444445,179.61072 563.4074074074074,167.86444 594.3703703703704,156.11816 625.3333333333333,144.37188 656.2962962962963,132.62560000000002 687.2592592592592,120.87931999999999 718.2222222222223,109.13304 749.1851851851851,97.38675999999998 780.1481481481482,85.64048000000001 811.1111111111111,73.89420000000001 842.0740740740741,62.14792 873.037037037037,50.40163999999999 904,43.78412" fill="none" stroke="var(--bad)" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"></polyline><line x1="68" y1="380" x2="904" y2="380" stroke="var(--ink-soft)" stroke-width="1"></line></svg>
+    </div>
+  </div>
+
+  <div class="lecture">
+    <h3>Lecture &amp; commentaires</h3>
+    <ul>
+      <li>Quantité marché atteinte en <b>S19 (26/12/2026)</b> au rythme contractuel, en <b>S28 (27/02/2027)</b> au rythme actuel.</li>
+      <li>Soit <b>9 semaines de décalage</b> ; à S19 il resterait <b>27 634 m³</b> à couler au rythme actuel, soit environ 8,6 semaines de production supplémentaires.</li>
+      <li>Par rapport à l'échéance contractuelle du 30/11/2026 : retard de <b>3,7 semaines</b> si retour à la cadence contractuelle, retard de <b>12,7 semaines</b> si le rythme actuel se prolonge.</li>
+    </ul>
+  </div>
+
+</div>
+
+<script>
+// --- Projection hebdomadaire du béton coulé (fichier "Projection_15_08_2026.xlsx", scénario au 15/08/2026, cumul de départ réel = 163 420 m³) ---
+const PROJ_WEEKS    = ["S1","S2","S3","S4","S5","S6","S7","S8","S9","S10","S11","S12","S13","S14","S15","S16","S17","S18","S19","S20","S21","S22","S23","S24","S25","S26","S27","S28"];
+const PROJ_CONTRACT = [168320,173220,178120,183020,187920,192820,197720,202620,207520,212420,217320,222220,227120,232020,236920,241820,246720,251620,252367,252367,252367,252367,252367,252367,252367,252367,252367,252367];
+const PROJ_ACTUAL   = [166647,169874,173101,176328,179555,182782,186009,189236,192463,195690,198917,202144,205371,208598,211825,215052,218279,221506,224733,227960,231187,234414,237641,240868,244095,247322,250549,252367];
+const PROJ_MARCHE   = 252367;
+
+function renderProjectionChart(){
+  const svg = document.getElementById('projectionSvg');
+  if (!svg) return;
+
+  const W = 920, H = 420;
+  const padL = 68, padR = 16, padT = 16, padB = 40;
+  const chartW = W - padL - padR;
+  const chartH = H - padT - padB;
+
+  const yMin = 160000, yMax = 260000, yStep = 10000;
+  const n = PROJ_WEEKS.length;
+
+  const xScale = i => padL + (i / (n - 1)) * chartW;
+  const yScale = v => padT + (1 - (v - yMin) / (yMax - yMin)) * chartH;
+
+  let svgParts = [];
+
+  // horizontal gridlines + y labels
+  for (let v = yMin; v <= yMax; v += yStep){
+    const y = yScale(v);
+    svgParts.push(`<line x1="${padL}" y1="${y}" x2="${W - padR}" y2="${y}" stroke="var(--line)" stroke-width="1"/>`);
+    svgParts.push(`<text x="${padL - 10}" y="${y + 4}" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">${v.toLocaleString('fr-FR')}</text>`);
+  }
+
+  // x labels
+  PROJ_WEEKS.forEach((w,i)=>{
+    const x = xScale(i);
+    svgParts.push(`<text x="${x}" y="${H - padB + 20}" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">${w}</text>`);
+  });
+
+  // quantité marché dashed line
+  const yMarche = yScale(PROJ_MARCHE);
+  svgParts.push(`<line x1="${padL}" y1="${yMarche}" x2="${W - padR}" y2="${yMarche}" stroke="var(--ink-soft)" stroke-width="2" stroke-dasharray="6 5"/>`);
+
+  // contractuelle line (navy)
+  const contractPts = PROJ_CONTRACT.map((v,i)=>`${xScale(i)},${yScale(v)}`).join(' ');
+  svgParts.push(`<polyline points="${contractPts}" fill="none" stroke="var(--navy)" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>`);
+
+  // rythme actuel line (rouge)
+  const actualPts = PROJ_ACTUAL.map((v,i)=>`${xScale(i)},${yScale(v)}`).join(' ');
+  svgParts.push(`<polyline points="${actualPts}" fill="none" stroke="var(--bad)" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>`);
+
+  // axis baseline
+  svgParts.push(`<line x1="${padL}" y1="${H - padB}" x2="${W - padR}" y2="${H - padB}" stroke="var(--ink-soft)" stroke-width="1"/>`);
+
+  svg.innerHTML = svgParts.join('');
+}
+
+renderProjectionChart();
+</script>
+
+<script>
+// --- Weekly cumulative targets, from "Prévue_par_semaine.xlsx" (Scénario Cadences, objectif 30/11/2026) ---
+const SCHEDULE = [
+  { week:"Base", date:"2026-06-20", BOUHOU:65758.25, AITALI:42851.64, NABLI:25818.28, OBAMA:9161.86,  HAMADA:157.37 },
+  { week:"S1",   date:"2026-06-27", BOUHOU:67458.25, AITALI:44051.64, NABLI:26418.28, OBAMA:10161.86, HAMADA:557.37 },
+  { week:"S2",   date:"2026-07-04", BOUHOU:69158.25, AITALI:45251.64, NABLI:27018.28, OBAMA:11161.86, HAMADA:957.37 },
+  { week:"S3",   date:"2026-07-11", BOUHOU:70858.25, AITALI:46451.64, NABLI:27618.28, OBAMA:12161.86, HAMADA:1357.37 },
+  { week:"S4",   date:"2026-07-18", BOUHOU:72558.25, AITALI:47651.64, NABLI:28218.28, OBAMA:13161.86, HAMADA:1757.37 },
+  { week:"S5",   date:"2026-07-25", BOUHOU:74258.25, AITALI:48851.64, NABLI:28818.28, OBAMA:14161.86, HAMADA:2157.37 },
+  { week:"S6",   date:"2026-08-01", BOUHOU:75958.25, AITALI:50051.64, NABLI:29418.28, OBAMA:15161.86, HAMADA:2557.37 },
+  { week:"S7",   date:"2026-08-08", BOUHOU:77658.25, AITALI:51251.64, NABLI:30018.28, OBAMA:16161.86, HAMADA:2957.37 },
+  { week:"S8",   date:"2026-08-15", BOUHOU:79358.25, AITALI:52451.64, NABLI:30618.28, OBAMA:17161.86, HAMADA:3357.37 },
+  { week:"S9",   date:"2026-08-22", BOUHOU:81058.25, AITALI:53651.64, NABLI:31218.28, OBAMA:18161.86, HAMADA:3757.37 },
+  { week:"S10",  date:"2026-08-29", BOUHOU:82758.25, AITALI:54851.64, NABLI:31818.28, OBAMA:19161.86, HAMADA:4157.37 },
+  { week:"S11",  date:"2026-09-05", BOUHOU:84458.25, AITALI:56051.64, NABLI:32418.28, OBAMA:20161.86, HAMADA:4557.37 },
+  { week:"S12",  date:"2026-09-12", BOUHOU:86158.25, AITALI:57251.64, NABLI:33018.28, OBAMA:21161.86, HAMADA:4957.37 },
+  { week:"S13",  date:"2026-09-19", BOUHOU:87858.25, AITALI:58451.64, NABLI:33618.28, OBAMA:22161.86, HAMADA:5357.37 },
+  { week:"S14",  date:"2026-09-26", BOUHOU:89558.25, AITALI:59651.64, NABLI:34218.28, OBAMA:23161.86, HAMADA:5757.37 },
+  { week:"S15",  date:"2026-10-03", BOUHOU:91258.25, AITALI:60851.64, NABLI:34818.28, OBAMA:24161.86, HAMADA:6157.37 },
+  { week:"S16",  date:"2026-10-10", BOUHOU:92958.25, AITALI:62051.64, NABLI:35418.28, OBAMA:25161.86, HAMADA:6557.37 },
+  { week:"S17",  date:"2026-10-17", BOUHOU:94658.25, AITALI:63251.64, NABLI:36018.28, OBAMA:26161.86, HAMADA:6957.37 },
+  { week:"S18",  date:"2026-10-24", BOUHOU:96358.25, AITALI:64451.64, NABLI:36618.28, OBAMA:27161.86, HAMADA:7045 },
+  { week:"S19",  date:"2026-10-31", BOUHOU:98058.25, AITALI:65651.64, NABLI:36976,    OBAMA:28161.86, HAMADA:7045 },
+  { week:"S20",  date:"2026-11-07", BOUHOU:99758.25, AITALI:66851.64, NABLI:36976,    OBAMA:29161.86, HAMADA:7045 },
+  { week:"S21",  date:"2026-11-14", BOUHOU:101458.25,AITALI:68051.64, NABLI:36976,    OBAMA:30161.86, HAMADA:7045 },
+  { week:"S22",  date:"2026-11-21", BOUHOU:103158.25,AITALI:69251.64, NABLI:36976,    OBAMA:31161.86, HAMADA:7045 },
+  { week:"S23",  date:"2026-11-28", BOUHOU:104858.25,AITALI:70002,    NABLI:36976,    OBAMA:32161.86, HAMADA:7045 },
+  { week:"S24",  date:"2026-12-05", BOUHOU:105749,   AITALI:70002,    NABLI:36976,    OBAMA:32595,    HAMADA:7045 },
+];
+
+const CONDUCTEURS = [
+  { key:"BOUHOU", label:"BOUHOU" },
+  { key:"AITALI", label:"AIT ALI" },
+  { key:"NABLI",  label:"NABLI" },
+  { key:"OBAMA",  label:"OBAMA + KARTER" },
+  { key:"HAMADA", label:"HAMADA" },
+];
+
+// Cadence journalière cible par conducteur (m³/jour), fournie par l'utilisateur.
+const CADENCE_TARGETS = {
+  BOUHOU: 243,
+  AITALI: 171,
+  OBAMA:  143,
+  NABLI:  86,
+  HAMADA: 57,
+};
+
+// Objectif hebdomadaire cible par conducteur (m³/semaine) — valeurs exactes
+// fournies par l'utilisateur (ne sont pas un simple × 7 de la cadence
+// journalière ci-dessus, qui donnerait des chiffres légèrement différents).
+const WEEKLY_CADENCE_TARGETS = {
+  BOUHOU: 1700,
+  AITALI: 1200,
+  OBAMA:  1000,
+  NABLI:  600,
+  HAMADA: 400,
+};
+
+// Global "Conducteur" filter — an empty Set means "show all".
+// Several conducteurs can be selected simultaneously.
+let selectedConducteurs = new Set();
+
+function visibleConducteurs(){
+  return selectedConducteurs.size
+    ? CONDUCTEURS.filter(c => selectedConducteurs.has(c.key))
+    : CONDUCTEURS;
+}
+
+function filterSummary(){
+  if (!selectedConducteurs.size) return '';
+  const labels = CONDUCTEURS
+    .filter(c => selectedConducteurs.has(c.key))
+    .map(c => c.label);
+  return labels.length ? ` · Filtré : ${labels.join(' + ')}` : '';
+}
+
+function populateConducteurFilter(){
+  const box = document.getElementById('conducteurFilter');
+  box.innerHTML = `
+    <button type="button" class="conducteur-toggle">Tous les conducteurs ▼</button>
+    <div class="conducteur-menu">
+      <label><input type="checkbox" data-all="1" checked> Tous les conducteurs</label>
+      ${CONDUCTEURS.map(c => `<label><input type="checkbox" value="${c.key}"> ${c.label}</label>`).join('')}
+    </div>`;
+
+  const toggle = box.querySelector('.conducteur-toggle');
+  const menu = box.querySelector('.conducteur-menu');
+  const allInput = box.querySelector('[data-all="1"]');
+  const inputs = [...box.querySelectorAll('input[value]')];
+
+  toggle.addEventListener('click', ()=> menu.classList.toggle('open'));
+  document.addEventListener('click', e=>{ if(!box.contains(e.target)) menu.classList.remove('open'); });
+
+  allInput.addEventListener('change', ()=>{
+    if(allInput.checked){
+      selectedConducteurs.clear();
+      inputs.forEach(i=>i.checked=false);
+    }
+    updateConducteurLabel();
+    render(); renderDaily();
+  });
+
+  inputs.forEach(inp=>{
+    inp.addEventListener('change', ()=>{
+      if(inp.checked) selectedConducteurs.add(inp.value);
+      else selectedConducteurs.delete(inp.value);
+      allInput.checked = selectedConducteurs.size===0;
+      updateConducteurLabel();
+      render(); renderDaily();
+    });
+  });
+}
+
+function updateConducteurLabel(){
+  const btn=document.querySelector('.conducteur-toggle');
+  if(!btn) return;
+  btn.textContent = selectedConducteurs.size ? [...selectedConducteurs].map(k=>CONDUCTEURS.find(c=>c.key===k).label).join(' + ') + ' ▼' : 'Tous les conducteurs ▼';
+}
+
+const fmt = n => Math.round(n).toLocaleString('fr-FR');
+
+// ── Données embarquées ────────────────────────────────────────────────────────
+// Rempli automatiquement par le bouton "Exporter avec données" : un instantané
+// de toutes les saisies (jours + semaines) au moment de l'export, gravé
+// directement dans ce fichier HTML. Quiconque ouvre ce fichier voit ces
+// données même sans accès au stockage partagé Claude.ai — et peut continuer
+// à saisir par-dessus (ses propres ajouts restent locaux à sa machine tant
+// qu'il ne relance pas un nouvel export).
+const EMBEDDED_DATA = {
+  "daily-realise:2026-08-24": "{\"BOUHOU\":\"23\"}",
+  "daily-realise:2026-08-21": "{\"OBAMA\":\"15816,92\",\"AITALI\":\"49063,73\",\"BOUHOU\":\"72887,75\",\"NABLI\":\"26188,99\",\"HAMADA\":\"2190,26\"}",
+  "daily-realise:2026-08-22": "{\"OBAMA\":\"15978,02\",\"AITALI\":\"49300,55\",\"BOUHOU\":\"72959,80\",\"NABLI\":\"26218,69\",\"HAMADA\":\"2190,26\"}",
+  "daily-realise:2026-08-19": "{\"OBAMA\":\"15653,53\",\"NABLI\":\"26042,50\",\"AITALI\":\"48856,92\",\"BOUHOU\":\"72281,78\",\"HAMADA\":\"2160,22\"}",
+  "daily-realise:2026-08-18": "{\"BOUHOU\":\"72214,84\",\"OBAMA\":\"15329,23\",\"HAMADA\":\"2157,24\",\"AITALI\":\"48747,21\",\"NABLI\":\"26036,86\"}",
+  "daily-realise:2026-08-15": "{\"OBAMA\":\"15084,88\",\"BOUHOU\":\"71839,59\",\"AITALI\":\"48439,68\",\"NABLI\":\"25939,34\",\"HAMADA\":\"2116,79\"}",
+  "daily-realise:2026-08-17": "{\"AITALI\":\"48439,68\",\"OBAMA\":\"15329,23\",\"NABLI\":\"25939,34\",\"HAMADA\":\"2116,79\",\"BOUHOU\":\"72101,27\"}",
+  "daily-realise:2026-08-20": "{\"BOUHOU\":\"72452,90\",\"AITALI\":\"49040,23\",\"NABLI\":\"26042,50\",\"OBAMA\":\"15653,53\",\"HAMADA\":\"2160,22\"}",
+  "daily-realise:2026-08-16": "{\"BOUHOU\":\"71839,59\",\"AITALI\":\"48439,68\",\"NABLI\":\"25939,34\",\"OBAMA\":\"15084,88\",\"HAMADA\":\"2116,79\"}",
+  "daily-realise:2026-08-23": "{\"BOUHOU\":\"911\",\"AITALI\":\"1\"}"
+};
+
+// ── Couche de stockage universelle ────────────────────────────────────────────
+// Utilise window.storage (API des artifacts Claude.ai) en mode PARTAGÉ
+// (shared:true) quand elle est disponible, pour que toutes les personnes qui
+// ouvrent le même lien d'artifact publié voient et modifient les MÊMES
+// données ; sinon, si le fichier est ouvert directement dans un navigateur
+// (ex : téléchargé puis double-cliqué), elle replie automatiquement sur
+// localStorage pour que les données saisies persistent quand même d'une
+// session à l'autre SUR CETTE MACHINE UNIQUEMENT. Dans tous les cas, si une
+// clé est absente du stockage vivant, on retombe sur EMBEDDED_DATA — c'est
+// ce qui permet à un fichier exporté de "porter" ses données avec lui.
+const HAS_NATIVE_STORAGE = (typeof window !== 'undefined' && !!window.storage && typeof window.storage.get === 'function');
+const LS_PREFIX = 'suivi-production-';
+
+const storageLayer = {
+  async get(key){
+    if (HAS_NATIVE_STORAGE){
+      try{
+        const res = await window.storage.get(key, true);
+        if (res) return res;
+      }catch(e){ /* clé absente ou erreur -> repli */ }
+    } else {
+      try{
+        const raw = localStorage.getItem(LS_PREFIX + key);
+        if (raw !== null) return { value: raw };
+      }catch(e){ /* repli */ }
+    }
+    // Repli final : donnée embarquée dans le fichier au dernier export
+    if (Object.prototype.hasOwnProperty.call(EMBEDDED_DATA, key)){
+      return { value: EMBEDDED_DATA[key] };
+    }
+    return null;
+  },
+  async set(key, value){
+    if (HAS_NATIVE_STORAGE){
+      try{ await window.storage.set(key, value, true); return; }
+      catch(e){ /* repli local */ }
+    }
+    try{ localStorage.setItem(LS_PREFIX + key, value); }catch(e){ /* stockage indisponible */ }
+  },
+  // Liste toutes les clés connues (stockage vivant + données embarquées),
+  // utilisé par l'export pour rassembler un instantané complet.
+  async listAllKeys(prefix){
+    const keys = new Set();
+    if (HAS_NATIVE_STORAGE && window.storage.list){
+      try{
+        const res = await window.storage.list(prefix, true);
+        (res && res.keys ? res.keys : []).forEach(k => keys.add(k));
+      }catch(e){ /* ignore */ }
+    } else {
+      try{
+        Object.keys(localStorage).forEach(k=>{
+          if (k.startsWith(LS_PREFIX + prefix)) keys.add(k.slice(LS_PREFIX.length));
+        });
+      }catch(e){ /* ignore */ }
+    }
+    Object.keys(EMBEDDED_DATA).forEach(k=>{ if (k.startsWith(prefix)) keys.add(k); });
+    return [...keys];
+  },
+};
+
+if (!HAS_NATIVE_STORAGE){
+  console.warn('[Suivi production] window.storage indisponible — utilisation de localStorage (données conservées uniquement dans ce navigateur).');
+}
+
+const weeklyKey = label => 'weekly-realise:' + label;
+
+// Keeps only digits and a single decimal separator (, or .) so the field
+// behaves like a numeric input while staying a text field (avoids the
+// Chrome setSelectionRange restriction on <input type="number"> that was
+// causing the caret to jump to position 0 and reverse the typed digits).
+function sanitizeNumberInput(raw){
+  let v = raw.replace(/[^0-9.,]/g, '');
+  const firstSep = v.search(/[.,]/);
+  if (firstSep !== -1){
+    v = v.slice(0, firstSep+1) + v.slice(firstSep+1).replace(/[.,]/g, '');
+  }
+  return v;
+}
+
+// Re-finds the input for `key` after a full re-render and puts the caret
+// back where the user left it, instead of always jumping to the end.
+function toNumber(str){
+  return parseFloat(String(str).replace(',', '.'));
+}
+
+function restoreFocus(container, key, caret){
+  const el = container.querySelector(`[data-key="${key}"]`);
+  if (!el) return;
+  el.focus();
+  const pos = Math.min(caret, el.value.length);
+  try{ el.setSelectionRange(pos, pos); }catch(e){ /* no-op for unsupported input types */ }
+}
+
+function findCurrentIndex(dateObj){
+  // Retourne l'index de la semaine qui CONTIENT dateObj : la première ligne
+  // du planning dont la date (un samedi, fin de semaine) est >= dateObj.
+  for (let i=0;i<SCHEDULE.length;i++){
+    if (new Date(SCHEDULE[i].date+'T00:00:00') >= dateObj) return i;
+  }
+  return SCHEDULE.length - 1;
+}
+
+function populateWeekSelect(){
+  const sel = document.getElementById('weekSelect');
+  sel.innerHTML = SCHEDULE.map((r,i)=>{
+    if (i === 0) return `<option value="0">${r.week} — jusqu'au ${new Date(r.date+'T00:00:00').toLocaleDateString('fr-FR')}</option>`;
+    const prev = SCHEDULE[i-1];
+    const start = new Date(prev.date+'T00:00:00'); start.setDate(start.getDate()+1);
+    const end = new Date(r.date+'T00:00:00');
+    const label = `Semaine ${dayStr(start)} → ${dayStr(end)}`;
+    return `<option value="${i}">${label}</option>`;
+  }).join('');
+}
+
+let realiseValues = {};
+let currentWeekLabel = null;
+
+// Loads the Réalisé values saved for one specific week (S1, S2, ...) —
+// each week is stored under its own key, so switching the "Semaine de
+// référence" selector shows that week's own saved data, not a shared blob.
+async function loadRealise(weekLabel){
+  try{
+    const res = await storageLayer.get(weeklyKey(weekLabel));
+    realiseValues = (res && res.value) ? JSON.parse(res.value) : {};
+  }catch(e){ realiseValues = {}; }
+}
+
+async function saveRealise(){
+  const statusEl = document.getElementById('saveStatus');
+  try{
+    await storageLayer.set(weeklyKey(currentWeekLabel), JSON.stringify(realiseValues));
+    statusEl.textContent = '✓ Enregistré';
+    statusEl.classList.add('ok');
+    setTimeout(()=>{ statusEl.textContent=''; statusEl.classList.remove('ok'); }, 1800);
+  }catch(e){
+    statusEl.textContent = 'Erreur d\'enregistrement';
+  }
+}
+
+function render(){
+  // Le tableau "Suivi hebdomadaire" (saisie manuelle par semaine) a été retiré :
+  // cette fonction ne fait plus que garder le badge de semaine à jour, utilisé
+  // dans le texte des métadonnées de l'export PDF.
+  const idx = parseInt(document.getElementById('weekSelect').value, 10);
+  const row = SCHEDULE[idx];
+  document.getElementById('weekBadge').textContent = row.week;
+}
+
+// Switches to a given week: re-renders the week badge.
+async function selectWeek(idx){
+  document.getElementById('weekSelect').value = idx;
+  const row = SCHEDULE[idx];
+  currentWeekLabel = row.week;
+  render();
+}
+
+async function setWeekFromDate(dateObj){
+  const idx = findCurrentIndex(dateObj);
+  document.getElementById('dateOverride').value = dayStr(dateObj);
+  await selectWeek(idx);
+}
+
+// --- Daily table ---
+const fmt1 = n => n.toLocaleString('fr-FR', {minimumFractionDigits:1, maximumFractionDigits:1});
+// Formate une date en YYYY-MM-DD en restant en heure LOCALE (contrairement à
+// toISOString() qui convertit d'abord en UTC et peut donc décaler d'un jour
+// dans les fuseaux horaires en avance sur UTC, comme le Maroc en été).
+const dayStr = d => {
+  const y = d.getFullYear();
+  const m = String(d.getMonth() + 1).padStart(2, '0');
+  const day = String(d.getDate()).padStart(2, '0');
+  return `${y}-${m}-${day}`;
+};
+const dailyKey = ds => 'daily-realise:' + ds;
+
+let dailyValues = {};
+let currentDayStr = null;
+
+function getWeekInterval(dateObj){
+  let i = 1;
+  for (; i < SCHEDULE.length - 1; i++){
+    if (dateObj <= new Date(SCHEDULE[i].date + 'T00:00:00')) break;
+  }
+  return { start: SCHEDULE[i-1], end: SCHEDULE[i] };
+}
+
+async function loadDaily(ds){
+  try{
+    const res = await storageLayer.get(dailyKey(ds));
+    dailyValues = (res && res.value) ? JSON.parse(res.value) : {};
+  }catch(e){
+    dailyValues = {};
+  }
+}
+
+async function saveDaily(ds){
+  const statusEl = document.getElementById('daySaveStatus');
+  try{
+    await storageLayer.set(dailyKey(ds), JSON.stringify(dailyValues));
+    statusEl.textContent = '✓ Enregistré';
+    statusEl.classList.add('ok');
+    setTimeout(()=>{ statusEl.textContent=''; statusEl.classList.remove('ok'); }, 1500);
+  }catch(e){
+    statusEl.textContent = "Erreur d'enregistrement";
+  }
+}
+
+// ── Donut "Répartition par conducteur" (basé sur la ventilation du jour affiché) ──
+// Force le graphique "Cadence hebdomadaire" à avoir EXACTEMENT la même
+// largeur rendue (en pixels) que "Évolution journalière", quelle que soit
+// la largeur réelle de leurs conteneurs respectifs (qui peuvent différer
+// légèrement selon la mise en page).
+function syncCadenceChartWidth(){
+  const evoSvg = document.getElementById('evoSvg');
+  const cadSvg = document.getElementById('cadenceCompareSvg');
+  if (!evoSvg || !cadSvg) return;
+  const w = evoSvg.getBoundingClientRect().width;
+  if (w > 0){
+    cadSvg.style.width = w + 'px';
+    cadSvg.style.maxWidth = w + 'px';
+  }
+}
+
+// ── Graphe "Cadence hebdomadaire : Actuelle vs Cible" (remplace l'ancien donut) ──
+async function renderCadenceCompareChart(){
+  const svg = document.getElementById('cadenceCompareSvg');
+  if (!svg) return;
+
+  const idx = parseInt(document.getElementById('weekSelect').value, 10);
+  const row = SCHEDULE[idx];
+  const prevRow = SCHEDULE[idx - 1] || SCHEDULE[idx];
+  const boundaryDate = new Date(prevRow.date + 'T00:00:00');
+
+  const days = [];
+  for (let i = 0; i <= 7; i++){
+    const d = new Date(boundaryDate); d.setDate(d.getDate() + i);
+    days.push(d);
+  }
+  const valsPerDay = await Promise.all(days.map(d => loadDailyFor(dayStr(d))));
+
+  const conducteurs = visibleConducteurs();
+  const data = conducteurs.map(c=>{
+    const cible = WEEKLY_CADENCE_TARGETS[c.key];
+    let actuel = 0, hasAny = false;
+    for (let i = 1; i < valsPerDay.length; i++){
+      const prevV = valsPerDay[i-1][c.key];
+      const curV = valsPerDay[i][c.key];
+      if (prevV !== undefined && prevV !== null && prevV !== '' && curV !== undefined && curV !== null && curV !== ''){
+        actuel += toNumber(curV) - toNumber(prevV);
+        hasAny = true;
+      }
+    }
+    return { label: c.label, cible, actuel: hasAny ? actuel : 0, hasAny };
+  });
+
+  const W = 520, H = 340;
+  const padL = 56, padR = 12, padT = 20, padB = 50;
+  const chartW = W - padL - padR;
+  const chartH = H - padT - padB;
+  const n = data.length;
+  const bandW = chartW / n;
+  const barW = bandW * 0.34;
+  const gap = 4;
+
+  const maxVal = Math.max(...data.map(d => Math.max(d.cible, d.actuel)), 1) * 1.22;
+  const yScale = v => padT + (1 - v / maxVal) * chartH;
+  const zeroY = yScale(0);
+
+  let parts = [];
+  const ySteps = 4;
+  for (let i = 0; i <= ySteps; i++){
+    const v = Math.round(maxVal / ySteps * i / 100) * 100;
+    const y = yScale(v);
+    parts.push(`<line x1="${padL}" y1="${y}" x2="${W-padR}" y2="${y}" stroke="var(--line)" stroke-width="1"/>`);
+    parts.push(`<text x="${padL-8}" y="${y+3}" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="9.5" fill="var(--ink-soft)">${v.toLocaleString('fr-FR')}</text>`);
+  }
+  parts.push(`<line x1="${padL}" y1="${zeroY}" x2="${W-padR}" y2="${zeroY}" stroke="var(--ink-soft)" stroke-width="1"/>`);
+
+  data.forEach((d, i)=>{
+    const cx = padL + bandW*i + bandW/2;
+    const xCible = cx - gap/2 - barW;
+    const xActuel = cx + gap/2;
+
+    const yCible = yScale(d.cible);
+    parts.push(`<rect x="${xCible}" y="${yCible}" width="${barW}" height="${zeroY-yCible}" fill="var(--navy)" rx="1.5"/>`);
+    parts.push(`<text x="${xCible+barW/2}" y="${yCible-6}" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10.5" font-weight="700" fill="var(--navy)">${fmt(d.cible)}</text>`);
+
+    const yActuel = yScale(d.actuel);
+    parts.push(`<rect x="${xActuel}" y="${yActuel}" width="${barW}" height="${zeroY-yActuel}" fill="var(--gold)" rx="1.5"/>`);
+    parts.push(`<text x="${xActuel+barW/2}" y="${yActuel-6}" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10.5" font-weight="700" fill="var(--gold-dark)">${d.hasAny?fmt(d.actuel):'—'}</text>`);
+
+    const label = d.label.length > 10 ? d.label.replace(' + ', ' +\n') : d.label;
+    const lines = label.split('\n');
+    lines.forEach((ln, li)=>{
+      parts.push(`<text x="${cx}" y="${H-padB+18+li*12}" text-anchor="middle" font-family="Inter, sans-serif" font-size="10.5" font-weight="600" fill="var(--navy)">${ln}</text>`);
+    });
+  });
+
+  svg.innerHTML = parts.join('');
+}
+
+// ── Série journalière sur la semaine de référence (pour le récap hebdo + le graphe d'évolution) ──
+async function loadDailyFor(ds){
+  try{
+    const res = await storageLayer.get(dailyKey(ds));
+    return (res && res.value) ? JSON.parse(res.value) : {};
+  }catch(e){ return {}; }
+}
+
+async function computeWeekDailySeries(){
+  const idx = parseInt(document.getElementById('weekSelect').value, 10);
+  const row = SCHEDULE[idx];
+  const prevRow = SCHEDULE[idx - 1] || SCHEDULE[idx];
+  const weekStartDate = new Date(prevRow.date + 'T00:00:00');
+
+  const days = [];
+  for (let i = 1; i <= 7; i++){
+    const d = new Date(weekStartDate);
+    d.setDate(d.getDate() + i);
+    days.push(d);
+  }
+
+  // Valeurs de la veille du début de semaine (samedi précédent), pour pouvoir
+  // calculer le delta du Dimanche (1er jour de la semaine) par rapport au
+  // jour d'avant, ET servir de vrai point zéro pour le cumul de la semaine
+  // (sinon la contribution du Dimanche lui-même serait "perdue" du total).
+  const boundaryVals = await loadDailyFor(dayStr(weekStartDate));
+  let boundaryRealise = 0, boundaryHasData = false, boundaryPrevu = 0;
+  visibleConducteurs().forEach(c=>{
+    boundaryPrevu += prevRow[c.key]; // Prévu exact au samedi = point du planning lui-même
+    const stored = boundaryVals[c.key];
+    if (stored !== undefined && stored !== null && stored !== ''){
+      boundaryHasData = true;
+      boundaryRealise += toNumber(stored);
+    }
+  });
+
+  const series = [];
+  for (const d of days){
+    const ds = dayStr(d);
+    const vals = await loadDailyFor(ds);
+    const { start, end } = getWeekInterval(d);
+    const startDate = new Date(start.date + 'T00:00:00');
+    const daysElapsed = Math.round((d - startDate) / 86400000);
+
+    let totalPrevu = 0, totalRealise = 0, any = false;
+    visibleConducteurs().forEach(c=>{
+      const weeklyDelta = end[c.key] - start[c.key];
+      const prevu = start[c.key] + (weeklyDelta / 7) * daysElapsed;
+      totalPrevu += prevu;
+      const stored = vals[c.key];
+      if (stored !== undefined && stored !== null && stored !== ''){
+        any = true;
+        totalRealise += toNumber(stored);
+      }
+    });
+
+    series.push({
+      date: ds,
+      dayLabel: d.toLocaleDateString('fr-FR', { weekday:'short' }).toUpperCase().replace('.', ''),
+      dateLabel: d.toLocaleDateString('fr-FR', { day:'2-digit', month:'2-digit' }),
+      realise: any ? totalRealise : 0,
+      prevu: totalPrevu,
+      hasData: any,
+    });
+  }
+  return { series, boundaryRealise, boundaryHasData, boundaryPrevu };
+}
+
+// ── Cadence hebdomadaire : Réalisé (delta sur 7 jours) vs objectif conducteurs (cadence × 7) ──
+async function renderWeeklyCadenceBars(){
+  const box = document.getElementById('cadenceBars');
+  if (!box) return;
+
+  const idx = parseInt(document.getElementById('weekSelect').value, 10);
+  const row = SCHEDULE[idx];
+  const prevRow = SCHEDULE[idx - 1] || SCHEDULE[idx];
+  const boundaryDate = new Date(prevRow.date + 'T00:00:00');
+  const weekEndDate = new Date(boundaryDate); weekEndDate.setDate(weekEndDate.getDate() + 7);
+
+  // Charge les 8 jours (veille du début de semaine + les 7 jours de la semaine),
+  // et fait la somme des deltas jour-a-jour reellement disponibles (au lieu
+  // d'exiger a tout prix une saisie pile sur le 1er et le dernier jour).
+  const days = [];
+  for (let i = 0; i <= 7; i++){
+    const d = new Date(boundaryDate); d.setDate(d.getDate() + i);
+    days.push(d);
+  }
+  const valsPerDay = await Promise.all(days.map(d => loadDailyFor(dayStr(d))));
+
+  document.getElementById('cadenceAsOf').textContent =
+    `Semaine du ${new Date(boundaryDate.getTime()+86400000).toLocaleDateString('fr-FR')} au ${weekEndDate.toLocaleDateString('fr-FR')}`;
+
+  const conducteurs = visibleConducteurs();
+  let totalRealise = 0, totalTarget = 0, anyData = false;
+  let html = '';
+
+  conducteurs.forEach(c=>{
+    const target = WEEKLY_CADENCE_TARGETS[c.key];
+    totalTarget += target;
+
+    // Somme des deltas jour-a-jour disponibles pour ce conducteur sur la semaine
+    let realise = 0, hasAny = false;
+    for (let i = 1; i < valsPerDay.length; i++){
+      const prevV = valsPerDay[i-1][c.key];
+      const curV = valsPerDay[i][c.key];
+      if (prevV !== undefined && prevV !== null && prevV !== '' && curV !== undefined && curV !== null && curV !== ''){
+        realise += toNumber(curV) - toNumber(prevV);
+        hasAny = true;
+      }
+    }
+    if (hasAny){ totalRealise += realise; anyData = true; }
+    const displayRealise = hasAny ? realise : null;
+
+    const pct = displayRealise !== null ? Math.max(0, Math.min(140, displayRealise / target * 100)) : 0;
+    const under = displayRealise !== null && displayRealise < target;
+    html += `
+      <div class="cadence-row">
+        <div class="cadence-label">
+          <span>${c.label}</span>
+          <span class="cadence-values">${displayRealise===null?'—':fmt(displayRealise)} / ${fmt(target)} m³</span>
+        </div>
+        <div class="cadence-track">
+          <div class="cadence-fill ${under?'under':''}" style="width:${displayRealise===null?0:Math.min(100,pct)}%;"></div>
+          <div class="cadence-mark" style="left:100%;"></div>
+        </div>
+      </div>`;
+  });
+
+  // ligne TOTAL
+  const totalPct = anyData ? Math.max(0, Math.min(140, totalRealise / totalTarget * 100)) : 0;
+  const totalUnder = anyData && totalRealise < totalTarget;
+  html += `
+    <div class="cadence-row" style="margin-top:20px; padding-top:14px; border-top:1px solid var(--line);">
+      <div class="cadence-label">
+        <span>TOTAL</span>
+        <span class="cadence-values">${anyData?fmt(totalRealise):'—'} / ${fmt(totalTarget)} m³ ${anyData?`(${totalPct.toFixed(0)}%)`:''}</span>
+      </div>
+      <div class="cadence-track" style="height:18px;">
+        <div class="cadence-fill ${totalUnder?'under':''}" style="width:${anyData?Math.min(100,totalPct):0}%;"></div>
+        <div class="cadence-mark" style="left:100%;"></div>
+      </div>
+    </div>`;
+
+  box.innerHTML = html;
+}
+
+async function renderWeeklyRecapAndEvolution(){
+  const { series, boundaryRealise, boundaryHasData, boundaryPrevu } = await computeWeekDailySeries();
+
+  // --- Récapitulatif hebdomadaire (jours en ordre décroissant, comme la capture) ---
+  const tbody = document.getElementById('weeklyRecapBody');
+  const rows = [...series].reverse();
+  const qteValues = []; // conserve chaque Qte réalisé journalier (non-null) pour le TOTAL SEMAINE
+  tbody.innerHTML = rows.map((r, i)=>{
+    const ecart = r.realise - r.prevu;
+    const pct = r.prevu ? (ecart / r.prevu * 100) : 0;
+    // Qte réalisé = Réalisé(jour) - Réalisé(jour d'avant). Le jour d'avant du
+    // Dimanche (dernière ligne, puisque le tableau est en ordre décroissant)
+    // est le Samedi de la semaine précédente (boundaryRealise).
+    const isFirstRow = i === rows.length - 1; // Dimanche
+    const prevDayRealise = isFirstRow ? boundaryRealise : rows[i+1].realise;
+    const prevDayHasData = isFirstRow ? boundaryHasData : rows[i+1].hasData;
+    const qte = (r.hasData && prevDayHasData) ? (r.realise - prevDayRealise) : null;
+    if (qte !== null) qteValues.push(qte);
+    return `<tr>
+      <td>${r.dayLabel}. ${r.dateLabel}</td>
+      <td>${fmt(r.realise)}</td>
+      <td>${fmt(r.prevu)}</td>
+      <td class="${ecart>=0?'ecart-pos':'ecart-neg'}">${ecart>=0?'+':''}${fmt(ecart)}</td>
+      <td><span class="pct-chip ${pct>=0?'pct-pos':'pct-neg'}">${pct>=0?'+':''}${pct.toFixed(1)}%</span></td>
+      <td class="${qte===null?'':(qte>=0?'ecart-pos':'ecart-neg')}">${qte===null?'—':(qte>=0?'+':'')+fmt(qte)}</td>
+    </tr>`;
+  }).join('');
+
+  // TOTAL SEMAINE : le Réalisé reste PARTIEL (jusqu'au dernier jour saisi),
+  // mais le Prévu affiche désormais l'OBJECTIF COMPLET de la semaine entière
+  // (Samedi fin - Samedi début), pas une valeur au prorata des jours saisis —
+  // ainsi on voit toujours la cible réelle de la semaine (ex: 4 900 m³).
+  let lastFilledIdx = -1;
+  for (let i = series.length - 1; i >= 0; i--){
+    if (series[i].hasData){ lastFilledIdx = i; break; }
+  }
+  const useBoundary = boundaryHasData;
+  const baseRealise = useBoundary ? boundaryRealise : series[0].realise;
+  const basePrevu = useBoundary ? boundaryPrevu : series[0].prevu;
+  const baseHasData = useBoundary ? true : series[0].hasData;
+  const hasEnoughData = lastFilledIdx >= 0 && baseHasData && (useBoundary || lastFilledIdx > 0);
+  const totalRealise = hasEnoughData ? series[lastFilledIdx].realise - baseRealise : null;
+  const totalPrevu = series[6].prevu - basePrevu; // toujours la semaine complète
+  const totalEcart = hasEnoughData ? totalRealise - totalPrevu : null;
+  const totalPct = (hasEnoughData && totalPrevu) ? (totalEcart / totalPrevu * 100) : 0;
+  const totalQte = qteValues.length ? qteValues.reduce((a,b)=>a+b, 0) : null;
+  const totalRow = document.getElementById('weeklyRecapTotalRow');
+  const totalLabel = hasEnoughData
+    ? `TOTAL SEMAINE (au ${series[lastFilledIdx].dayLabel}. ${series[lastFilledIdx].dateLabel})`
+    : 'TOTAL SEMAINE';
+  totalRow.innerHTML = `
+    <td>${totalLabel}</td>
+    <td>${hasEnoughData ? fmt(totalRealise) : '—'}</td>
+    <td>${fmt(totalPrevu)}</td>
+    <td class="${hasEnoughData ? (totalEcart>=0?'ecart-pos':'ecart-neg') : ''}">${hasEnoughData ? ((totalEcart>=0?'+':'')+fmt(totalEcart)) : '—'}</td>
+    <td>${hasEnoughData ? `<span class="pct-chip ${totalPct>=0?'pct-pos':'pct-neg'}">${totalPct>=0?'+':''}${totalPct.toFixed(1)}%</span>` : '—'}</td>
+    <td class="${totalQte===null?'':(totalQte>=0?'ecart-pos':'ecart-neg')}">${totalQte===null?'—':(totalQte>=0?'+':'')+fmt(totalQte)}</td>`;
+
+  const row = SCHEDULE[parseInt(document.getElementById('weekSelect').value, 10)];
+  document.getElementById('weeklyRecapAsOf').textContent = `Semaine ${series[0].date} → ${series[6].date}`;
+
+  // --- Taux d'avancement hebdomadaire : alimente uniquement le ring KPI en haut de page ---
+  const weeklyRatePct = hasEnoughData && totalPrevu ? (totalRealise / totalPrevu * 100) : 0;
+  const ringFillPct = Math.max(0, Math.min(100, weeklyRatePct));
+  const ringColor = weeklyRatePct < 95 ? 'var(--bad)' : 'var(--good)';
+
+  const kpc = document.getElementById('kpiPct');
+  const kring = document.getElementById('kpiPctRing');
+  if (kpc) kpc.textContent = hasEnoughData ? weeklyRatePct.toFixed(0) + '%' : '—';
+  if (kring) kring.style.background = `conic-gradient(${ringColor} 0 ${ringFillPct}%, #d5d9e3 ${ringFillPct}% 100%)`;
+
+  // --- Graphe "Évolution journalière" (barres Réalisé + courbe Prévu) ---
+  renderEvolutionChart(series);
+}
+
+function renderEvolutionChart(series){
+  const svg = document.getElementById('evoSvg');
+  if (!svg) return;
+
+  const W = 520, H = 340;
+  const padL = 56, padR = 12, padT = 34, padB = 40;
+  const chartW = W - padL - padR;
+  const chartH = H - padT - padB;
+
+  const maxVal = Math.max(...series.map(s => Math.max(s.realise, s.prevu)), 1) * 1.18;
+  const n = series.length;
+  const bandW = chartW / n;
+  const barW = bandW * 0.46;
+
+  const yScale = v => padT + (1 - v / maxVal) * chartH;
+  const xCenter = i => padL + bandW * i + bandW / 2;
+
+  let parts = [];
+
+  // gridlines
+  const ySteps = 4;
+  for (let i = 0; i <= ySteps; i++){
+    const v = Math.round(maxVal / ySteps * i / 1000) * 1000;
+    const y = yScale(v);
+    parts.push(`<line x1="${padL}" y1="${y}" x2="${W-padR}" y2="${y}" stroke="var(--line)" stroke-width="1"/>`);
+    parts.push(`<text x="${padL-10}" y="${y+4}" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="10" fill="var(--ink-soft)">${v.toLocaleString('fr-FR')}</text>`);
+  }
+
+  // barres Réalisé
+  series.forEach((s,i)=>{
+    const x = xCenter(i) - barW/2;
+    const y = yScale(s.realise);
+    const h = (H - padB) - y;
+    parts.push(`<rect class="evo-bar" x="${x}" y="${y}" width="${barW}" height="${Math.max(h,0)}" rx="2"/>`);
+    parts.push(`<text class="evo-value" x="${xCenter(i)}" y="${y-8}" text-anchor="middle">${fmt(s.realise)}</text>`);
+    parts.push(`<text x="${xCenter(i)}" y="${H-padB+20}" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">${s.dateLabel}</text>`);
+  });
+
+  // courbe Prévu
+  const linePts = series.map((s,i)=>`${xCenter(i)},${yScale(s.prevu)}`).join(' ');
+  parts.push(`<polyline points="${linePts}" fill="none" stroke="var(--gold-dark)" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>`);
+  series.forEach((s,i)=>{
+    parts.push(`<circle cx="${xCenter(i)}" cy="${yScale(s.prevu)}" r="4" fill="var(--gold)" stroke="var(--white)" stroke-width="1.5"/>`);
+  });
+
+  parts.push(`<line x1="${padL}" y1="${H-padB}" x2="${W-padR}" y2="${H-padB}" stroke="var(--ink-soft)" stroke-width="1"/>`);
+
+  svg.innerHTML = parts.join('');
+}
+
+async function renderDaily(){
+  const dateObj = new Date(currentDayStr + 'T00:00:00');
+  const { start, end } = getWeekInterval(dateObj);
+  const startDate = new Date(start.date + 'T00:00:00');
+  const daysElapsed = Math.round((dateObj - startDate) / 86400000); // 0..7
+  document.getElementById('dayBadge').textContent = end.week;
+  document.getElementById('dayAsOf').textContent =
+    dateObj.toLocaleDateString('fr-FR', {weekday:'long', day:'2-digit', month:'long', year:'numeric'})
+    + ` · semaine ${start.date} → ${end.date}`
+    + filterSummary();
+
+  const tbody = document.getElementById('dayTbody');
+  tbody.innerHTML = '';
+
+  // Valeurs de la veille (jour-1), pour calculer la Cadence = Réalisé(jour) - Réalisé(jour-1)
+  const prevDateObj = new Date(dateObj); prevDateObj.setDate(prevDateObj.getDate() - 1);
+  const prevDayStr = dayStr(prevDateObj);
+  const prevDayValues = (prevDayStr === currentDayStr) ? {} : await loadDailyFor(prevDayStr);
+
+  let totalRealise = 0, totalPrevu = 0, anyRealise = false;
+  let totalCadence = 0, anyCadence = false;
+  const dayBreakdown = []; // { key, label, realise } — pour le donut "Répartition par conducteur"
+
+  visibleConducteurs().forEach(c=>{
+    // Cumulative prévu at the selected date: linear interpolation between the
+    // two surrounding weekly cumulative points of the Excel scenario.
+    const weeklyDelta = end[c.key] - start[c.key];
+    const prevu = start[c.key] + (weeklyDelta / 7) * daysElapsed;
+    const stored = dailyValues[c.key];
+    if (stored !== undefined && stored !== null && stored !== '') anyRealise = true;
+    const realise = (stored !== undefined && stored !== null && stored !== '') ? toNumber(stored) : null;
+
+    totalPrevu += prevu;
+    if (realise !== null && !isNaN(realise)) totalRealise += realise;
+    dayBreakdown.push({ key: c.key, label: c.label, realise: (realise !== null && !isNaN(realise)) ? realise : 0 });
+
+    const ecart = realise !== null && !isNaN(realise) ? realise - prevu : null;
+    const pct = ecart !== null ? (ecart/prevu*100) : null;
+
+    // Cadence = Réalisé(jour) - Réalisé(jour précédent), comparée à la cible du conducteur
+    const prevStored = prevDayValues[c.key];
+    const prevRealise = (prevStored !== undefined && prevStored !== null && prevStored !== '') ? toNumber(prevStored) : null;
+    let cadence = null;
+    if (realise !== null && !isNaN(realise) && prevRealise !== null && !isNaN(prevRealise)){
+      cadence = realise - prevRealise;
+      totalCadence += cadence;
+      anyCadence = true;
+    }
+    const target = CADENCE_TARGETS[c.key];
+    const cadenceOk = cadence !== null ? cadence >= target : null;
+
+    const tr = document.createElement('tr');
+    tr.innerHTML = `
+      <td>${c.label}</td>
+      <td><input class="realise-input" type="text" inputmode="decimal" autocomplete="off" placeholder="—" data-key="${c.key}" value="${stored !== undefined ? stored : ''}"></td>
+      <td>${fmt(prevu)}</td>
+      <td class="${ecart===null?'':(ecart>=0?'ecart-pos':'ecart-neg')}">${ecart===null?'—':(ecart>=0?'+':'')+fmt(ecart)}</td>
+      <td>${pct===null?'—':`<span class="pct-chip ${pct>=0?'pct-pos':'pct-neg'}">${pct>=0?'+':''}${pct.toFixed(1)}%</span>`}</td>
+      <td class="${cadence===null?'':(cadenceOk?'ecart-pos':'ecart-neg')}" title="Cible : ${target} m³/j">${cadence===null?'—':fmt(cadence)+' / '+target}</td>
+    `;
+    tbody.appendChild(tr);
+  });
+
+  document.getElementById('dayTotalRealise').textContent = anyRealise ? fmt(totalRealise) : '—';
+  document.getElementById('dayTotalPrevu').textContent = fmt(totalPrevu);
+  const totalTarget = visibleConducteurs().reduce((s,c)=>s+CADENCE_TARGETS[c.key],0);
+  const dtc = document.getElementById('dayTotalCadence');
+  if (dtc) dtc.textContent = anyCadence ? fmt(totalCadence)+' / '+totalTarget : '—';
+  const kr=document.getElementById('kpiRealise'); const kp=document.getElementById('kpiPrevu'); const ke=document.getElementById('kpiEcart');
+  if(kr) kr.textContent=(anyRealise?fmt(totalRealise):'—')+' m³';
+  if(kp) kp.textContent=fmt(totalPrevu)+' m³';
+  if(ke) ke.textContent=(anyRealise?((totalRealise-totalPrevu>=0?'+':'')+fmt(totalRealise-totalPrevu)):'—')+' m³';
+  // Le ring "Taux d'avancement" (en haut) affiche maintenant le taux HEBDOMADAIRE
+  // (Réalisé / Prévu de la semaine), calculé et appliqué dans renderWeeklyRecapAndEvolution().
+  // Cadence hebdomadaire (barres Actuelle vs Cible) — remplace l'ancienne répartition en donut
+  await renderCadenceCompareChart();
+  await renderWeeklyRecapAndEvolution();
+  await renderWeeklyCadenceBars();
+  syncCadenceChartWidth();
+  const totalEcart = anyRealise ? totalRealise - totalPrevu : null;
+  const totalPct = totalEcart !== null ? totalEcart/totalPrevu*100 : null;
+  const ecartCell = document.getElementById('dayTotalEcart');
+  const pctCell = document.getElementById('dayTotalPct');
+  if (totalEcart === null){
+    ecartCell.textContent = '—'; ecartCell.className='';
+    pctCell.textContent = '—';
+  } else {
+    ecartCell.textContent = (totalEcart>=0?'+':'')+fmt(totalEcart);
+    ecartCell.className = totalEcart>=0?'ecart-pos':'ecart-neg';
+    pctCell.innerHTML = `<span class="pct-chip ${totalPct>=0?'pct-pos':'pct-neg'}">${totalPct>=0?'+':''}${totalPct.toFixed(1)}%</span>`;
+  }
+
+  tbody.querySelectorAll('.realise-input').forEach(inp=>{
+    inp.addEventListener('input', (e)=>{
+      const clean = sanitizeNumberInput(e.target.value);
+      e.target.value = clean;
+      const key = e.target.dataset.key;
+      const caret = e.target.selectionStart;
+      dailyValues[key] = clean;
+      saveDaily(currentDayStr);
+      renderDaily();
+      restoreFocus(tbody, key, caret);
+    });
+  });
+}
+
+async function setDay(dateObj){
+  const ds = dayStr(dateObj);
+  currentDayStr = ds;
+  document.getElementById('dayPicker').value = ds;
+  await loadDaily(ds);
+  await renderDaily();
+}
+
+async function applyDateAndWeek(dateObj){
+  await setWeekFromDate(dateObj);
+  await setDay(dateObj);
+}
+
+async function init(){
+  populateWeekSelect();
+  populateConducteurFilter();
+  const today = new Date();
+  today.setHours(0,0,0,0);
+  await applyDateAndWeek(today);
+
+  document.getElementById('weekSelect').addEventListener('change', (e)=>{
+    selectWeek(parseInt(e.target.value, 10));
+  });
+
+  document.getElementById('dayPicker').addEventListener('change', (e)=>{
+    const d = new Date(e.target.value+'T00:00:00');
+    if (!isNaN(d)) applyDateAndWeek(d);
+  });
+
+  document.getElementById('applyBtn').addEventListener('click', ()=>{
+    const v = document.getElementById('dayPicker').value;
+    const d = new Date(v+'T00:00:00');
+    if (!isNaN(d)) applyDateAndWeek(d);
+  });
+
+  document.getElementById('resetAllBtn').addEventListener('click', ()=>{
+    const t = new Date(); t.setHours(0,0,0,0);
+    applyDateAndWeek(t);
+  });
+
+  document.getElementById('exportPdfBtn').addEventListener('click', ()=>{
+    const now = new Date();
+    const dateStr = now.toLocaleDateString('fr-FR', {weekday:'long', day:'2-digit', month:'long', year:'numeric'});
+    const timeStr = now.toLocaleTimeString('fr-FR', {hour:'2-digit', minute:'2-digit'});
+    document.getElementById('exportMeta').textContent =
+      `Export généré le ${dateStr} à ${timeStr} · jour de référence : ${currentDayStr ? new Date(currentDayStr+'T00:00:00').toLocaleDateString('fr-FR') : '—'} · semaine de référence : ${document.getElementById('weekBadge').textContent}`;
+    window.print();
+  });
+
+  document.getElementById('daySaveBtn').addEventListener('click', async ()=>{
+    await saveDaily(currentDayStr);
+    // La cadence (jour-1) et le récap hebdo dépendent des jours sauvegardés :
+    // on les rafraîchit après l'enregistrement pour refléter la nouvelle donnée.
+    await renderCadenceCompareChart();
+    await renderWeeklyCadenceBars();
+    await renderWeeklyRecapAndEvolution();
+    syncCadenceChartWidth();
+  });
+
+  document.getElementById('exportDataHtmlBtn').addEventListener('click', exportHtmlWithData);
+}
+
+// ── Export "avec données" : télécharge une copie de CE fichier HTML, avec
+// toutes les saisies actuelles gravées dedans (constante EMBEDDED_DATA).
+// Quiconque ouvre le fichier téléchargé verra ces données immédiatement,
+// même sans lien vers un stockage partagé.
+async function exportHtmlWithData(){
+  const btn = document.getElementById('exportDataHtmlBtn');
+  const originalLabel = btn.innerHTML;
+  btn.disabled = true;
+  btn.innerHTML = 'Préparation…';
+  try{
+    const dailyKeys = await storageLayer.listAllKeys('daily-realise:');
+    const weeklyKeys = await storageLayer.listAllKeys('weekly-realise:');
+    const allKeys = [...new Set([...dailyKeys, ...weeklyKeys])];
+
+    const snapshot = {};
+    for (const key of allKeys){
+      const res = await storageLayer.get(key);
+      if (res && res.value !== undefined && res.value !== null){
+        snapshot[key] = res.value;
+      }
+    }
+
+    // Fusionne avec les données déjà embarquées (au cas où ce fichier avait
+    // déjà été exporté une première fois), les valeurs actuelles priment.
+    const merged = Object.assign({}, EMBEDDED_DATA, snapshot);
+    const dataJson = JSON.stringify(merged, null, 2);
+
+    // Repart de la source HTML actuelle de la page et remplace la ligne
+    // "const EMBEDDED_DATA = {...};" par l'instantané complet.
+    let html = '<!DOCTYPE html>\n' + document.documentElement.outerHTML;
+    const re = /const EMBEDDED_DATA = \{[\s\S]*?\};/;
+    if (re.test(html)){
+      html = html.replace(re, `const EMBEDDED_DATA = ${dataJson};`);
+    } else {
+      console.warn('[Export] Repère EMBEDDED_DATA introuvable dans le HTML — export sans données embarquées.');
+    }
+
+    const blob = new Blob([html], { type: 'text/html;charset=utf-8' });
+
+    // Si le navigateur le permet (Chrome / Edge), ouvre une vraie boîte de
+    // dialogue "Enregistrer sous" : on choisit l'emplacement une fois, et à
+    // chaque export suivant on choisit LE MÊME fichier pour l'écraser
+    // directement — plus jamais de "(1)", "(2)"... ajoutés automatiquement.
+    // Sur les navigateurs qui ne supportent pas cette API (Firefox, Safari),
+    // on retombe sur le téléchargement automatique classique.
+    if (window.showSaveFilePicker){
+      try{
+        const handle = await window.showSaveFilePicker({
+          suggestedName: 'index.html',
+          types: [{ description: 'Page HTML', accept: { 'text/html': ['.html'] } }],
+        });
+        const writable = await handle.createWritable();
+        await writable.write(blob);
+        await writable.close();
+        btn.innerHTML = '✓ Enregistré';
+        setTimeout(()=>{ btn.innerHTML = originalLabel; btn.disabled = false; }, 1800);
+        return;
+      }catch(err){
+        if (err && err.name === 'AbortError'){
+          // L'utilisateur a annulé la boîte de dialogue : pas une erreur.
+          btn.innerHTML = originalLabel;
+          btn.disabled = false;
+          return;
+        }
+        console.warn('[Export] showSaveFilePicker indisponible ou en échec, repli sur le téléchargement classique.', err);
+      }
+    }
+
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'index.html';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+
+    btn.innerHTML = '✓ Téléchargé';
+    setTimeout(()=>{ btn.innerHTML = originalLabel; btn.disabled = false; }, 1800);
+  }catch(e){
+    console.error('[Export avec données] erreur :', e);
+    btn.innerHTML = 'Erreur — réessayer';
+    setTimeout(()=>{ btn.innerHTML = originalLabel; btn.disabled = false; }, 2200);
+  }
+}
+
+window.addEventListener('resize', () => { syncCadenceChartWidth(); });
+
+init();
+</script>
+
+
+
+</body></html>
