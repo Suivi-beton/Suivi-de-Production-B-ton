@@ -579,8 +579,8 @@
       Appliquer
     </button>
     <button class="reset-btn no-print" id="resetAllBtn" title="Revenir à aujourd'hui">↺ Réinitialiser</button>
-    <span class="badge" id="dayBadge" style="display:none;">S10</span>
-    <span class="badge" id="weekBadge" style="display:none;">S10</span>
+    <span class="badge" id="dayBadge" style="display:none;">S9</span>
+    <span class="badge" id="weekBadge" style="display:none;">S9</span>
     <input type="date" id="dateOverride" style="display:none;">
   </div>
 
@@ -589,7 +589,7 @@
       <div class="kpi-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="5"></circle><path d="M8.5 13 6 22l6-3 6 3-2.5-9"></path></svg></div>
       <div class="kpi-body">
         <div class="label">Réalisé (jour)</div>
-        <div class="value" id="kpiRealise">23 m³</div>
+        <div class="value" id="kpiRealise">166 148 m³</div>
         <div class="sub">Total béton coulé</div>
       </div>
     </div>
@@ -597,12 +597,12 @@
       <div class="kpi-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="12" r="5"></circle><circle cx="12" cy="12" r="1"></circle></svg></div>
       <div class="kpi-body">
         <div class="label">Prévu (jour)</div>
-        <div class="value" id="kpiPrevu">189 247 m³</div>
+        <div class="value" id="kpiPrevu">187 147 m³</div>
         <div class="sub">Objectif du jour</div>
       </div>
     </div>
     <div class="kpi kpi-ring-wrap">
-      <div class="kpi-ring" id="kpiPctRing" style="background: conic-gradient(var(--bad) 0 0%, #d5d9e3 0% 100%);"><span id="kpiPct">-3400%</span></div>
+      <div class="kpi-ring" id="kpiPctRing" style="background: conic-gradient(var(--bad) 0 65.85795918367363%, #d5d9e3 65.85795918367363% 100%);"><span id="kpiPct">66%</span></div>
       <div class="kpi-body">
         <div class="label">Taux d'avancement hebdomadaire</div>
         <div class="sub">Réalisé / Prévu de la semaine</div>
@@ -612,7 +612,7 @@
       <div class="kpi-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18"></path><path d="M5 7h4l-2 5a2.5 2.5 0 0 0 5 0L10 7"></path><path d="M15 7h4l-2 5a2.5 2.5 0 0 0 5 0L21 7"></path><path d="M5 7h14"></path></svg></div>
       <div class="kpi-body">
         <div class="label">Écart (jour)</div>
-        <div class="value" id="kpiEcart">-189 224 m³</div>
+        <div class="value" id="kpiEcart">-21 000 m³</div>
         <div class="sub">Écart total</div>
       </div>
     </div>
@@ -622,7 +622,7 @@
   <div class="card manual-table">
     <div class="card-head">
       <h2>Suivi journalier — Prévu vs Réalisé (m³/jour)</h2>
-      <span id="dayAsOf">lundi 24 août 2026 · semaine 2026-08-22 → 2026-08-29</span>
+      <span id="dayAsOf">vendredi 21 août 2026 · semaine 2026-08-15 → 2026-08-22</span>
     </div>
     <table>
       <thead>
@@ -637,48 +637,48 @@
       </thead>
       <tbody id="dayTbody"><tr>
       <td>BOUHOU</td>
-      <td><input class="realise-input" type="text" inputmode="decimal" autocomplete="off" placeholder="—" data-key="BOUHOU" value="23"></td>
-      <td>81 544</td>
-      <td class="ecart-neg">-81 521</td>
-      <td><span class="pct-chip pct-neg">-100.0%</span></td>
-      <td class="ecart-neg" title="Cible : 243 m³/j">-888 / 243</td>
+      <td><input class="realise-input" type="text" inputmode="decimal" autocomplete="off" placeholder="—" data-key="BOUHOU" value="72887,75"></td>
+      <td>80 815</td>
+      <td class="ecart-neg">-7 928</td>
+      <td><span class="pct-chip pct-neg">-9.8%</span></td>
+      <td class="ecart-pos" title="Cible : 243 m³/j">435 / 243</td>
     </tr><tr>
       <td>AIT ALI</td>
-      <td><input class="realise-input" type="text" inputmode="decimal" autocomplete="off" placeholder="—" data-key="AITALI" value=""></td>
-      <td>53 994</td>
-      <td class="">—</td>
-      <td>—</td>
-      <td class="" title="Cible : 171 m³/j">—</td>
+      <td><input class="realise-input" type="text" inputmode="decimal" autocomplete="off" placeholder="—" data-key="AITALI" value="49063,73"></td>
+      <td>53 480</td>
+      <td class="ecart-neg">-4 416</td>
+      <td><span class="pct-chip pct-neg">-8.3%</span></td>
+      <td class="ecart-neg" title="Cible : 171 m³/j">24 / 171</td>
     </tr><tr>
       <td>NABLI</td>
-      <td><input class="realise-input" type="text" inputmode="decimal" autocomplete="off" placeholder="—" data-key="NABLI" value=""></td>
-      <td>31 390</td>
-      <td class="">—</td>
-      <td>—</td>
-      <td class="" title="Cible : 86 m³/j">—</td>
+      <td><input class="realise-input" type="text" inputmode="decimal" autocomplete="off" placeholder="—" data-key="NABLI" value="26188,99"></td>
+      <td>31 133</td>
+      <td class="ecart-neg">-4 944</td>
+      <td><span class="pct-chip pct-neg">-15.9%</span></td>
+      <td class="ecart-pos" title="Cible : 86 m³/j">146 / 86</td>
     </tr><tr>
       <td>OBAMA + KARTER</td>
-      <td><input class="realise-input" type="text" inputmode="decimal" autocomplete="off" placeholder="—" data-key="OBAMA" value=""></td>
-      <td>18 448</td>
-      <td class="">—</td>
-      <td>—</td>
-      <td class="" title="Cible : 143 m³/j">—</td>
+      <td><input class="realise-input" type="text" inputmode="decimal" autocomplete="off" placeholder="—" data-key="OBAMA" value="15816,92"></td>
+      <td>18 019</td>
+      <td class="ecart-neg">-2 202</td>
+      <td><span class="pct-chip pct-neg">-12.2%</span></td>
+      <td class="ecart-pos" title="Cible : 143 m³/j">163 / 143</td>
     </tr><tr>
       <td>HAMADA</td>
-      <td><input class="realise-input" type="text" inputmode="decimal" autocomplete="off" placeholder="—" data-key="HAMADA" value=""></td>
-      <td>3 872</td>
-      <td class="">—</td>
-      <td>—</td>
-      <td class="" title="Cible : 57 m³/j">—</td>
+      <td><input class="realise-input" type="text" inputmode="decimal" autocomplete="off" placeholder="—" data-key="HAMADA" value="2190,26"></td>
+      <td>3 700</td>
+      <td class="ecart-neg">-1 510</td>
+      <td><span class="pct-chip pct-neg">-40.8%</span></td>
+      <td class="ecart-neg" title="Cible : 57 m³/j">30 / 57</td>
     </tr></tbody>
       <tfoot>
         <tr class="total-row" id="dayTotalRow">
           <td>Total</td>
-          <td id="dayTotalRealise">23</td>
-          <td id="dayTotalPrevu">189 247</td>
-          <td id="dayTotalEcart" class="ecart-neg">-189 224</td>
-          <td id="dayTotalPct"><span class="pct-chip pct-neg">-100.0%</span></td>
-          <td id="dayTotalCadence">-888 / 700</td>
+          <td id="dayTotalRealise">166 148</td>
+          <td id="dayTotalPrevu">187 147</td>
+          <td id="dayTotalEcart" class="ecart-neg">-21 000</td>
+          <td id="dayTotalPct"><span class="pct-chip pct-neg">-11.2%</span></td>
+          <td id="dayTotalCadence">798 / 700</td>
         </tr>
       </tfoot>
     </table>
@@ -687,7 +687,7 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2Z"></path><path d="M17 21v-8H7v8"></path><path d="M7 3v5h8"></path></svg>
         Enregistrer
       </button>
-      <div class="save-status" id="daySaveStatus">&nbsp;</div>
+      <div class="save-status" id="daySaveStatus"></div>
     </div>
   </div>
 
@@ -701,7 +701,7 @@
         <span class="item"><span class="swatch" style="background:var(--navy);height:10px;border-radius:2px;"></span>Réalisé (m³)</span>
         <span class="item"><span class="swatch" style="background:var(--gold-dark);"></span>Prévu (m³)</span>
       </div>
-      <svg id="evoSvg" viewBox="0 0 520 340" style="width:100%; height:auto; display:block; margin-top:14px;"><line x1="56" y1="300" x2="508" y2="300" stroke="var(--line)" stroke-width="1"></line><text x="46" y="304" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="10" fill="var(--ink-soft)">0</text><line x1="56" y1="233.33683078281274" x2="508" y2="233.33683078281274" stroke="var(--line)" stroke-width="1"></line><text x="46" y="237.33683078281274" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="10" fill="var(--ink-soft)">57 000</text><line x1="56" y1="166.67366156562548" x2="508" y2="166.67366156562548" stroke="var(--line)" stroke-width="1"></line><text x="46" y="170.67366156562548" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="10" fill="var(--ink-soft)">114 000</text><line x1="56" y1="100.0104923484382" x2="508" y2="100.0104923484382" stroke="var(--line)" stroke-width="1"></line><text x="46" y="104.0104923484382" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="10" fill="var(--ink-soft)">171 000</text><line x1="56" y1="34.516852415763026" x2="508" y2="34.516852415763026" stroke="var(--line)" stroke-width="1"></line><text x="46" y="38.516852415763026" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="10" fill="var(--ink-soft)">227 000</text><rect class="evo-bar" x="73.4342857142857" y="298.933389292525" width="29.702857142857145" height="1.0666107074749789" rx="2"></rect><text class="evo-value" x="88.28571428571428" y="290.933389292525" text-anchor="middle">912</text><text x="88.28571428571428" y="320" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">23/08</text><rect class="evo-bar" x="138.00571428571428" y="299.97310082645623" width="29.702857142857145" height="0.02689917354376803" rx="2"></rect><text class="evo-value" x="152.85714285714286" y="291.97310082645623" text-anchor="middle">23</text><text x="152.85714285714286" y="320" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">24/08</text><rect class="evo-bar" x="202.57714285714283" y="300" width="29.702857142857145" height="0" rx="2"></rect><text class="evo-value" x="217.42857142857142" y="292" text-anchor="middle">0</text><text x="217.42857142857142" y="320" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">25/08</text><rect class="evo-bar" x="267.1485714285714" y="300" width="29.702857142857145" height="0" rx="2"></rect><text class="evo-value" x="282" y="292" text-anchor="middle">0</text><text x="282" y="320" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">26/08</text><rect class="evo-bar" x="331.71999999999997" y="300" width="29.702857142857145" height="0" rx="2"></rect><text class="evo-value" x="346.57142857142856" y="292" text-anchor="middle">0</text><text x="346.57142857142856" y="320" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">27/08</text><rect class="evo-bar" x="396.2914285714285" y="300" width="29.702857142857145" height="0" rx="2"></rect><text class="evo-value" x="411.1428571428571" y="292" text-anchor="middle">0</text><text x="411.1428571428571" y="320" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">28/08</text><rect class="evo-bar" x="460.86285714285714" y="300" width="29.702857142857145" height="0" rx="2"></rect><text class="evo-value" x="475.7142857142857" y="292" text-anchor="middle">0</text><text x="475.7142857142857" y="320" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">29/08</text><polyline points="88.28571428571428,79.48829418139132 152.85714285714286,78.66962368223292 217.42857142857142,77.85095318307444 282,77.03228268391605 346.57142857142856,76.21361218475761 411.1428571428571,75.39494168559916 475.7142857142857,74.57627118644069" fill="none" stroke="var(--gold-dark)" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"></polyline><circle cx="88.28571428571428" cy="79.48829418139132" r="4" fill="var(--gold)" stroke="var(--white)" stroke-width="1.5"></circle><circle cx="152.85714285714286" cy="78.66962368223292" r="4" fill="var(--gold)" stroke="var(--white)" stroke-width="1.5"></circle><circle cx="217.42857142857142" cy="77.85095318307444" r="4" fill="var(--gold)" stroke="var(--white)" stroke-width="1.5"></circle><circle cx="282" cy="77.03228268391605" r="4" fill="var(--gold)" stroke="var(--white)" stroke-width="1.5"></circle><circle cx="346.57142857142856" cy="76.21361218475761" r="4" fill="var(--gold)" stroke="var(--white)" stroke-width="1.5"></circle><circle cx="411.1428571428571" cy="75.39494168559916" r="4" fill="var(--gold)" stroke="var(--white)" stroke-width="1.5"></circle><circle cx="475.7142857142857" cy="74.57627118644069" r="4" fill="var(--gold)" stroke="var(--white)" stroke-width="1.5"></circle><line x1="56" y1="300" x2="508" y2="300" stroke="var(--ink-soft)" stroke-width="1"></line></svg>
+      <svg id="evoSvg" viewBox="0 0 520 340" style="width:100%; height:auto; display:block; margin-top:14px;"><line x1="56" y1="300" x2="508" y2="300" stroke="var(--line)" stroke-width="1"></line><text x="46" y="304" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="10" fill="var(--ink-soft)">0</text><line x1="56" y1="233.99799473005342" x2="508" y2="233.99799473005342" stroke="var(--line)" stroke-width="1"></line><text x="46" y="237.99799473005342" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="10" fill="var(--ink-soft)">55 000</text><line x1="56" y1="166.7959530006533" x2="508" y2="166.7959530006533" stroke="var(--line)" stroke-width="1"></line><text x="46" y="170.7959530006533" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="10" fill="var(--ink-soft)">111 000</text><line x1="56" y1="100.79394773070673" x2="508" y2="100.79394773070673" stroke="var(--line)" stroke-width="1"></line><text x="46" y="104.79394773070673" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="10" fill="var(--ink-soft)">166 000</text><line x1="56" y1="33.59190600130659" x2="508" y2="33.59190600130659" stroke="var(--line)" stroke-width="1"></line><text x="46" y="37.59190600130659" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="10" fill="var(--ink-soft)">222 000</text><rect class="evo-bar" x="73.4342857142857" y="103.88970578588828" width="29.702857142857145" height="196.11029421411172" rx="2"></rect><text class="evo-value" x="88.28571428571428" y="95.88970578588828" text-anchor="middle">163 420</text><text x="88.28571428571428" y="320" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">16/08</text><rect class="evo-bar" x="138.00571428571428" y="103.28245133631097" width="29.702857142857145" height="196.71754866368903" rx="2"></rect><text class="evo-value" x="152.85714285714286" y="95.28245133631097" text-anchor="middle">163 926</text><text x="152.85714285714286" y="320" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">17/08</text><rect class="evo-bar" x="202.57714285714283" y="102.61154695292433" width="29.702857142857145" height="197.38845304707567" rx="2"></rect><text class="evo-value" x="217.42857142857142" y="94.61154695292433" text-anchor="middle">164 485</text><text x="217.42857142857142" y="320" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">18/08</text><rect class="evo-bar" x="267.1485714285714" y="102.0000443742805" width="29.702857142857145" height="197.9999556257195" rx="2"></rect><text class="evo-value" x="282" y="94.0000443742805" text-anchor="middle">164 995</text><text x="282" y="320" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">19/08</text><rect class="evo-bar" x="331.71999999999997" y="101.57471545195641" width="29.702857142857145" height="198.42528454804358" rx="2"></rect><text class="evo-value" x="346.57142857142856" y="93.57471545195641" text-anchor="middle">165 349</text><text x="346.57142857142856" y="320" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">20/08</text><rect class="evo-bar" x="396.2914285714285" y="100.61676234746837" width="29.702857142857145" height="199.38323765253165" rx="2"></rect><text class="evo-value" x="411.1428571428571" y="92.61676234746837" text-anchor="middle">166 148</text><text x="411.1428571428571" y="320" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">21/08</text><rect class="evo-bar" x="460.86285714285714" y="100.01714012977321" width="29.702857142857145" height="199.98285987022678" rx="2"></rect><text class="evo-value" x="475.7142857142857" y="92.01714012977321" text-anchor="middle">166 647</text><text x="475.7142857142857" y="320" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">22/08</text><polyline points="88.28571428571428,79.6164243161457 152.85714285714286,78.77639879452822 217.42857142857142,77.93637327291069 282,77.09634775129325 346.57142857142856,76.25632222967572 411.1428571428571,75.41629670805821 475.7142857142857,74.57627118644069" fill="none" stroke="var(--gold-dark)" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"></polyline><circle cx="88.28571428571428" cy="79.6164243161457" r="4" fill="var(--gold)" stroke="var(--white)" stroke-width="1.5"></circle><circle cx="152.85714285714286" cy="78.77639879452822" r="4" fill="var(--gold)" stroke="var(--white)" stroke-width="1.5"></circle><circle cx="217.42857142857142" cy="77.93637327291069" r="4" fill="var(--gold)" stroke="var(--white)" stroke-width="1.5"></circle><circle cx="282" cy="77.09634775129325" r="4" fill="var(--gold)" stroke="var(--white)" stroke-width="1.5"></circle><circle cx="346.57142857142856" cy="76.25632222967572" r="4" fill="var(--gold)" stroke="var(--white)" stroke-width="1.5"></circle><circle cx="411.1428571428571" cy="75.41629670805821" r="4" fill="var(--gold)" stroke="var(--white)" stroke-width="1.5"></circle><circle cx="475.7142857142857" cy="74.57627118644069" r="4" fill="var(--gold)" stroke="var(--white)" stroke-width="1.5"></circle><line x1="56" y1="300" x2="508" y2="300" stroke="var(--ink-soft)" stroke-width="1"></line></svg>
     </div>
   </div>
   </div>
@@ -709,67 +709,67 @@
   <div class="card" style="margin-top:22px;">
     <div class="card-head">
       <h2>Cadence hebdomadaire — Réalisé vs objectif conducteurs</h2>
-      <span id="cadenceAsOf">Semaine du 23/08/2026 au 29/08/2026</span>
+      <span id="cadenceAsOf">Semaine du 16/08/2026 au 22/08/2026</span>
     </div>
     <div style="padding:20px 22px;">
       <div id="cadenceBars">
       <div class="cadence-row">
         <div class="cadence-label">
           <span>BOUHOU</span>
-          <span class="cadence-values">-72 937 / 1 700 m³</span>
+          <span class="cadence-values">1 120 / 1 700 m³</span>
         </div>
         <div class="cadence-track">
-          <div class="cadence-fill under" style="width:0%;"></div>
+          <div class="cadence-fill under" style="width:65.89470588235332%;"></div>
           <div class="cadence-mark" style="left:100%;"></div>
         </div>
       </div>
       <div class="cadence-row">
         <div class="cadence-label">
           <span>AIT ALI</span>
-          <span class="cadence-values">-49 300 / 1 200 m³</span>
+          <span class="cadence-values">861 / 1 200 m³</span>
         </div>
         <div class="cadence-track">
-          <div class="cadence-fill under" style="width:0%;"></div>
+          <div class="cadence-fill under" style="width:71.73916666666689%;"></div>
           <div class="cadence-mark" style="left:100%;"></div>
         </div>
       </div>
       <div class="cadence-row">
         <div class="cadence-label">
           <span>NABLI</span>
-          <span class="cadence-values">— / 600 m³</span>
+          <span class="cadence-values">279 / 600 m³</span>
         </div>
         <div class="cadence-track">
-          <div class="cadence-fill " style="width:0%;"></div>
+          <div class="cadence-fill under" style="width:46.55833333333309%;"></div>
           <div class="cadence-mark" style="left:100%;"></div>
         </div>
       </div>
       <div class="cadence-row">
         <div class="cadence-label">
           <span>OBAMA + KARTER</span>
-          <span class="cadence-values">— / 1 000 m³</span>
+          <span class="cadence-values">893 / 1 000 m³</span>
         </div>
         <div class="cadence-track">
-          <div class="cadence-fill " style="width:0%;"></div>
+          <div class="cadence-fill under" style="width:89.31400000000012%;"></div>
           <div class="cadence-mark" style="left:100%;"></div>
         </div>
       </div>
       <div class="cadence-row">
         <div class="cadence-label">
           <span>HAMADA</span>
-          <span class="cadence-values">— / 400 m³</span>
+          <span class="cadence-values">73 / 400 m³</span>
         </div>
         <div class="cadence-track">
-          <div class="cadence-fill " style="width:0%;"></div>
+          <div class="cadence-fill under" style="width:18.367500000000064%;"></div>
           <div class="cadence-mark" style="left:100%;"></div>
         </div>
       </div>
     <div class="cadence-row" style="margin-top:20px; padding-top:14px; border-top:1px solid var(--line);">
       <div class="cadence-label">
         <span>TOTAL</span>
-        <span class="cadence-values">-122 236 / 4 900 m³ (0%)</span>
+        <span class="cadence-values">3 227 / 4 900 m³ (66%)</span>
       </div>
       <div class="cadence-track" style="height:18px;">
-        <div class="cadence-fill under" style="width:0%;"></div>
+        <div class="cadence-fill under" style="width:65.85795918367366%;"></div>
         <div class="cadence-mark" style="left:100%;"></div>
       </div>
     </div></div>
@@ -782,66 +782,66 @@
 
 <div class="kpi-row-bottom">
   <div class="card">
-    <div class="card-head"><h2>Récapitulatif hebdomadaire</h2><span id="weeklyRecapAsOf">Semaine 2026-08-23 → 2026-08-29</span></div>
+    <div class="card-head"><h2>Récapitulatif hebdomadaire</h2><span id="weeklyRecapAsOf">Semaine 2026-08-16 → 2026-08-22</span></div>
     <table class="summary-table">
       <thead><tr><th>Jour</th><th>Réalisé (m³)</th><th>Prévu (m³)</th><th>Écart (m³)</th><th>% Écart</th><th>Qte réalisé (m³)</th></tr></thead>
       <tbody id="weeklyRecapBody"><tr>
-      <td>SAM. 29/08</td>
-      <td>0</td>
-      <td>192 747</td>
-      <td class="ecart-neg">-192 747</td>
-      <td><span class="pct-chip pct-neg">-100.0%</span></td>
-      <td class="">—</td>
+      <td>SAM. 22/08</td>
+      <td>166 647</td>
+      <td>187 847</td>
+      <td class="ecart-neg">-21 200</td>
+      <td><span class="pct-chip pct-neg">-11.3%</span></td>
+      <td class="ecart-pos">+500</td>
     </tr><tr>
-      <td>VEN. 28/08</td>
-      <td>0</td>
-      <td>192 047</td>
-      <td class="ecart-neg">-192 047</td>
-      <td><span class="pct-chip pct-neg">-100.0%</span></td>
-      <td class="">—</td>
+      <td>VEN. 21/08</td>
+      <td>166 148</td>
+      <td>187 147</td>
+      <td class="ecart-neg">-21 000</td>
+      <td><span class="pct-chip pct-neg">-11.2%</span></td>
+      <td class="ecart-pos">+798</td>
     </tr><tr>
-      <td>JEU. 27/08</td>
-      <td>0</td>
-      <td>191 347</td>
-      <td class="ecart-neg">-191 347</td>
-      <td><span class="pct-chip pct-neg">-100.0%</span></td>
-      <td class="">—</td>
+      <td>JEU. 20/08</td>
+      <td>165 349</td>
+      <td>186 447</td>
+      <td class="ecart-neg">-21 098</td>
+      <td><span class="pct-chip pct-neg">-11.3%</span></td>
+      <td class="ecart-pos">+354</td>
     </tr><tr>
-      <td>MER. 26/08</td>
-      <td>0</td>
-      <td>190 647</td>
-      <td class="ecart-neg">-190 647</td>
-      <td><span class="pct-chip pct-neg">-100.0%</span></td>
-      <td class="">—</td>
+      <td>MER. 19/08</td>
+      <td>164 995</td>
+      <td>185 747</td>
+      <td class="ecart-neg">-20 752</td>
+      <td><span class="pct-chip pct-neg">-11.2%</span></td>
+      <td class="ecart-pos">+510</td>
     </tr><tr>
-      <td>MAR. 25/08</td>
-      <td>0</td>
-      <td>189 947</td>
-      <td class="ecart-neg">-189 947</td>
-      <td><span class="pct-chip pct-neg">-100.0%</span></td>
-      <td class="">—</td>
+      <td>MAR. 18/08</td>
+      <td>164 485</td>
+      <td>185 047</td>
+      <td class="ecart-neg">-20 562</td>
+      <td><span class="pct-chip pct-neg">-11.1%</span></td>
+      <td class="ecart-pos">+559</td>
     </tr><tr>
-      <td>LUN. 24/08</td>
-      <td>23</td>
-      <td>189 247</td>
-      <td class="ecart-neg">-189 224</td>
-      <td><span class="pct-chip pct-neg">-100.0%</span></td>
-      <td class="ecart-neg">-889</td>
+      <td>LUN. 17/08</td>
+      <td>163 926</td>
+      <td>184 347</td>
+      <td class="ecart-neg">-20 421</td>
+      <td><span class="pct-chip pct-neg">-11.1%</span></td>
+      <td class="ecart-pos">+506</td>
     </tr><tr>
-      <td>DIM. 23/08</td>
-      <td>912</td>
-      <td>188 547</td>
-      <td class="ecart-neg">-187 635</td>
-      <td><span class="pct-chip pct-neg">-99.5%</span></td>
-      <td class="ecart-neg">-165 735</td>
+      <td>DIM. 16/08</td>
+      <td>163 420</td>
+      <td>183 647</td>
+      <td class="ecart-neg">-20 227</td>
+      <td><span class="pct-chip pct-neg">-11.0%</span></td>
+      <td class="ecart-pos">+0</td>
     </tr></tbody>
       <tfoot><tr class="total-row" id="weeklyRecapTotalRow">
-    <td>TOTAL SEMAINE (au LUN. 24/08)</td>
-    <td>-166 624</td>
+    <td>TOTAL SEMAINE (au SAM. 22/08)</td>
+    <td>3 227</td>
     <td>4 900</td>
-    <td class="ecart-neg">-171 524</td>
-    <td><span class="pct-chip pct-neg">-3500.5%</span></td>
-    <td class="ecart-neg">-166 624</td></tr></tfoot>
+    <td class="ecart-neg">-1 673</td>
+    <td><span class="pct-chip pct-neg">-34.1%</span></td>
+    <td class="ecart-pos">+3 227</td></tr></tfoot>
     </table>
   </div>
   <div>
@@ -851,7 +851,7 @@
         <span class="item"><span class="swatch" style="background:var(--navy);"></span>Cible (m³/sem)</span>
         <span class="item"><span class="swatch" style="background:var(--gold);"></span>Actuel (m³/sem)</span>
       </div>
-      <svg id="cadenceCompareSvg" viewBox="0 0 520 340" style="width: 609.15px; height: auto; display: block; margin-top: 14px; max-width: 609.15px;"><line x1="56" y1="290" x2="508" y2="290" stroke="var(--line)" stroke-width="1"></line><text x="48" y="293" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="9.5" fill="var(--ink-soft)">0</text><line x1="56" y1="224.90838958534235" x2="508" y2="224.90838958534235" stroke="var(--line)" stroke-width="1"></line><text x="48" y="227.90838958534235" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="9.5" fill="var(--ink-soft)">500</text><line x1="56" y1="159.8167791706847" x2="508" y2="159.8167791706847" stroke="var(--line)" stroke-width="1"></line><text x="48" y="162.8167791706847" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="9.5" fill="var(--ink-soft)">1 000</text><line x1="56" y1="81.70684667309547" x2="508" y2="81.70684667309547" stroke="var(--line)" stroke-width="1"></line><text x="48" y="84.70684667309547" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="9.5" fill="var(--ink-soft)">1 600</text><line x1="56" y1="16.61523625843778" x2="508" y2="16.61523625843778" stroke="var(--line)" stroke-width="1"></line><text x="48" y="19.61523625843778" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="9.5" fill="var(--ink-soft)">2 100</text><line x1="56" y1="290" x2="508" y2="290" stroke="var(--ink-soft)" stroke-width="1"></line><rect x="68.464" y="68.68852459016392" width="30.736000000000004" height="221.31147540983608" fill="var(--navy)" rx="1.5"></rect><text x="83.832" y="62.68852459016392" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10.5" font-weight="700" fill="var(--navy)">1 700</text><rect x="103.2" y="9785.147540983606" width="30.736000000000004" height="-9495.147540983606" fill="var(--gold)" rx="1.5"></rect><text x="118.56800000000001" y="9779.147540983606" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10.5" font-weight="700" fill="var(--gold-dark)">-72 937</text><text x="101.2" y="308" text-anchor="middle" font-family="Inter, sans-serif" font-size="10.5" font-weight="600" fill="var(--navy)">BOUHOU</text><rect x="158.86400000000003" y="133.7801350048216" width="30.736000000000004" height="156.2198649951784" fill="var(--navy)" rx="1.5"></rect><text x="174.23200000000003" y="127.7801350048216" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10.5" font-weight="700" fill="var(--navy)">1 200</text><rect x="193.60000000000002" y="6707.974204435873" width="30.736000000000004" height="-6417.974204435873" fill="var(--gold)" rx="1.5"></rect><text x="208.96800000000002" y="6701.974204435873" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10.5" font-weight="700" fill="var(--gold-dark)">-49 300</text><text x="191.60000000000002" y="308" text-anchor="middle" font-family="Inter, sans-serif" font-size="10.5" font-weight="600" fill="var(--navy)">AIT ALI</text><rect x="249.264" y="211.8900675024108" width="30.736000000000004" height="78.1099324975892" fill="var(--navy)" rx="1.5"></rect><text x="264.632" y="205.8900675024108" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10.5" font-weight="700" fill="var(--navy)">600</text><rect x="284" y="290" width="30.736000000000004" height="0" fill="var(--gold)" rx="1.5"></rect><text x="299.368" y="284" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10.5" font-weight="700" fill="var(--gold-dark)">—</text><text x="282" y="308" text-anchor="middle" font-family="Inter, sans-serif" font-size="10.5" font-weight="600" fill="var(--navy)">NABLI</text><rect x="339.66400000000004" y="159.8167791706847" width="30.736000000000004" height="130.1832208293153" fill="var(--navy)" rx="1.5"></rect><text x="355.03200000000004" y="153.8167791706847" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10.5" font-weight="700" fill="var(--navy)">1 000</text><rect x="374.40000000000003" y="290" width="30.736000000000004" height="0" fill="var(--gold)" rx="1.5"></rect><text x="389.76800000000003" y="284" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10.5" font-weight="700" fill="var(--gold-dark)">—</text><text x="372.40000000000003" y="308" text-anchor="middle" font-family="Inter, sans-serif" font-size="10.5" font-weight="600" fill="var(--navy)">OBAMA +</text><text x="372.40000000000003" y="320" text-anchor="middle" font-family="Inter, sans-serif" font-size="10.5" font-weight="600" fill="var(--navy)">KARTER</text><rect x="430.064" y="237.92671166827384" width="30.736000000000004" height="52.07328833172616" fill="var(--navy)" rx="1.5"></rect><text x="445.432" y="231.92671166827384" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10.5" font-weight="700" fill="var(--navy)">400</text><rect x="464.8" y="290" width="30.736000000000004" height="0" fill="var(--gold)" rx="1.5"></rect><text x="480.168" y="284" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10.5" font-weight="700" fill="var(--gold-dark)">—</text><text x="462.8" y="308" text-anchor="middle" font-family="Inter, sans-serif" font-size="10.5" font-weight="600" fill="var(--navy)">HAMADA</text></svg>
+      <svg id="cadenceCompareSvg" viewBox="0 0 520 340" style="width: 609.15px; height: auto; display: block; margin-top: 14px; max-width: 609.15px;"><line x1="56" y1="290" x2="508" y2="290" stroke="var(--line)" stroke-width="1"></line><text x="48" y="293" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="9.5" fill="var(--ink-soft)">0</text><line x1="56" y1="224.90838958534235" x2="508" y2="224.90838958534235" stroke="var(--line)" stroke-width="1"></line><text x="48" y="227.90838958534235" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="9.5" fill="var(--ink-soft)">500</text><line x1="56" y1="159.8167791706847" x2="508" y2="159.8167791706847" stroke="var(--line)" stroke-width="1"></line><text x="48" y="162.8167791706847" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="9.5" fill="var(--ink-soft)">1 000</text><line x1="56" y1="81.70684667309547" x2="508" y2="81.70684667309547" stroke="var(--line)" stroke-width="1"></line><text x="48" y="84.70684667309547" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="9.5" fill="var(--ink-soft)">1 600</text><line x1="56" y1="16.61523625843778" x2="508" y2="16.61523625843778" stroke="var(--line)" stroke-width="1"></line><text x="48" y="19.61523625843778" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="9.5" fill="var(--ink-soft)">2 100</text><line x1="56" y1="290" x2="508" y2="290" stroke="var(--ink-soft)" stroke-width="1"></line><rect x="68.464" y="68.68852459016392" width="30.736000000000004" height="221.31147540983608" fill="var(--navy)" rx="1.5"></rect><text x="83.832" y="62.68852459016392" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10.5" font-weight="700" fill="var(--navy)">1 700</text><rect x="103.2" y="144.16745419479184" width="30.736000000000004" height="145.83254580520816" fill="var(--gold)" rx="1.5"></rect><text x="118.56800000000001" y="138.16745419479184" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10.5" font-weight="700" fill="var(--gold-dark)">1 120</text><text x="101.2" y="308" text-anchor="middle" font-family="Inter, sans-serif" font-size="10.5" font-weight="600" fill="var(--navy)">BOUHOU</text><rect x="158.86400000000003" y="133.7801350048216" width="30.736000000000004" height="156.2198649951784" fill="var(--navy)" rx="1.5"></rect><text x="174.23200000000003" y="127.7801350048216" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10.5" font-weight="700" fill="var(--navy)">1 200</text><rect x="193.60000000000002" y="177.92917068466699" width="30.736000000000004" height="112.07082931533301" fill="var(--gold)" rx="1.5"></rect><text x="208.96800000000002" y="171.92917068466699" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10.5" font-weight="700" fill="var(--gold-dark)">861</text><text x="191.60000000000002" y="308" text-anchor="middle" font-family="Inter, sans-serif" font-size="10.5" font-weight="600" fill="var(--navy)">AIT ALI</text><rect x="249.264" y="211.8900675024108" width="30.736000000000004" height="78.1099324975892" fill="var(--navy)" rx="1.5"></rect><text x="264.632" y="205.8900675024108" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10.5" font-weight="700" fill="var(--navy)">600</text><rect x="284" y="253.63331726133094" width="30.736000000000004" height="36.366682738669056" fill="var(--gold)" rx="1.5"></rect><text x="299.368" y="247.63331726133094" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10.5" font-weight="700" fill="var(--gold-dark)">279</text><text x="282" y="308" text-anchor="middle" font-family="Inter, sans-serif" font-size="10.5" font-weight="600" fill="var(--navy)">NABLI</text><rect x="339.66400000000004" y="159.8167791706847" width="30.736000000000004" height="130.1832208293153" fill="var(--navy)" rx="1.5"></rect><text x="355.03200000000004" y="153.8167791706847" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10.5" font-weight="700" fill="var(--navy)">1 000</text><rect x="374.40000000000003" y="173.72815814850514" width="30.736000000000004" height="116.27184185149486" fill="var(--gold)" rx="1.5"></rect><text x="389.76800000000003" y="167.72815814850514" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10.5" font-weight="700" fill="var(--gold-dark)">893</text><text x="372.40000000000003" y="308" text-anchor="middle" font-family="Inter, sans-serif" font-size="10.5" font-weight="600" fill="var(--navy)">OBAMA +</text><text x="372.40000000000003" y="320" text-anchor="middle" font-family="Inter, sans-serif" font-size="10.5" font-weight="600" fill="var(--navy)">KARTER</text><rect x="430.064" y="237.92671166827384" width="30.736000000000004" height="52.07328833172616" fill="var(--navy)" rx="1.5"></rect><text x="445.432" y="231.92671166827384" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10.5" font-weight="700" fill="var(--navy)">400</text><rect x="464.8" y="280.43543876567014" width="30.736000000000004" height="9.564561234329858" fill="var(--gold)" rx="1.5"></rect><text x="480.168" y="274.43543876567014" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10.5" font-weight="700" fill="var(--gold-dark)">73</text><text x="462.8" y="308" text-anchor="middle" font-family="Inter, sans-serif" font-size="10.5" font-weight="600" fill="var(--navy)">HAMADA</text></svg>
     </div>
   </div>
 </div>
@@ -1069,7 +1069,7 @@ const fmt = n => Math.round(n).toLocaleString('fr-FR');
 // à saisir par-dessus (ses propres ajouts restent locaux à sa machine tant
 // qu'il ne relance pas un nouvel export).
 const EMBEDDED_DATA = {
-  "daily-realise:2026-08-24": "{\"BOUHOU\":\"23\"}",
+  "daily-realise:2026-08-24": "{\"BOUHOU\":\"\"}",
   "daily-realise:2026-08-21": "{\"OBAMA\":\"15816,92\",\"AITALI\":\"49063,73\",\"BOUHOU\":\"72887,75\",\"NABLI\":\"26188,99\",\"HAMADA\":\"2190,26\"}",
   "daily-realise:2026-08-22": "{\"OBAMA\":\"15978,02\",\"AITALI\":\"49300,55\",\"BOUHOU\":\"72959,80\",\"NABLI\":\"26218,69\",\"HAMADA\":\"2190,26\"}",
   "daily-realise:2026-08-19": "{\"OBAMA\":\"15653,53\",\"NABLI\":\"26042,50\",\"AITALI\":\"48856,92\",\"BOUHOU\":\"72281,78\",\"HAMADA\":\"2160,22\"}",
@@ -1078,7 +1078,7 @@ const EMBEDDED_DATA = {
   "daily-realise:2026-08-17": "{\"AITALI\":\"48439,68\",\"OBAMA\":\"15329,23\",\"NABLI\":\"25939,34\",\"HAMADA\":\"2116,79\",\"BOUHOU\":\"72101,27\"}",
   "daily-realise:2026-08-20": "{\"BOUHOU\":\"72452,90\",\"AITALI\":\"49040,23\",\"NABLI\":\"26042,50\",\"OBAMA\":\"15653,53\",\"HAMADA\":\"2160,22\"}",
   "daily-realise:2026-08-16": "{\"BOUHOU\":\"71839,59\",\"AITALI\":\"48439,68\",\"NABLI\":\"25939,34\",\"OBAMA\":\"15084,88\",\"HAMADA\":\"2116,79\"}",
-  "daily-realise:2026-08-23": "{\"BOUHOU\":\"911\",\"AITALI\":\"1\"}"
+  "daily-realise:2026-08-23": "{\"BOUHOU\":\"\",\"AITALI\":\"\"}"
 };
 
 // ── Couche de stockage universelle ────────────────────────────────────────────
