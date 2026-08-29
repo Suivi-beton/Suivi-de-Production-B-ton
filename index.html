@@ -438,17 +438,37 @@
     .appbar-title{font-size:14px;}
   }
 
+  @page{
+    size: A3 landscape;
+    margin: 10mm 12mm;
+  }
+
   @media print{
     *{ -webkit-print-color-adjust:exact; print-color-adjust:exact; color-adjust:exact; }
-    body{ background:var(--white); padding:0; }
+    html, body{ background:var(--white); padding:0; width:auto; min-height:0; }
     .no-print{ display:none !important; }
     .print-only{ display:block !important; }
     .appbar{ border-bottom:2px solid var(--gold); }
-    .wrap{ max-width:100%; padding:16px 10px 0; }
+    /* Use the full A3 sheet instead of the on-screen 1440px cap */
+    .wrap{ max-width:none; width:100%; padding:12px 6px 0; }
+
+    /* Never let the two-column dashboard or KPI grid collapse to 1 column on print */
+    .dash-grid{ grid-template-columns:1.05fr .95fr !important; gap:16px; }
+    .kpi-grid{ grid-template-columns:repeat(4,1fr) !important; gap:12px; }
+
     .card, .head, .weekbar, .lecture{ box-shadow:none !important; break-inside:avoid; page-break-inside:avoid; }
     .card{ margin-top:14px; }
-    table{ break-inside:auto; }
+    table{ break-inside:auto; width:100%; }
     tbody tr, thead, tfoot{ break-inside:avoid; page-break-inside:avoid; }
+
+    /* A3 gives a lot more room than the screen layout was designed for:
+       size text/inputs generously instead of shrinking them */
+    body{ font-size:13.5px; }
+    thead th, tbody td, tfoot td{ padding:10px 9px; font-size:13px; }
+    .realise-input{ font-size:13px; }
+    .title{ font-size:30px; }
+    .kpi .value{ font-size:26px; }
+
     .weekbar select, .weekbar input[type=date]{
       border:none; background:none; padding:2px 4px; -webkit-appearance:none; appearance:none;
     }
@@ -589,7 +609,7 @@
       <div class="kpi-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="5"></circle><path d="M8.5 13 6 22l6-3 6 3-2.5-9"></path></svg></div>
       <div class="kpi-body">
         <div class="label">Réalisé (jour)</div>
-        <div class="value" id="kpiRealise">— m³</div>
+        <div class="value" id="kpiRealise">167 951 m³</div>
         <div class="sub">Total béton coulé</div>
       </div>
     </div>
@@ -597,7 +617,7 @@
       <div class="kpi-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="12" r="5"></circle><circle cx="12" cy="12" r="1"></circle></svg></div>
       <div class="kpi-body">
         <div class="label">Prévu (jour)</div>
-        <div class="value" id="kpiPrevu">192 047 m³</div>
+        <div class="value" id="kpiPrevu">191 347 m³</div>
         <div class="sub">Objectif du jour</div>
       </div>
     </div>
@@ -612,7 +632,7 @@
       <div class="kpi-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18"></path><path d="M5 7h4l-2 5a2.5 2.5 0 0 0 5 0L10 7"></path><path d="M15 7h4l-2 5a2.5 2.5 0 0 0 5 0L21 7"></path><path d="M5 7h14"></path></svg></div>
       <div class="kpi-body">
         <div class="label">Écart (jour)</div>
-        <div class="value" id="kpiEcart">— m³</div>
+        <div class="value" id="kpiEcart">-23 397 m³</div>
         <div class="sub">Écart total</div>
       </div>
     </div>
@@ -622,7 +642,7 @@
   <div class="card manual-table">
     <div class="card-head">
       <h2>Suivi journalier — Prévu vs Réalisé (m³/jour)</h2>
-      <span id="dayAsOf">vendredi 28 août 2026 · semaine 2026-08-22 → 2026-08-29</span>
+      <span id="dayAsOf">jeudi 27 août 2026 · semaine 2026-08-22 → 2026-08-29</span>
     </div>
     <table>
       <thead>
@@ -637,48 +657,48 @@
       </thead>
       <tbody id="dayTbody"><tr data-row-key="BOUHOU">
       <td>BOUHOU</td>
-      <td><input class="realise-input" type="text" inputmode="decimal" autocomplete="off" placeholder="—" data-key="BOUHOU" value=""></td>
-      <td>82 515</td>
-      <td class="cell-ecart ">—</td>
-      <td class="cell-pct">—</td>
-      <td class="cell-cadence " title="Cible : 243 m³/j">—</td>
+      <td><input class="realise-input" type="text" inputmode="decimal" autocomplete="off" placeholder="—" data-key="BOUHOU" value="73264,86"></td>
+      <td>82 273</td>
+      <td class="cell-ecart ecart-neg">-9 008</td>
+      <td class="cell-pct"><span class="pct-chip pct-neg">-10.9%</span></td>
+      <td class="cell-cadence ecart-neg" title="Cible : 243 m³/j">208 / 243</td>
     </tr><tr data-row-key="AITALI">
       <td>AIT ALI</td>
-      <td><input class="realise-input" type="text" inputmode="decimal" autocomplete="off" placeholder="—" data-key="AITALI" value=""></td>
-      <td>54 680</td>
-      <td class="cell-ecart ">—</td>
-      <td class="cell-pct">—</td>
-      <td class="cell-cadence " title="Cible : 171 m³/j">—</td>
+      <td><input class="realise-input" type="text" inputmode="decimal" autocomplete="off" placeholder="—" data-key="AITALI" value="49685,08"></td>
+      <td>54 509</td>
+      <td class="cell-ecart ecart-neg">-4 824</td>
+      <td class="cell-pct"><span class="pct-chip pct-neg">-8.8%</span></td>
+      <td class="cell-cadence ecart-pos" title="Cible : 171 m³/j">205 / 171</td>
     </tr><tr data-row-key="NABLI">
       <td>NABLI</td>
-      <td><input class="realise-input" type="text" inputmode="decimal" autocomplete="off" placeholder="—" data-key="NABLI" value=""></td>
-      <td>31 733</td>
-      <td class="cell-ecart ">—</td>
-      <td class="cell-pct">—</td>
-      <td class="cell-cadence " title="Cible : 86 m³/j">—</td>
+      <td><input class="realise-input" type="text" inputmode="decimal" autocomplete="off" placeholder="—" data-key="NABLI" value="26559,33"></td>
+      <td>31 647</td>
+      <td class="cell-ecart ecart-neg">-5 088</td>
+      <td class="cell-pct"><span class="pct-chip pct-neg">-16.1%</span></td>
+      <td class="cell-cadence ecart-pos" title="Cible : 86 m³/j">302 / 86</td>
     </tr><tr data-row-key="OBAMA">
       <td>OBAMA + KARTER</td>
-      <td><input class="realise-input" type="text" inputmode="decimal" autocomplete="off" placeholder="—" data-key="OBAMA" value=""></td>
-      <td>19 019</td>
-      <td class="cell-ecart ">—</td>
-      <td class="cell-pct">—</td>
-      <td class="cell-cadence " title="Cible : 143 m³/j">—</td>
+      <td><input class="realise-input" type="text" inputmode="decimal" autocomplete="off" placeholder="—" data-key="OBAMA" value="16183,98"></td>
+      <td>18 876</td>
+      <td class="cell-ecart ecart-neg">-2 692</td>
+      <td class="cell-pct"><span class="pct-chip pct-neg">-14.3%</span></td>
+      <td class="cell-cadence ecart-neg" title="Cible : 143 m³/j">1 / 143</td>
     </tr><tr data-row-key="HAMADA">
       <td>HAMADA</td>
-      <td><input class="realise-input" type="text" inputmode="decimal" autocomplete="off" placeholder="—" data-key="HAMADA" value=""></td>
-      <td>4 100</td>
-      <td class="cell-ecart ">—</td>
-      <td class="cell-pct">—</td>
-      <td class="cell-cadence " title="Cible : 57 m³/j">—</td>
+      <td><input class="realise-input" type="text" inputmode="decimal" autocomplete="off" placeholder="—" data-key="HAMADA" value="2257,33"></td>
+      <td>4 043</td>
+      <td class="cell-ecart ecart-neg">-1 786</td>
+      <td class="cell-pct"><span class="pct-chip pct-neg">-44.2%</span></td>
+      <td class="cell-cadence ecart-neg" title="Cible : 57 m³/j">0 / 57</td>
     </tr></tbody>
       <tfoot>
         <tr class="total-row" id="dayTotalRow">
           <td>Total</td>
-          <td id="dayTotalRealise">—</td>
-          <td id="dayTotalPrevu">192 047</td>
-          <td id="dayTotalEcart" class="">—</td>
-          <td id="dayTotalPct">—</td>
-          <td id="dayTotalCadence">—</td>
+          <td id="dayTotalRealise">167 951</td>
+          <td id="dayTotalPrevu">191 347</td>
+          <td id="dayTotalEcart" class="ecart-neg">-23 397</td>
+          <td id="dayTotalPct"><span class="pct-chip pct-neg">-12.2%</span></td>
+          <td id="dayTotalCadence">717 / 700</td>
         </tr>
       </tfoot>
     </table>
@@ -687,7 +707,7 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2Z"></path><path d="M17 21v-8H7v8"></path><path d="M7 3v5h8"></path></svg>
         Enregistrer
       </button>
-      <div class="save-status" id="daySaveStatus">&nbsp;</div>
+      <div class="save-status" id="daySaveStatus"></div>
     </div>
   </div>
 
