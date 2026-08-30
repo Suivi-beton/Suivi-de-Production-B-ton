@@ -709,7 +709,7 @@
   <div class="card" style="margin-top:22px;">
     <div class="card-head">
       <h2>Cadence hebdomadaire — Réalisé vs objectif conducteurs</h2>
-      <span id="cadenceAsOf">Semaine du 23/08/2026 au 29/08/2026</span>
+      <span id="cadenceAsOf">Semaine du 23/08/2026 au 29/08/2026 · avancement au 29/08/2026</span>
     </div>
     <div style="padding:20px 22px;">
       <div id="cadenceBars">
@@ -1622,7 +1622,7 @@ async function computeWeekDailySeries(){
   return { series, boundaryRealise, boundaryHasData, boundaryPrevu };
 }
 
-// ── Cadence hebdomadaire : Réalisé (delta sur 7 jours) vs objectif conducteurs (cadence × 7) ──
+// ── Cadence hebdomadaire : Réalisé (delta jusqu'au jour sélectionné) vs objectif conducteurs (prorata) ──
 async function renderWeeklyCadenceBars(){
   const box = document.getElementById('cadenceBars');
   if (!box) return;
@@ -1633,28 +1633,33 @@ async function renderWeeklyCadenceBars(){
   const boundaryDate = new Date(prevRow.date + 'T00:00:00');
   const weekEndDate = new Date(boundaryDate); weekEndDate.setDate(weekEndDate.getDate() + 7);
 
-  // Charge les 8 jours (veille du début de semaine + les 7 jours de la semaine),
-  // et fait la somme des deltas jour-a-jour reellement disponibles (au lieu
-  // d'exiger a tout prix une saisie pile sur le 1er et le dernier jour).
+  // Jour de référence = "Date du jour" sélectionnée (pas forcément la fin de
+  // semaine). Bornée à l'intérieur de la semaine affichée (1..7 jours écoulés).
+  const refDate = currentDayStr ? new Date(currentDayStr + 'T00:00:00') : weekEndDate;
+  let daysElapsed = Math.round((refDate - boundaryDate) / 86400000);
+  daysElapsed = Math.max(1, Math.min(7, daysElapsed));
+
+  // Charge uniquement les jours de la veille de semaine jusqu'au jour sélectionné.
   const days = [];
-  for (let i = 0; i <= 7; i++){
+  for (let i = 0; i <= daysElapsed; i++){
     const d = new Date(boundaryDate); d.setDate(d.getDate() + i);
     days.push(d);
   }
   const valsPerDay = await Promise.all(days.map(d => loadDailyFor(dayStr(d))));
 
   document.getElementById('cadenceAsOf').textContent =
-    `Semaine du ${new Date(boundaryDate.getTime()+86400000).toLocaleDateString('fr-FR')} au ${weekEndDate.toLocaleDateString('fr-FR')}`;
+    `Semaine du ${new Date(boundaryDate.getTime()+86400000).toLocaleDateString('fr-FR')} au ${weekEndDate.toLocaleDateString('fr-FR')} · avancement au ${refDate.toLocaleDateString('fr-FR')}`;
 
   const conducteurs = visibleConducteurs();
   let totalRealise = 0, totalTarget = 0, anyData = false;
   let html = '';
 
   conducteurs.forEach(c=>{
-    const target = WEEKLY_CADENCE_TARGETS[c.key];
+    // Objectif au prorata du nombre de jours écoulés depuis le début de semaine.
+    const target = WEEKLY_CADENCE_TARGETS[c.key] * daysElapsed / 7;
     totalTarget += target;
 
-    // Somme des deltas jour-a-jour disponibles pour ce conducteur sur la semaine
+    // Somme des deltas jour-a-jour disponibles, jusqu'au jour sélectionné seulement.
     let realise = 0, hasAny = false;
     for (let i = 1; i < valsPerDay.length; i++){
       const prevV = valsPerDay[i-1][c.key];
@@ -1728,12 +1733,17 @@ async function renderWeeklyRecapAndEvolution(){
     </tr>`;
   }).join('');
 
-  // TOTAL SEMAINE : le Réalisé reste PARTIEL (jusqu'au dernier jour saisi),
-  // mais le Prévu affiche désormais l'OBJECTIF COMPLET de la semaine entière
-  // (Samedi fin - Samedi début), pas une valeur au prorata des jours saisis —
-  // ainsi on voit toujours la cible réelle de la semaine (ex: 4 900 m³).
+  // TOTAL SEMAINE : Réalisé ET Prévu s'arrêtent tous les deux au jour
+  // sélectionné dans "Date du jour" — on compare l'avancement réel à ce
+  // jour-là à ce qui était attendu à ce même jour-là (pas l'objectif de fin
+  // de semaine complète).
+  const refDate = currentDayStr ? new Date(currentDayStr + 'T00:00:00') : new Date(series[6].date + 'T00:00:00');
+  let selectedIdx = Math.round((refDate - new Date(series[0].date + 'T00:00:00')) / 86400000);
+  selectedIdx = Math.max(0, Math.min(6, selectedIdx));
+
+  // Dernier jour AVEC DONNÉES, mais sans dépasser le jour sélectionné.
   let lastFilledIdx = -1;
-  for (let i = series.length - 1; i >= 0; i--){
+  for (let i = selectedIdx; i >= 0; i--){
     if (series[i].hasData){ lastFilledIdx = i; break; }
   }
   const useBoundary = boundaryHasData;
@@ -1742,7 +1752,7 @@ async function renderWeeklyRecapAndEvolution(){
   const baseHasData = useBoundary ? true : series[0].hasData;
   const hasEnoughData = lastFilledIdx >= 0 && baseHasData && (useBoundary || lastFilledIdx > 0);
   const totalRealise = hasEnoughData ? series[lastFilledIdx].realise - baseRealise : null;
-  const totalPrevu = series[6].prevu - basePrevu; // toujours la semaine complète
+  const totalPrevu = series[selectedIdx].prevu - basePrevu; // prorata jusqu'au jour sélectionné
   const totalEcart = hasEnoughData ? totalRealise - totalPrevu : null;
   const totalPct = (hasEnoughData && totalPrevu) ? (totalEcart / totalPrevu * 100) : 0;
   const totalQte = qteValues.length ? qteValues.reduce((a,b)=>a+b, 0) : null;
