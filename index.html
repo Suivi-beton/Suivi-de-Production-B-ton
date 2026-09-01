@@ -579,8 +579,8 @@
       Appliquer
     </button>
     <button class="reset-btn no-print" id="resetAllBtn" title="Revenir à aujourd'hui">↺ Réinitialiser</button>
-    <span class="badge" id="dayBadge" style="display:none;">S10</span>
-    <span class="badge" id="weekBadge" style="display:none;">S10</span>
+    <span class="badge" id="dayBadge" style="display:none;">S11</span>
+    <span class="badge" id="weekBadge" style="display:none;">S11</span>
     <input type="date" id="dateOverride" style="display:none;">
   </div>
 
@@ -588,21 +588,21 @@
     <div class="kpi">
       <div class="kpi-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="5"></circle><path d="M8.5 13 6 22l6-3 6 3-2.5-9"></path></svg></div>
       <div class="kpi-body">
-        <div class="label">Réalisé</div>
-        <div class="value" id="kpiRealise">168 602 m³</div>
+        <div class="label">Réalisé (jour)</div>
+        <div class="value" id="kpiRealise">169 210 m³</div>
         <div class="sub">Total béton coulé</div>
       </div>
     </div>
     <div class="kpi">
       <div class="kpi-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="12" r="5"></circle><circle cx="12" cy="12" r="1"></circle></svg></div>
       <div class="kpi-body">
-        <div class="label">Prévu</div>
-        <div class="value" id="kpiPrevu">192 747 m³</div>
+        <div class="label">Prévu (jour)</div>
+        <div class="value" id="kpiPrevu">194 147 m³</div>
         <div class="sub">Objectif du jour</div>
       </div>
     </div>
     <div class="kpi kpi-ring-wrap">
-      <div class="kpi-ring" id="kpiPctRing" style="background: conic-gradient(var(--bad) 0 39.88183673469312%, #d5d9e3 39.88183673469312% 100%);"><span id="kpiPct">40%</span></div>
+      <div class="kpi-ring" id="kpiPctRing" style="background: conic-gradient(var(--bad) 0 12.408979591836902%, #d5d9e3 12.408979591836902% 100%);"><span id="kpiPct">12%</span></div>
       <div class="kpi-body">
         <div class="label">Taux d'avancement hebdomadaire</div>
         <div class="sub">Réalisé / Prévu de la semaine</div>
@@ -611,8 +611,8 @@
     <div class="kpi">
       <div class="kpi-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18"></path><path d="M5 7h4l-2 5a2.5 2.5 0 0 0 5 0L10 7"></path><path d="M15 7h4l-2 5a2.5 2.5 0 0 0 5 0L21 7"></path><path d="M5 7h14"></path></svg></div>
       <div class="kpi-body">
-        <div class="label">Écart</div>
-        <div class="value" id="kpiEcart">-24 146 m³</div>
+        <div class="label">Écart (jour)</div>
+        <div class="value" id="kpiEcart">-24 938 m³</div>
         <div class="sub">Écart total</div>
       </div>
     </div>
@@ -622,7 +622,7 @@
   <div class="card manual-table">
     <div class="card-head">
       <h2>Suivi journalier — Prévu vs Réalisé (m³/jour)</h2>
-      <span id="dayAsOf">samedi 29 août 2026 · semaine 2026-08-22 → 2026-08-29</span>
+      <span id="dayAsOf">lundi 31 août 2026 · semaine 2026-08-29 → 2026-09-05</span>
     </div>
     <table>
       <thead>
@@ -637,48 +637,48 @@
       </thead>
       <tbody id="dayTbody"><tr data-row-key="BOUHOU">
       <td>BOUHOU</td>
-      <td><input class="realise-input" type="text" inputmode="decimal" autocomplete="off" placeholder="—" data-key="BOUHOU" value="73379,73"></td>
-      <td>82 758</td>
-      <td class="cell-ecart ecart-neg">-9 379</td>
-      <td class="cell-pct"><span class="pct-chip pct-neg">-11.3%</span></td>
-      <td class="cell-cadence ecart-neg" title="Cible : 243 m³/j">7 / 243</td>
+      <td><input class="realise-input" type="text" inputmode="decimal" autocomplete="off" placeholder="—" data-key="BOUHOU" value="73581,71"></td>
+      <td>83 244</td>
+      <td class="cell-ecart ecart-neg">-9 662</td>
+      <td class="cell-pct"><span class="pct-chip pct-neg">-11.6%</span></td>
+      <td class="cell-cadence ecart-neg" title="Cible : 243 m³/j">202 / 243</td>
     </tr><tr data-row-key="AITALI">
       <td>AIT ALI</td>
-      <td><input class="realise-input" type="text" inputmode="decimal" autocomplete="off" placeholder="—" data-key="AITALI" value="49915,28"></td>
-      <td>54 852</td>
-      <td class="cell-ecart ecart-neg">-4 936</td>
-      <td class="cell-pct"><span class="pct-chip pct-neg">-9.0%</span></td>
-      <td class="cell-cadence ecart-pos" title="Cible : 171 m³/j">188 / 171</td>
+      <td><input class="realise-input" type="text" inputmode="decimal" autocomplete="off" placeholder="—" data-key="AITALI" value="50137,63"></td>
+      <td>55 194</td>
+      <td class="cell-ecart ecart-neg">-5 057</td>
+      <td class="cell-pct"><span class="pct-chip pct-neg">-9.2%</span></td>
+      <td class="cell-cadence ecart-pos" title="Cible : 171 m³/j">222 / 171</td>
     </tr><tr data-row-key="NABLI">
       <td>NABLI</td>
-      <td><input class="realise-input" type="text" inputmode="decimal" autocomplete="off" placeholder="—" data-key="NABLI" value="26542,70"></td>
-      <td>31 818</td>
-      <td class="cell-ecart ecart-neg">-5 276</td>
-      <td class="cell-pct"><span class="pct-chip pct-neg">-16.6%</span></td>
-      <td class="cell-cadence ecart-neg" title="Cible : 86 m³/j">-48 / 86</td>
+      <td><input class="realise-input" type="text" inputmode="decimal" autocomplete="off" placeholder="—" data-key="NABLI" value="26583,07"></td>
+      <td>31 990</td>
+      <td class="cell-ecart ecart-neg">-5 407</td>
+      <td class="cell-pct"><span class="pct-chip pct-neg">-16.9%</span></td>
+      <td class="cell-cadence ecart-neg" title="Cible : 86 m³/j">40 / 86</td>
     </tr><tr data-row-key="OBAMA">
       <td>OBAMA + KARTER</td>
-      <td><input class="realise-input" type="text" inputmode="decimal" autocomplete="off" placeholder="—" data-key="OBAMA" value="16493,46"></td>
-      <td>19 162</td>
-      <td class="cell-ecart ecart-neg">-2 668</td>
-      <td class="cell-pct"><span class="pct-chip pct-neg">-13.9%</span></td>
-      <td class="cell-cadence ecart-pos" title="Cible : 143 m³/j">183 / 143</td>
+      <td><input class="realise-input" type="text" inputmode="decimal" autocomplete="off" placeholder="—" data-key="OBAMA" value="16631,80"></td>
+      <td>19 448</td>
+      <td class="cell-ecart ecart-neg">-2 816</td>
+      <td class="cell-pct"><span class="pct-chip pct-neg">-14.5%</span></td>
+      <td class="cell-cadence ecart-neg" title="Cible : 143 m³/j">138 / 143</td>
     </tr><tr data-row-key="HAMADA">
       <td>HAMADA</td>
-      <td><input class="realise-input" type="text" inputmode="decimal" autocomplete="off" placeholder="—" data-key="HAMADA" value="2270,36"></td>
-      <td>4 157</td>
-      <td class="cell-ecart ecart-neg">-1 887</td>
-      <td class="cell-pct"><span class="pct-chip pct-neg">-45.4%</span></td>
-      <td class="cell-cadence ecart-neg" title="Cible : 57 m³/j">0 / 57</td>
+      <td><input class="realise-input" type="text" inputmode="decimal" autocomplete="off" placeholder="—" data-key="HAMADA" value="2275,36"></td>
+      <td>4 272</td>
+      <td class="cell-ecart ecart-neg">-1 996</td>
+      <td class="cell-pct"><span class="pct-chip pct-neg">-46.7%</span></td>
+      <td class="cell-cadence ecart-neg" title="Cible : 57 m³/j">5 / 57</td>
     </tr></tbody>
       <tfoot>
         <tr class="total-row" id="dayTotalRow">
           <td>Total</td>
-          <td id="dayTotalRealise">168 602</td>
-          <td id="dayTotalPrevu">192 747</td>
-          <td id="dayTotalEcart" class="ecart-neg">-24 146</td>
-          <td id="dayTotalPct"><span class="pct-chip pct-neg">-12.5%</span></td>
-          <td id="dayTotalCadence">329 / 700</td>
+          <td id="dayTotalRealise">169 210</td>
+          <td id="dayTotalPrevu">194 147</td>
+          <td id="dayTotalEcart" class="ecart-neg">-24 938</td>
+          <td id="dayTotalPct"><span class="pct-chip pct-neg">-12.8%</span></td>
+          <td id="dayTotalCadence">608 / 700</td>
         </tr>
       </tfoot>
     </table>
@@ -701,7 +701,7 @@
         <span class="item"><span class="swatch" style="background:var(--navy);height:10px;border-radius:2px;"></span>Réalisé (m³)</span>
         <span class="item"><span class="swatch" style="background:var(--gold-dark);"></span>Prévu (m³)</span>
       </div>
-      <svg id="evoSvg" viewBox="0 0 520 340" style="width:100%; height:auto; display:block; margin-top:14px;"><line x1="56" y1="300" x2="508" y2="300" stroke="var(--line)" stroke-width="1"></line><text x="46" y="304" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="10" fill="var(--ink-soft)">0</text><line x1="56" y1="233.33683078281274" x2="508" y2="233.33683078281274" stroke="var(--line)" stroke-width="1"></line><text x="46" y="237.33683078281274" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="10" fill="var(--ink-soft)">57 000</text><line x1="56" y1="166.67366156562548" x2="508" y2="166.67366156562548" stroke="var(--line)" stroke-width="1"></line><text x="46" y="170.67366156562548" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="10" fill="var(--ink-soft)">114 000</text><line x1="56" y1="100.0104923484382" x2="508" y2="100.0104923484382" stroke="var(--line)" stroke-width="1"></line><text x="46" y="104.0104923484382" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="10" fill="var(--ink-soft)">171 000</text><line x1="56" y1="34.516852415763026" x2="508" y2="34.516852415763026" stroke="var(--line)" stroke-width="1"></line><text x="46" y="38.516852415763026" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="10" fill="var(--ink-soft)">227 000</text><rect class="evo-bar" x="73.4342857142857" y="104.9570281525748" width="29.702857142857145" height="195.0429718474252" rx="2"></rect><text class="evo-value" x="88.28571428571428" y="96.9570281525748" text-anchor="middle">166 770</text><text x="88.28571428571428" y="320" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">23/08</text><rect class="evo-bar" x="138.00571428571428" y="104.61221583362212" width="29.702857142857145" height="195.38778416637788" rx="2"></rect><text class="evo-value" x="152.85714285714286" y="96.61221583362212" text-anchor="middle">167 065</text><text x="152.85714285714286" y="320" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">24/08</text><rect class="evo-bar" x="202.57714285714283" y="104.61221583362212" width="29.702857142857145" height="195.38778416637788" rx="2"></rect><text class="evo-value" x="217.42857142857142" y="96.61221583362212" text-anchor="middle">167 065</text><text x="217.42857142857142" y="320" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">25/08</text><rect class="evo-bar" x="267.1485714285714" y="104.05547311302298" width="29.702857142857145" height="195.94452688697703" rx="2"></rect><text class="evo-value" x="282" y="96.05547311302298" text-anchor="middle">167 541</text><text x="282" y="320" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">26/08</text><rect class="evo-bar" x="331.71999999999997" y="103.57687833921494" width="29.702857142857145" height="196.42312166078506" rx="2"></rect><text class="evo-value" x="346.57142857142856" y="95.57687833921494" text-anchor="middle">167 951</text><text x="346.57142857142856" y="320" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">27/08</text><rect class="evo-bar" x="396.2914285714285" y="103.2008980648301" width="29.702857142857145" height="196.79910193516992" rx="2"></rect><text class="evo-value" x="411.1428571428571" y="95.2008980648301" text-anchor="middle">168 272</text><text x="411.1428571428571" y="320" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">28/08</text><rect class="evo-bar" x="460.86285714285714" y="102.8155732514619" width="29.702857142857145" height="197.1844267485381" rx="2"></rect><text class="evo-value" x="475.7142857142857" y="94.8155732514619" text-anchor="middle">168 602</text><text x="475.7142857142857" y="320" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">29/08</text><polyline points="88.28571428571428,79.48829418139132 152.85714285714286,78.66962368223292 217.42857142857142,77.85095318307444 282,77.03228268391605 346.57142857142856,76.21361218475761 411.1428571428571,75.39494168559916 475.7142857142857,74.57627118644069" fill="none" stroke="var(--gold-dark)" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"></polyline><circle cx="88.28571428571428" cy="79.48829418139132" r="4" fill="var(--gold)" stroke="var(--white)" stroke-width="1.5"></circle><circle cx="152.85714285714286" cy="78.66962368223292" r="4" fill="var(--gold)" stroke="var(--white)" stroke-width="1.5"></circle><circle cx="217.42857142857142" cy="77.85095318307444" r="4" fill="var(--gold)" stroke="var(--white)" stroke-width="1.5"></circle><circle cx="282" cy="77.03228268391605" r="4" fill="var(--gold)" stroke="var(--white)" stroke-width="1.5"></circle><circle cx="346.57142857142856" cy="76.21361218475761" r="4" fill="var(--gold)" stroke="var(--white)" stroke-width="1.5"></circle><circle cx="411.1428571428571" cy="75.39494168559916" r="4" fill="var(--gold)" stroke="var(--white)" stroke-width="1.5"></circle><circle cx="475.7142857142857" cy="74.57627118644069" r="4" fill="var(--gold)" stroke="var(--white)" stroke-width="1.5"></circle><line x1="56" y1="300" x2="508" y2="300" stroke="var(--ink-soft)" stroke-width="1"></line></svg>
+      <svg id="evoSvg" viewBox="0 0 520 340" style="width:100%; height:auto; display:block; margin-top:14px;"><line x1="56" y1="300" x2="508" y2="300" stroke="var(--line)" stroke-width="1"></line><text x="46" y="304" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="10" fill="var(--ink-soft)">0</text><line x1="56" y1="233.84898424575056" x2="508" y2="233.84898424575056" stroke="var(--line)" stroke-width="1"></line><text x="46" y="237.84898424575056" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="10" fill="var(--ink-soft)">58 000</text><line x1="56" y1="166.55743373711752" x2="508" y2="166.55743373711752" stroke="var(--line)" stroke-width="1"></line><text x="46" y="170.55743373711752" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="10" fill="var(--ink-soft)">117 000</text><line x1="56" y1="100.40641798286806" x2="508" y2="100.40641798286806" stroke="var(--line)" stroke-width="1"></line><text x="46" y="104.40641798286806" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="10" fill="var(--ink-soft)">175 000</text><line x1="56" y1="34.255402228618635" x2="508" y2="34.255402228618635" stroke="var(--line)" stroke-width="1"></line><text x="46" y="38.255402228618635" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="10" fill="var(--ink-soft)">233 000</text><rect class="evo-bar" x="73.4342857142857" y="107.70409539274901" width="29.702857142857145" height="192.29590460725098" rx="2"></rect><text class="evo-value" x="88.28571428571428" y="99.70409539274901" text-anchor="middle">168 602</text><text x="88.28571428571428" y="320" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">30/08</text><rect class="evo-bar" x="138.00571428571428" y="107.01060464069357" width="29.702857142857145" height="192.98939535930643" rx="2"></rect><text class="evo-value" x="152.85714285714286" y="99.01060464069357" text-anchor="middle">169 210</text><text x="152.85714285714286" y="320" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">31/08</text><rect class="evo-bar" x="202.57714285714283" y="300" width="29.702857142857145" height="0" rx="2"></rect><text class="evo-value" x="217.42857142857142" y="292" text-anchor="middle">0</text><text x="217.42857142857142" y="320" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">01/09</text><rect class="evo-bar" x="267.1485714285714" y="300" width="29.702857142857145" height="0" rx="2"></rect><text class="evo-value" x="282" y="292" text-anchor="middle">0</text><text x="282" y="320" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">02/09</text><rect class="evo-bar" x="331.71999999999997" y="300" width="29.702857142857145" height="0" rx="2"></rect><text class="evo-value" x="346.57142857142856" y="292" text-anchor="middle">0</text><text x="346.57142857142856" y="320" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">03/09</text><rect class="evo-bar" x="396.2914285714285" y="300" width="29.702857142857145" height="0" rx="2"></rect><text class="evo-value" x="411.1428571428571" y="292" text-anchor="middle">0</text><text x="411.1428571428571" y="320" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">04/09</text><rect class="evo-bar" x="460.86285714285714" y="300" width="29.702857142857145" height="0" rx="2"></rect><text class="evo-value" x="475.7142857142857" y="292" text-anchor="middle">0</text><text x="475.7142857142857" y="320" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">05/09</text><polyline points="88.28571428571428,79.36651715485182 152.85714285714286,78.56814282678332 217.42857142857142,77.76976849871477 282,76.9713941706463 346.57142857142856,76.17301984257776 411.1428571428571,75.37464551450921 475.7142857142857,74.57627118644066" fill="none" stroke="var(--gold-dark)" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"></polyline><circle cx="88.28571428571428" cy="79.36651715485182" r="4" fill="var(--gold)" stroke="var(--white)" stroke-width="1.5"></circle><circle cx="152.85714285714286" cy="78.56814282678332" r="4" fill="var(--gold)" stroke="var(--white)" stroke-width="1.5"></circle><circle cx="217.42857142857142" cy="77.76976849871477" r="4" fill="var(--gold)" stroke="var(--white)" stroke-width="1.5"></circle><circle cx="282" cy="76.9713941706463" r="4" fill="var(--gold)" stroke="var(--white)" stroke-width="1.5"></circle><circle cx="346.57142857142856" cy="76.17301984257776" r="4" fill="var(--gold)" stroke="var(--white)" stroke-width="1.5"></circle><circle cx="411.1428571428571" cy="75.37464551450921" r="4" fill="var(--gold)" stroke="var(--white)" stroke-width="1.5"></circle><circle cx="475.7142857142857" cy="74.57627118644066" r="4" fill="var(--gold)" stroke="var(--white)" stroke-width="1.5"></circle><line x1="56" y1="300" x2="508" y2="300" stroke="var(--ink-soft)" stroke-width="1"></line></svg>
     </div>
   </div>
   </div>
@@ -709,67 +709,67 @@
   <div class="card" style="margin-top:22px;">
     <div class="card-head">
       <h2>Cadence hebdomadaire — Réalisé vs objectif conducteurs</h2>
-      <span id="cadenceAsOf">Semaine du 23/08/2026 au 29/08/2026 · avancement au 29/08/2026</span>
+      <span id="cadenceAsOf">Semaine du 30/08/2026 au 05/09/2026</span>
     </div>
     <div style="padding:20px 22px;">
       <div id="cadenceBars">
       <div class="cadence-row">
         <div class="cadence-label">
           <span>BOUHOU</span>
-          <span class="cadence-values">420 / 1 700 m³</span>
+          <span class="cadence-values">202 / 1 700 m³</span>
         </div>
         <div class="cadence-track">
-          <div class="cadence-fill under" style="width:24.701764705881942%;"></div>
+          <div class="cadence-fill under" style="width:11.881176470588851%;"></div>
           <div class="cadence-mark" style="left:100%;"></div>
         </div>
       </div>
       <div class="cadence-row">
         <div class="cadence-label">
           <span>AIT ALI</span>
-          <span class="cadence-values">615 / 1 200 m³</span>
+          <span class="cadence-values">222 / 1 200 m³</span>
         </div>
         <div class="cadence-track">
-          <div class="cadence-fill under" style="width:51.22749999999966%;"></div>
+          <div class="cadence-fill under" style="width:18.529166666666548%;"></div>
           <div class="cadence-mark" style="left:100%;"></div>
         </div>
       </div>
       <div class="cadence-row">
         <div class="cadence-label">
           <span>NABLI</span>
-          <span class="cadence-values">324 / 600 m³</span>
+          <span class="cadence-values">40 / 600 m³</span>
         </div>
         <div class="cadence-track">
-          <div class="cadence-fill under" style="width:54.001666666667006%;"></div>
+          <div class="cadence-fill under" style="width:6.728333333333164%;"></div>
           <div class="cadence-mark" style="left:100%;"></div>
         </div>
       </div>
       <div class="cadence-row">
         <div class="cadence-label">
           <span>OBAMA + KARTER</span>
-          <span class="cadence-values">515 / 1 000 m³</span>
+          <span class="cadence-values">138 / 1 000 m³</span>
         </div>
         <div class="cadence-track">
-          <div class="cadence-fill under" style="width:51.54399999999987%;"></div>
+          <div class="cadence-fill under" style="width:13.834000000000016%;"></div>
           <div class="cadence-mark" style="left:100%;"></div>
         </div>
       </div>
       <div class="cadence-row">
         <div class="cadence-label">
           <span>HAMADA</span>
-          <span class="cadence-values">80 / 400 m³</span>
+          <span class="cadence-values">5 / 400 m³</span>
         </div>
         <div class="cadence-track">
-          <div class="cadence-fill under" style="width:20.024999999999977%;"></div>
+          <div class="cadence-fill under" style="width:1.25%;"></div>
           <div class="cadence-mark" style="left:100%;"></div>
         </div>
       </div>
     <div class="cadence-row" style="margin-top:20px; padding-top:14px; border-top:1px solid var(--line);">
       <div class="cadence-label">
         <span>TOTAL</span>
-        <span class="cadence-values">1 954 / 4 900 m³ (40%)</span>
+        <span class="cadence-values">608 / 4 900 m³ (12%)</span>
       </div>
       <div class="cadence-track" style="height:18px;">
-        <div class="cadence-fill under" style="width:39.881836734693664%;"></div>
+        <div class="cadence-fill under" style="width:12.408979591836902%;"></div>
         <div class="cadence-mark" style="left:100%;"></div>
       </div>
     </div></div>
@@ -782,66 +782,66 @@
 
 <div class="kpi-row-bottom">
   <div class="card">
-    <div class="card-head"><h2>Récapitulatif hebdomadaire</h2><span id="weeklyRecapAsOf">Semaine 2026-08-23 → 2026-08-29</span></div>
+    <div class="card-head"><h2>Récapitulatif hebdomadaire</h2><span id="weeklyRecapAsOf">Semaine 2026-08-30 → 2026-09-05</span></div>
     <table class="summary-table">
       <thead><tr><th>Jour</th><th>Réalisé (m³)</th><th>Prévu (m³)</th><th>Écart (m³)</th><th>% Écart</th><th>Qte réalisé (m³)</th></tr></thead>
       <tbody id="weeklyRecapBody"><tr>
-      <td>SAM. 29/08</td>
+      <td>SAM. 05/09</td>
+      <td>0</td>
+      <td>197 647</td>
+      <td class="ecart-neg">-197 647</td>
+      <td><span class="pct-chip pct-neg">-100.0%</span></td>
+      <td class="">—</td>
+    </tr><tr>
+      <td>VEN. 04/09</td>
+      <td>0</td>
+      <td>196 947</td>
+      <td class="ecart-neg">-196 947</td>
+      <td><span class="pct-chip pct-neg">-100.0%</span></td>
+      <td class="">—</td>
+    </tr><tr>
+      <td>JEU. 03/09</td>
+      <td>0</td>
+      <td>196 247</td>
+      <td class="ecart-neg">-196 247</td>
+      <td><span class="pct-chip pct-neg">-100.0%</span></td>
+      <td class="">—</td>
+    </tr><tr>
+      <td>MER. 02/09</td>
+      <td>0</td>
+      <td>195 547</td>
+      <td class="ecart-neg">-195 547</td>
+      <td><span class="pct-chip pct-neg">-100.0%</span></td>
+      <td class="">—</td>
+    </tr><tr>
+      <td>MAR. 01/09</td>
+      <td>0</td>
+      <td>194 847</td>
+      <td class="ecart-neg">-194 847</td>
+      <td><span class="pct-chip pct-neg">-100.0%</span></td>
+      <td class="">—</td>
+    </tr><tr>
+      <td>LUN. 31/08</td>
+      <td>169 210</td>
+      <td>194 147</td>
+      <td class="ecart-neg">-24 938</td>
+      <td><span class="pct-chip pct-neg">-12.8%</span></td>
+      <td class="ecart-pos">+608</td>
+    </tr><tr>
+      <td>DIM. 30/08</td>
       <td>168 602</td>
-      <td>192 747</td>
-      <td class="ecart-neg">-24 146</td>
-      <td><span class="pct-chip pct-neg">-12.5%</span></td>
-      <td class="ecart-pos">+329</td>
-    </tr><tr>
-      <td>VEN. 28/08</td>
-      <td>168 272</td>
-      <td>192 047</td>
-      <td class="ecart-neg">-23 775</td>
-      <td><span class="pct-chip pct-neg">-12.4%</span></td>
-      <td class="ecart-pos">+321</td>
-    </tr><tr>
-      <td>JEU. 27/08</td>
-      <td>167 951</td>
-      <td>191 347</td>
-      <td class="ecart-neg">-23 397</td>
-      <td><span class="pct-chip pct-neg">-12.2%</span></td>
-      <td class="ecart-pos">+409</td>
-    </tr><tr>
-      <td>MER. 26/08</td>
-      <td>167 541</td>
-      <td>190 647</td>
-      <td class="ecart-neg">-23 106</td>
-      <td><span class="pct-chip pct-neg">-12.1%</span></td>
-      <td class="ecart-pos">+476</td>
-    </tr><tr>
-      <td>MAR. 25/08</td>
-      <td>167 065</td>
-      <td>189 947</td>
-      <td class="ecart-neg">-22 882</td>
-      <td><span class="pct-chip pct-neg">-12.0%</span></td>
+      <td>193 447</td>
+      <td class="ecart-neg">-24 846</td>
+      <td><span class="pct-chip pct-neg">-12.8%</span></td>
       <td class="ecart-pos">+0</td>
-    </tr><tr>
-      <td>LUN. 24/08</td>
-      <td>167 065</td>
-      <td>189 247</td>
-      <td class="ecart-neg">-22 182</td>
-      <td><span class="pct-chip pct-neg">-11.7%</span></td>
-      <td class="ecart-pos">+295</td>
-    </tr><tr>
-      <td>DIM. 23/08</td>
-      <td>166 770</td>
-      <td>188 547</td>
-      <td class="ecart-neg">-21 777</td>
-      <td><span class="pct-chip pct-neg">-11.5%</span></td>
-      <td class="ecart-pos">+123</td>
     </tr></tbody>
       <tfoot><tr class="total-row" id="weeklyRecapTotalRow">
-    <td>TOTAL SEMAINE (au SAM. 29/08)</td>
-    <td>1 954</td>
+    <td>TOTAL SEMAINE (au LUN. 31/08)</td>
+    <td>608</td>
     <td>4 900</td>
-    <td class="ecart-neg">-2 946</td>
-    <td><span class="pct-chip pct-neg">-60.1%</span></td>
-    <td class="ecart-pos">+1 954</td></tr></tfoot>
+    <td class="ecart-neg">-4 292</td>
+    <td><span class="pct-chip pct-neg">-87.6%</span></td>
+    <td class="ecart-pos">+608</td></tr></tfoot>
     </table>
   </div>
   <div>
@@ -851,7 +851,7 @@
         <span class="item"><span class="swatch" style="background:var(--navy);"></span>Cible (m³/sem)</span>
         <span class="item"><span class="swatch" style="background:var(--gold);"></span>Actuel (m³/sem)</span>
       </div>
-      <svg id="cadenceCompareSvg" viewBox="0 0 520 340" style="width: 609.15px; height: auto; display: block; margin-top: 14px; max-width: 609.15px;"><line x1="56" y1="290" x2="508" y2="290" stroke="var(--line)" stroke-width="1"></line><text x="48" y="293" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="9.5" fill="var(--ink-soft)">0</text><line x1="56" y1="224.90838958534235" x2="508" y2="224.90838958534235" stroke="var(--line)" stroke-width="1"></line><text x="48" y="227.90838958534235" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="9.5" fill="var(--ink-soft)">500</text><line x1="56" y1="159.8167791706847" x2="508" y2="159.8167791706847" stroke="var(--line)" stroke-width="1"></line><text x="48" y="162.8167791706847" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="9.5" fill="var(--ink-soft)">1 000</text><line x1="56" y1="81.70684667309547" x2="508" y2="81.70684667309547" stroke="var(--line)" stroke-width="1"></line><text x="48" y="84.70684667309547" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="9.5" fill="var(--ink-soft)">1 600</text><line x1="56" y1="16.61523625843778" x2="508" y2="16.61523625843778" stroke="var(--line)" stroke-width="1"></line><text x="48" y="19.61523625843778" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="9.5" fill="var(--ink-soft)">2 100</text><line x1="56" y1="290" x2="508" y2="290" stroke="var(--ink-soft)" stroke-width="1"></line><rect x="68.464" y="68.68852459016392" width="30.736000000000004" height="221.31147540983608" fill="var(--navy)" rx="1.5"></rect><text x="83.832" y="62.68852459016392" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10.5" font-weight="700" fill="var(--navy)">1 700</text><rect x="103.2" y="235.33216007714654" width="30.736000000000004" height="54.66783992285346" fill="var(--gold)" rx="1.5"></rect><text x="118.56800000000001" y="229.33216007714654" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10.5" font-weight="700" fill="var(--gold-dark)">420</text><text x="101.2" y="308" text-anchor="middle" font-family="Inter, sans-serif" font-size="10.5" font-weight="600" fill="var(--navy)">BOUHOU</text><rect x="158.86400000000003" y="133.7801350048216" width="30.736000000000004" height="156.2198649951784" fill="var(--navy)" rx="1.5"></rect><text x="174.23200000000003" y="127.7801350048216" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10.5" font-weight="700" fill="var(--navy)">1 200</text><rect x="193.60000000000002" y="209.97246865959553" width="30.736000000000004" height="80.02753134040447" fill="var(--gold)" rx="1.5"></rect><text x="208.96800000000002" y="203.97246865959553" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10.5" font-weight="700" fill="var(--gold-dark)">615</text><text x="191.60000000000002" y="308" text-anchor="middle" font-family="Inter, sans-serif" font-size="10.5" font-weight="600" fill="var(--navy)">AIT ALI</text><rect x="249.264" y="211.8900675024108" width="30.736000000000004" height="78.1099324975892" fill="var(--navy)" rx="1.5"></rect><text x="264.632" y="205.8900675024108" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10.5" font-weight="700" fill="var(--navy)">600</text><rect x="284" y="247.81933461909327" width="30.736000000000004" height="42.18066538090673" fill="var(--gold)" rx="1.5"></rect><text x="299.368" y="241.81933461909327" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10.5" font-weight="700" fill="var(--gold-dark)">324</text><text x="282" y="308" text-anchor="middle" font-family="Inter, sans-serif" font-size="10.5" font-weight="600" fill="var(--navy)">NABLI</text><rect x="339.66400000000004" y="159.8167791706847" width="30.736000000000004" height="130.1832208293153" fill="var(--navy)" rx="1.5"></rect><text x="355.03200000000004" y="153.8167791706847" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10.5" font-weight="700" fill="var(--navy)">1 000</text><rect x="374.40000000000003" y="222.89836065573786" width="30.736000000000004" height="67.10163934426214" fill="var(--gold)" rx="1.5"></rect><text x="389.76800000000003" y="216.89836065573786" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10.5" font-weight="700" fill="var(--gold-dark)">515</text><text x="372.40000000000003" y="308" text-anchor="middle" font-family="Inter, sans-serif" font-size="10.5" font-weight="600" fill="var(--navy)">OBAMA +</text><text x="372.40000000000003" y="320" text-anchor="middle" font-family="Inter, sans-serif" font-size="10.5" font-weight="600" fill="var(--navy)">KARTER</text><rect x="430.064" y="237.92671166827384" width="30.736000000000004" height="52.07328833172616" fill="var(--navy)" rx="1.5"></rect><text x="445.432" y="231.92671166827384" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10.5" font-weight="700" fill="var(--navy)">400</text><rect x="464.8" y="279.5723240115719" width="30.736000000000004" height="10.42767598842812" fill="var(--gold)" rx="1.5"></rect><text x="480.168" y="273.5723240115719" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10.5" font-weight="700" fill="var(--gold-dark)">80</text><text x="462.8" y="308" text-anchor="middle" font-family="Inter, sans-serif" font-size="10.5" font-weight="600" fill="var(--navy)">HAMADA</text></svg>
+      <svg id="cadenceCompareSvg" viewBox="0 0 520 340" style="width: 609.15px; height: auto; display: block; margin-top: 14px; max-width: 609.15px;"><line x1="56" y1="290" x2="508" y2="290" stroke="var(--line)" stroke-width="1"></line><text x="48" y="293" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="9.5" fill="var(--ink-soft)">0</text><line x1="56" y1="224.90838958534235" x2="508" y2="224.90838958534235" stroke="var(--line)" stroke-width="1"></line><text x="48" y="227.90838958534235" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="9.5" fill="var(--ink-soft)">500</text><line x1="56" y1="159.8167791706847" x2="508" y2="159.8167791706847" stroke="var(--line)" stroke-width="1"></line><text x="48" y="162.8167791706847" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="9.5" fill="var(--ink-soft)">1 000</text><line x1="56" y1="81.70684667309547" x2="508" y2="81.70684667309547" stroke="var(--line)" stroke-width="1"></line><text x="48" y="84.70684667309547" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="9.5" fill="var(--ink-soft)">1 600</text><line x1="56" y1="16.61523625843778" x2="508" y2="16.61523625843778" stroke="var(--line)" stroke-width="1"></line><text x="48" y="19.61523625843778" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="9.5" fill="var(--ink-soft)">2 100</text><line x1="56" y1="290" x2="508" y2="290" stroke="var(--ink-soft)" stroke-width="1"></line><rect x="68.464" y="68.68852459016392" width="30.736000000000004" height="221.31147540983608" fill="var(--navy)" rx="1.5"></rect><text x="83.832" y="62.68852459016392" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10.5" font-weight="700" fill="var(--navy)">1 700</text><rect x="103.2" y="263.7055930568935" width="30.736000000000004" height="26.29440694310648" fill="var(--gold)" rx="1.5"></rect><text x="118.56800000000001" y="257.7055930568935" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10.5" font-weight="700" fill="var(--gold-dark)">202</text><text x="101.2" y="308" text-anchor="middle" font-family="Inter, sans-serif" font-size="10.5" font-weight="600" fill="var(--navy)">BOUHOU</text><rect x="158.86400000000003" y="133.7801350048216" width="30.736000000000004" height="156.2198649951784" fill="var(--navy)" rx="1.5"></rect><text x="174.23200000000003" y="127.7801350048216" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10.5" font-weight="700" fill="var(--navy)">1 200</text><rect x="193.60000000000002" y="261.0537608486019" width="30.736000000000004" height="28.946239151398117" fill="var(--gold)" rx="1.5"></rect><text x="208.96800000000002" y="255.05376084860188" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10.5" font-weight="700" fill="var(--gold-dark)">222</text><text x="191.60000000000002" y="308" text-anchor="middle" font-family="Inter, sans-serif" font-size="10.5" font-weight="600" fill="var(--navy)">AIT ALI</text><rect x="249.264" y="211.8900675024108" width="30.736000000000004" height="78.1099324975892" fill="var(--navy)" rx="1.5"></rect><text x="264.632" y="205.8900675024108" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10.5" font-weight="700" fill="var(--navy)">600</text><rect x="284" y="284.7445033751207" width="30.736000000000004" height="5.255496624879299" fill="var(--gold)" rx="1.5"></rect><text x="299.368" y="278.7445033751207" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10.5" font-weight="700" fill="var(--gold-dark)">40</text><text x="282" y="308" text-anchor="middle" font-family="Inter, sans-serif" font-size="10.5" font-weight="600" fill="var(--navy)">NABLI</text><rect x="339.66400000000004" y="159.8167791706847" width="30.736000000000004" height="130.1832208293153" fill="var(--navy)" rx="1.5"></rect><text x="355.03200000000004" y="153.8167791706847" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10.5" font-weight="700" fill="var(--navy)">1 000</text><rect x="374.40000000000003" y="271.9904532304725" width="30.736000000000004" height="18.009546769527503" fill="var(--gold)" rx="1.5"></rect><text x="389.76800000000003" y="265.9904532304725" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10.5" font-weight="700" fill="var(--gold-dark)">138</text><text x="372.40000000000003" y="308" text-anchor="middle" font-family="Inter, sans-serif" font-size="10.5" font-weight="600" fill="var(--navy)">OBAMA +</text><text x="372.40000000000003" y="320" text-anchor="middle" font-family="Inter, sans-serif" font-size="10.5" font-weight="600" fill="var(--navy)">KARTER</text><rect x="430.064" y="237.92671166827384" width="30.736000000000004" height="52.07328833172616" fill="var(--navy)" rx="1.5"></rect><text x="445.432" y="231.92671166827384" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10.5" font-weight="700" fill="var(--navy)">400</text><rect x="464.8" y="289.3490838958534" width="30.736000000000004" height="0.6509161041465745" fill="var(--gold)" rx="1.5"></rect><text x="480.168" y="283.3490838958534" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10.5" font-weight="700" fill="var(--gold-dark)">5</text><text x="462.8" y="308" text-anchor="middle" font-family="Inter, sans-serif" font-size="10.5" font-weight="600" fill="var(--navy)">HAMADA</text></svg>
     </div>
   </div>
 </div>
@@ -859,252 +859,85 @@
 <div class="card" style="margin-top:32px;">
     <div class="card-head">
       <h2>Projection hebdomadaire du béton coulé</h2>
-      <span id="projSituation">Situation au 29/08/2026</span>
+      <span>Situation au 15/08/2026</span>
     </div>
     <div style="padding:22px;">
       <div class="chart-legend" id="chartLegend">
         <span class="item"><span class="swatch" style="background:var(--navy);"></span>Cadence contractuelle (4 900 m³/sem)</span>
-        <span class="item"><span class="swatch" style="background:var(--bad);"></span>Rythme actuel (1 954 m³/sem)</span>
+        <span class="item"><span class="swatch" style="background:var(--bad);"></span>Rythme actuel (3 227 m³/sem)</span>
         <span class="item"><span class="swatch dashed"></span>Quantité marché : 252 367 m³</span>
       </div>
-      <svg id="projectionSvg" viewBox="0 0 1228 420" style="width:100%; height:auto; display:block; margin-top:16px;"><line x1="68" y1="380" x2="1212" y2="380" stroke="var(--line)" stroke-width="1"></line><text x="58" y="384" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">160 000</text><line x1="68" y1="343.6" x2="1212" y2="343.6" stroke="var(--line)" stroke-width="1"></line><text x="58" y="347.6" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">170 000</text><line x1="68" y1="307.2" x2="1212" y2="307.2" stroke="var(--line)" stroke-width="1"></line><text x="58" y="311.2" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">180 000</text><line x1="68" y1="270.79999999999995" x2="1212" y2="270.79999999999995" stroke="var(--line)" stroke-width="1"></line><text x="58" y="274.79999999999995" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">190 000</text><line x1="68" y1="234.4" x2="1212" y2="234.4" stroke="var(--line)" stroke-width="1"></line><text x="58" y="238.4" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">200 000</text><line x1="68" y1="198" x2="1212" y2="198" stroke="var(--line)" stroke-width="1"></line><text x="58" y="202" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">210 000</text><line x1="68" y1="161.6" x2="1212" y2="161.6" stroke="var(--line)" stroke-width="1"></line><text x="58" y="165.6" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">220 000</text><line x1="68" y1="125.20000000000002" x2="1212" y2="125.20000000000002" stroke="var(--line)" stroke-width="1"></line><text x="58" y="129.20000000000002" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">230 000</text><line x1="68" y1="88.79999999999998" x2="1212" y2="88.79999999999998" stroke="var(--line)" stroke-width="1"></line><text x="58" y="92.79999999999998" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">240 000</text><line x1="68" y1="52.39999999999999" x2="1212" y2="52.39999999999999" stroke="var(--line)" stroke-width="1"></line><text x="58" y="56.39999999999999" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">250 000</text><line x1="68" y1="16" x2="1212" y2="16" stroke="var(--line)" stroke-width="1"></line><text x="58" y="20" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">260 000</text><text x="68" y="400" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">S1</text><text x="117.73913043478261" y="400" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">S3</text><text x="167.47826086956522" y="400" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">S5</text><text x="217.2173913043478" y="400" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">S7</text><text x="266.95652173913044" y="400" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">S9</text><text x="316.695652173913" y="400" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">S11</text><text x="366.4347826086956" y="400" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">S13</text><text x="416.1739130434783" y="400" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">S15</text><text x="465.9130434782609" y="400" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">S17</text><text x="515.6521739130435" y="400" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">S19</text><text x="565.391304347826" y="400" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">S21</text><text x="615.1304347826087" y="400" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">S23</text><text x="664.8695652173913" y="400" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">S25</text><text x="714.6086956521739" y="400" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">S27</text><text x="764.3478260869566" y="400" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">S29</text><text x="814.0869565217391" y="400" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">S31</text><text x="863.8260869565217" y="400" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">S33</text><text x="913.5652173913043" y="400" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">S35</text><text x="963.304347826087" y="400" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">S37</text><text x="1013.0434782608696" y="400" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">S39</text><text x="1062.782608695652" y="400" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">S41</text><text x="1112.5217391304348" y="400" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">S43</text><text x="1162.2608695652175" y="400" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">S45</text><text x="1212" y="400" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">S47</text><line x1="68" y1="43.78412" x2="1212" y2="43.78412" stroke="var(--ink-soft)" stroke-width="2" stroke-dasharray="6 5"></line><polyline points="68,349.71520000000004 92.86956521739131,331.8792 117.73913043478261,314.0432 142.6086956521739,296.2072 167.47826086956522,278.3712 192.3478260869565,260.5352 217.2173913043478,242.69920000000002 242.08695652173915,224.86319999999998 266.95652173913044,207.02719999999997 291.82608695652175,189.1912 316.695652173913,171.3552 341.5652173913044,153.5192 366.4347826086956,135.6832 391.30434782608694,117.84720000000002 416.1739130434783,100.0112 441.04347826086956,82.17519999999999 465.9130434782609,64.3392 490.78260869565213,46.50319999999999 515.6521739130435,43.78412 540.5217391304348,43.78412 565.391304347826,43.78412 590.2608695652174,43.78412 615.1304347826087,43.78412 640,43.78412 664.8695652173913,43.78412 689.7391304347826,43.78412 714.6086956521739,43.78412 739.4782608695652,43.78412 764.3478260869566,43.78412 789.2173913043479,43.78412 814.0869565217391,43.78412 838.9565217391304,43.78412 863.8260869565217,43.78412 888.695652173913,43.78412 913.5652173913043,43.78412 938.4347826086957,43.78412 963.304347826087,43.78412 988.1739130434783,43.78412 1013.0434782608696,43.78412 1037.913043478261,43.78412 1062.782608695652,43.78412 1087.6521739130435,43.78412 1112.5217391304348,43.78412 1137.3913043478262,43.78412 1162.2608695652175,43.78412 1187.1304347826087,43.78412 1212,43.78412" fill="none" stroke="var(--navy)" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"></polyline><polyline points="68,355.80492 92.86956521739131,348.68872 117.73913043478261,341.57616 142.6086956521739,334.4636 167.47826086956522,327.35104 192.3478260869565,320.23848 217.2173913043478,313.12228000000005 242.08695652173915,306.00971999999996 266.95652173913044,298.89716000000004 291.82608695652175,291.78459999999995 316.695652173913,284.67204000000004 341.5652173913044,277.55584 366.4347826086956,270.44327999999996 391.30434782608694,263.33072 416.1739130434783,256.21816 441.04347826086956,249.10560000000004 465.9130434782609,241.98940000000002 490.78260869565213,234.87684000000002 515.6521739130435,227.76428 540.5217391304348,220.65172 565.391304347826,213.53552000000002 590.2608695652174,206.42296 615.1304347826087,199.31040000000002 640,192.19784 664.8695652173913,185.08528 689.7391304347826,177.96908 714.6086956521739,170.85652 739.4782608695652,163.74396 764.3478260869566,156.63139999999999 789.2173913043479,149.51883999999998 814.0869565217391,142.40264000000002 838.9565217391304,135.29008 863.8260869565217,128.17752000000002 888.695652173913,121.06496 913.5652173913043,113.9524 938.4347826086957,106.83620000000002 963.304347826087,99.72364000000002 988.1739130434783,92.61108000000002 1013.0434782608696,85.49852000000001 1037.913043478261,78.38231999999999 1062.782608695652,71.26975999999999 1087.6521739130435,64.15719999999999 1112.5217391304348,57.04463999999999 1137.3913043478262,49.93207999999999 1162.2608695652175,43.78412 1187.1304347826087,43.78412 1212,43.78412" fill="none" stroke="var(--bad)" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"></polyline><line x1="68" y1="380" x2="1212" y2="380" stroke="var(--ink-soft)" stroke-width="1"></line></svg>
+      <svg id="projectionSvg" viewBox="0 0 920 420" style="width:100%; height:auto; display:block; margin-top:16px;"><line x1="68" y1="380" x2="904" y2="380" stroke="var(--line)" stroke-width="1"></line><text x="58" y="384" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">160 000</text><line x1="68" y1="343.6" x2="904" y2="343.6" stroke="var(--line)" stroke-width="1"></line><text x="58" y="347.6" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">170 000</text><line x1="68" y1="307.2" x2="904" y2="307.2" stroke="var(--line)" stroke-width="1"></line><text x="58" y="311.2" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">180 000</text><line x1="68" y1="270.79999999999995" x2="904" y2="270.79999999999995" stroke="var(--line)" stroke-width="1"></line><text x="58" y="274.79999999999995" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">190 000</text><line x1="68" y1="234.4" x2="904" y2="234.4" stroke="var(--line)" stroke-width="1"></line><text x="58" y="238.4" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">200 000</text><line x1="68" y1="198" x2="904" y2="198" stroke="var(--line)" stroke-width="1"></line><text x="58" y="202" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">210 000</text><line x1="68" y1="161.6" x2="904" y2="161.6" stroke="var(--line)" stroke-width="1"></line><text x="58" y="165.6" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">220 000</text><line x1="68" y1="125.20000000000002" x2="904" y2="125.20000000000002" stroke="var(--line)" stroke-width="1"></line><text x="58" y="129.20000000000002" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">230 000</text><line x1="68" y1="88.79999999999998" x2="904" y2="88.79999999999998" stroke="var(--line)" stroke-width="1"></line><text x="58" y="92.79999999999998" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">240 000</text><line x1="68" y1="52.39999999999999" x2="904" y2="52.39999999999999" stroke="var(--line)" stroke-width="1"></line><text x="58" y="56.39999999999999" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">250 000</text><line x1="68" y1="16" x2="904" y2="16" stroke="var(--line)" stroke-width="1"></line><text x="58" y="20" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">260 000</text><text x="68" y="400" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">S1</text><text x="98.96296296296296" y="400" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">S2</text><text x="129.92592592592592" y="400" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">S3</text><text x="160.88888888888889" y="400" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">S4</text><text x="191.85185185185185" y="400" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">S5</text><text x="222.8148148148148" y="400" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">S6</text><text x="253.77777777777777" y="400" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">S7</text><text x="284.74074074074076" y="400" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">S8</text><text x="315.7037037037037" y="400" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">S9</text><text x="346.66666666666663" y="400" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">S10</text><text x="377.6296296296296" y="400" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">S11</text><text x="408.59259259259255" y="400" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">S12</text><text x="439.55555555555554" y="400" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">S13</text><text x="470.5185185185185" y="400" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">S14</text><text x="501.48148148148147" y="400" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">S15</text><text x="532.4444444444445" y="400" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">S16</text><text x="563.4074074074074" y="400" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">S17</text><text x="594.3703703703704" y="400" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">S18</text><text x="625.3333333333333" y="400" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">S19</text><text x="656.2962962962963" y="400" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">S20</text><text x="687.2592592592592" y="400" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">S21</text><text x="718.2222222222223" y="400" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">S22</text><text x="749.1851851851851" y="400" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">S23</text><text x="780.1481481481482" y="400" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">S24</text><text x="811.1111111111111" y="400" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">S25</text><text x="842.0740740740741" y="400" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">S26</text><text x="873.037037037037" y="400" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">S27</text><text x="904" y="400" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">S28</text><line x1="68" y1="43.78412" x2="904" y2="43.78412" stroke="var(--ink-soft)" stroke-width="2" stroke-dasharray="6 5"></line><polyline points="68,349.71520000000004 98.96296296296296,331.8792 129.92592592592592,314.0432 160.88888888888889,296.2072 191.85185185185185,278.3712 222.8148148148148,260.5352 253.77777777777777,242.69920000000002 284.74074074074076,224.86319999999998 315.7037037037037,207.02719999999997 346.66666666666663,189.1912 377.6296296296296,171.3552 408.59259259259255,153.5192 439.55555555555554,135.6832 470.5185185185185,117.84720000000002 501.48148148148147,100.0112 532.4444444444445,82.17519999999999 563.4074074074074,64.3392 594.3703703703704,46.50319999999999 625.3333333333333,43.78412 656.2962962962963,43.78412 687.2592592592592,43.78412 718.2222222222223,43.78412 749.1851851851851,43.78412 780.1481481481482,43.78412 811.1111111111111,43.78412 842.0740740740741,43.78412 873.037037037037,43.78412 904,43.78412" fill="none" stroke="var(--navy)" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"></polyline><polyline points="68,355.80492 98.96296296296296,344.05863999999997 129.92592592592592,332.31236 160.88888888888889,320.56608 191.85185185185185,308.8198 222.8148148148148,297.07352 253.77777777777777,285.32724 284.74074074074076,273.58096 315.7037037037037,261.83468000000005 346.66666666666663,250.0884 377.6296296296296,238.34212 408.59259259259255,226.59583999999998 439.55555555555554,214.84955999999997 470.5185185185185,203.10327999999998 501.48148148148147,191.357 532.4444444444445,179.61072 563.4074074074074,167.86444 594.3703703703704,156.11816 625.3333333333333,144.37188 656.2962962962963,132.62560000000002 687.2592592592592,120.87931999999999 718.2222222222223,109.13304 749.1851851851851,97.38675999999998 780.1481481481482,85.64048000000001 811.1111111111111,73.89420000000001 842.0740740740741,62.14792 873.037037037037,50.40163999999999 904,43.78412" fill="none" stroke="var(--bad)" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"></polyline><line x1="68" y1="380" x2="904" y2="380" stroke="var(--ink-soft)" stroke-width="1"></line></svg>
     </div>
   </div>
 
   <div class="lecture">
     <h3>Lecture &amp; commentaires</h3>
     <ul>
-      <li>Quantité marché atteinte en <b>S19 (26/12/2026)</b> au rythme contractuel, en <b>S45 (26/06/2027)</b> au rythme actuel.</li>
-      <li>Soit <b>26.0 semaines de décalage</b> ; à S19 il resterait <b>50 544 m³</b> à couler au rythme actuel, soit environ 25.9 semaines de production supplémentaires.</li>
-      <li>Par rapport à l'échéance contractuelle du 30/11/2026 : retard de <b>3.7 semaines</b> si retour à la cadence contractuelle, retard de <b>29.6 semaines</b> si le rythme actuel se prolonge.</li>
+      <li>Quantité marché atteinte en <b>S19 (26/12/2026)</b> au rythme contractuel, en <b>S28 (27/02/2027)</b> au rythme actuel.</li>
+      <li>Soit <b>9 semaines de décalage</b> ; à S19 il resterait <b>27 634 m³</b> à couler au rythme actuel, soit environ 8,6 semaines de production supplémentaires.</li>
+      <li>Par rapport à l'échéance contractuelle du 30/11/2026 : retard de <b>3,7 semaines</b> si retour à la cadence contractuelle, retard de <b>12,7 semaines</b> si le rythme actuel se prolonge.</li>
     </ul>
   </div>
 
 </div>
 
 <script>
-// --- Projection hebdomadaire du béton coulé ---
-// Le rythme contractuel et la quantité marché sont des données de scénario fixes.
-// Le rythme ACTUEL, lui, se recalcule à partir des vraies saisies journalières,
-// EN FONCTION DE LA DATE SÉLECTIONNÉE ("Date du jour") : si on choisit une date
-// de la semaine dernière, la courbe et les commentaires reflètent le rythme de
-// CETTE semaine-là (pas celui de la semaine réelle actuelle).
-const PROJ_BASELINE = 163420; // cumul réel au 15/08/2026 (départ du scénario), fin de semaine "S0"
-const PROJ_CONTRACT_RATE = 4900; // m³/semaine, cadence contractuelle (fixe)
+// --- Projection hebdomadaire du béton coulé (fichier "Projection_15_08_2026.xlsx", scénario au 15/08/2026, cumul de départ réel = 163 420 m³) ---
+const PROJ_WEEKS    = ["S1","S2","S3","S4","S5","S6","S7","S8","S9","S10","S11","S12","S13","S14","S15","S16","S17","S18","S19","S20","S21","S22","S23","S24","S25","S26","S27","S28"];
+const PROJ_CONTRACT = [168320,173220,178120,183020,187920,192820,197720,202620,207520,212420,217320,222220,227120,232020,236920,241820,246720,251620,252367,252367,252367,252367,252367,252367,252367,252367,252367,252367];
+const PROJ_ACTUAL   = [166647,169874,173101,176328,179555,182782,186009,189236,192463,195690,198917,202144,205371,208598,211825,215052,218279,221506,224733,227960,231187,234414,237641,240868,244095,247322,250549,252367];
 const PROJ_MARCHE   = 252367;
-// Ancre : S1 se termine le samedi 22/08/2026.
-const PROJ_S1_END = new Date('2026-08-22T00:00:00');
-const PROJ_RATE_DEFAULT = 3227; // repli si aucune semaine récente n'a de données
-const PROJ_MIN_WEEKS = 28; // largeur minimale du graphique
-const PROJ_BUFFER_WEEKS = 2; // semaines affichées après l'atteinte de l'objectif
 
-function projWeekEndDate(n){
-  const d = new Date(PROJ_S1_END);
-  d.setDate(d.getDate() + 7 * (n - 1));
-  return d;
-}
-
-// Valeur "repli" (rythme par défaut 3 227 m³/sem depuis la situation du 15/08/2026),
-// utilisée uniquement si aucune donnée journalière réelle n'est disponible.
-function projFallbackAt(k){
-  return Math.min(PROJ_BASELINE + PROJ_RATE_DEFAULT * k, PROJ_MARCHE);
-}
-
-// Cadence contractuelle à la semaine k (formule, plus besoin de tableau figé).
-function projContractAt(k){
-  return Math.min(PROJ_BASELINE + PROJ_CONTRACT_RATE * k, PROJ_MARCHE);
-}
-
-// Cumul réel (tous conducteurs) à une date donnée, ou null si rien saisi.
-async function projCumulAt(dateObj){
-  const vals = await loadDailyFor(dayStr(dateObj));
-  const keys = Object.keys(vals);
-  if (keys.length === 0) return null;
-  let total = 0, any = false;
-  keys.forEach(k=>{
-    const v = vals[k];
-    if (v !== undefined && v !== null && v !== ''){ any = true; total += toNumber(v); }
-  });
-  return any ? total : null;
-}
-
-// Reconstruit dynamiquement le rythme actuel + la trajectoire projetée,
-// à partir de "refDate" (la date choisie dans "Date du jour" — pas forcément
-// la date réelle d'aujourd'hui). La plage de semaines affichée s'étend
-// automatiquement jusqu'à ce que l'objectif soit atteint au rythme actuel
-// (avec un minimum de PROJ_MIN_WEEKS semaines).
-async function computeDynamicProjection(refDate){
-  const ref = new Date(refDate); ref.setHours(0,0,0,0);
-
-  // Dernière semaine entièrement écoulée au plus tard à refDate (recherche
-  // bornée à une plage large pour ne jamais boucler indéfiniment).
-  let nComplete = 0;
-  while (nComplete < 500 && projWeekEndDate(nComplete + 1) <= ref){
-    nComplete++;
-  }
-
-  // Valeur réelle de départ (fin de la dernière semaine complète avant/à refDate).
-  let baseValue = nComplete > 0 ? await projCumulAt(projWeekEndDate(nComplete)) : null;
-  let baseWeek = nComplete;
-  if (baseValue === null && nComplete > 0){
-    baseValue = projFallbackAt(nComplete);
-  }
-  if (baseValue === null){ baseValue = PROJ_BASELINE; baseWeek = 0; }
-
-  // Rythme de la semaine QUI CONTIENT refDate : moyenne journalière des jours
-  // déjà saisis depuis la fin de la dernière semaine complète jusqu'à refDate,
-  // extrapolée sur 7 jours.
-  let weeklyRate = null;
-  const weekStart = new Date(projWeekEndDate(nComplete)); weekStart.setDate(weekStart.getDate() + 1);
-  let daysWithData = 0, lastVal = null;
-  for (let d = new Date(weekStart); d <= ref; d.setDate(d.getDate() + 1)){
-    const v = await projCumulAt(d);
-    if (v !== null){ daysWithData++; lastVal = v; }
-  }
-  if (daysWithData > 0 && lastVal !== null){
-    weeklyRate = (lastVal - baseValue) / daysWithData * 7;
-  } else if (nComplete >= 2){
-    // Semaine en cours (à refDate) pas encore saisie : on retombe sur le
-    // rythme de la dernière semaine complète plutôt que de figer une valeur par défaut.
-    const prevBase = await projCumulAt(projWeekEndDate(nComplete - 1)) ?? projFallbackAt(nComplete - 1);
-    weeklyRate = baseValue - prevBase;
-  } else {
-    weeklyRate = PROJ_RATE_DEFAULT;
-  }
-  if (!isFinite(weeklyRate) || weeklyRate <= 0) weeklyRate = PROJ_RATE_DEFAULT;
-
-  // Semaine où la quantité marché serait atteinte à ce rythme.
-  const nTarget = baseWeek + (PROJ_MARCHE - baseValue) / weeklyRate;
-  const nTargetCeil = Math.ceil(nTarget);
-
-  // La plage affichée s'étend automatiquement pour montrer l'atteinte de
-  // l'objectif (+ quelques semaines de marge), sans jamais descendre sous
-  // PROJ_MIN_WEEKS.
-  const totalWeeks = Math.max(PROJ_MIN_WEEKS, nTargetCeil + PROJ_BUFFER_WEEKS);
-  const weeks = Array.from({length: totalWeeks}, (_,i)=>`S${i+1}`);
-
-  // Reconstruction de la trajectoire : réel là où on en a, projeté au rythme
-  // (calculé à refDate) au-delà.
-  const projActual = [];
-  for (let k = 1; k <= totalWeeks; k++){
-    if (k <= baseWeek){
-      const real = await projCumulAt(projWeekEndDate(k));
-      projActual.push(Math.round(real !== null ? real : projFallbackAt(k)));
-    } else {
-      const v = baseValue + weeklyRate * (k - baseWeek);
-      projActual.push(Math.round(Math.min(v, PROJ_MARCHE)));
-    }
-  }
-
-  const projContract = [];
-  for (let k = 1; k <= totalWeeks; k++){
-    projContract.push(Math.round(projContractAt(k)));
-  }
-
-  return { weeks, projActual, projContract, weeklyRate, baseValue, baseWeek, nTarget, nTargetCeil };
-}
-
-function projWeekDateLabel(n){
-  const d = projWeekEndDate(n);
-  return d.toLocaleDateString('fr-FR');
-}
-
-// refDate : date de référence à utiliser pour "la semaine en cours" — par
-// défaut la date réellement sélectionnée dans "Date du jour" (currentDayStr),
-// sinon la date du jour réelle.
-async function renderProjectionChart(refDate){
+function renderProjectionChart(){
   const svg = document.getElementById('projectionSvg');
   if (!svg) return;
 
-  if (!refDate){
-    refDate = (typeof currentDayStr !== 'undefined' && currentDayStr)
-      ? new Date(currentDayStr + 'T00:00:00')
-      : new Date();
-  }
-
-  const { weeks, projActual, projContract, weeklyRate, nTarget, nTargetCeil } = await computeDynamicProjection(refDate);
-
-  // Légende
-  const legend = document.getElementById('chartLegend');
-  if (legend){
-    const items = legend.querySelectorAll('.item');
-    if (items[1]) items[1].innerHTML = `<span class="swatch" style="background:var(--bad);"></span>Rythme actuel (${Math.round(weeklyRate).toLocaleString('fr-FR')} m³/sem)`;
-  }
-
-  const situEl = document.getElementById('projSituation');
-  if (situEl){
-    situEl.textContent = `Situation au ${refDate.toLocaleDateString('fr-FR')}`;
-  }
-
-  // Commentaires de lecture
-  const contractWeek = 19; // S19 atteint la quantité marché au rythme contractuel (fixe)
-  const deadline = new Date('2026-11-30T00:00:00');
-  const deadlineWeek = 1 + (deadline - PROJ_S1_END) / (7*24*3600*1000);
-  const delayVsContract = (nTargetCeil - contractWeek).toFixed(1);
-  const remainingAtS19 = Math.max(0, PROJ_MARCHE - (projActual[contractWeek-1] ?? 0));
-  const weeksMoreAtS19 = (remainingAtS19 / weeklyRate).toFixed(1);
-  const retardContractuel = (contractWeek - deadlineWeek).toFixed(1);
-  const retardActuel = (nTarget - deadlineWeek).toFixed(1);
-
-  const lecture = document.querySelector('.lecture ul');
-  if (lecture){
-    const dateTarget = projWeekDateLabel(nTargetCeil);
-    lecture.innerHTML = `
-      <li>Quantité marché atteinte en <b>S19 (26/12/2026)</b> au rythme contractuel, en <b>S${nTargetCeil} (${dateTarget})</b> au rythme actuel.</li>
-      <li>Soit <b>${delayVsContract} semaines de décalage</b> ; à S19 il resterait <b>${Math.round(remainingAtS19).toLocaleString('fr-FR')} m³</b> à couler au rythme actuel, soit environ ${weeksMoreAtS19} semaines de production supplémentaires.</li>
-      <li>Par rapport à l'échéance contractuelle du 30/11/2026 : retard de <b>${retardContractuel} semaines</b> si retour à la cadence contractuelle, retard de <b>${retardActuel} semaines</b> si le rythme actuel se prolonge.</li>
-    `;
-  }
-
-  const n = weeks.length;
-  const W = Math.max(920, 24 * n + 100), H = 420;
+  const W = 920, H = 420;
   const padL = 68, padR = 16, padT = 16, padB = 40;
   const chartW = W - padL - padR;
   const chartH = H - padT - padB;
 
   const yMin = 160000, yMax = 260000, yStep = 10000;
+  const n = PROJ_WEEKS.length;
 
   const xScale = i => padL + (i / (n - 1)) * chartW;
   const yScale = v => padT + (1 - (v - yMin) / (yMax - yMin)) * chartH;
 
   let svgParts = [];
 
+  // horizontal gridlines + y labels
   for (let v = yMin; v <= yMax; v += yStep){
     const y = yScale(v);
     svgParts.push(`<line x1="${padL}" y1="${y}" x2="${W - padR}" y2="${y}" stroke="var(--line)" stroke-width="1"/>`);
     svgParts.push(`<text x="${padL - 10}" y="${y + 4}" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">${v.toLocaleString('fr-FR')}</text>`);
   }
 
-  // Au-delà de 40 semaines, on n'étiquette qu'une semaine sur deux pour éviter
-  // que les libellés se chevauchent (les points/lignes restent tous tracés).
-  const labelStep = n > 60 ? 4 : n > 40 ? 2 : 1;
-  weeks.forEach((w,i)=>{
-    if (i % labelStep !== 0 && i !== n-1) return;
+  // x labels
+  PROJ_WEEKS.forEach((w,i)=>{
     const x = xScale(i);
     svgParts.push(`<text x="${x}" y="${H - padB + 20}" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">${w}</text>`);
   });
 
+  // quantité marché dashed line
   const yMarche = yScale(PROJ_MARCHE);
   svgParts.push(`<line x1="${padL}" y1="${yMarche}" x2="${W - padR}" y2="${yMarche}" stroke="var(--ink-soft)" stroke-width="2" stroke-dasharray="6 5"/>`);
 
-  const contractPts = projContract.map((v,i)=>`${xScale(i)},${yScale(v)}`).join(' ');
+  // contractuelle line (navy)
+  const contractPts = PROJ_CONTRACT.map((v,i)=>`${xScale(i)},${yScale(v)}`).join(' ');
   svgParts.push(`<polyline points="${contractPts}" fill="none" stroke="var(--navy)" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>`);
 
-  const actualPts = projActual.map((v,i)=>`${xScale(i)},${yScale(v)}`).join(' ');
+  // rythme actuel line (rouge)
+  const actualPts = PROJ_ACTUAL.map((v,i)=>`${xScale(i)},${yScale(v)}`).join(' ');
   svgParts.push(`<polyline points="${actualPts}" fill="none" stroke="var(--bad)" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>`);
 
+  // axis baseline
   svgParts.push(`<line x1="${padL}" y1="${H - padB}" x2="${W - padR}" y2="${H - padB}" stroke="var(--ink-soft)" stroke-width="1"/>`);
 
-  svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
   svg.innerHTML = svgParts.join('');
 }
-// Note : le premier appel réel se fait depuis init(), plus bas dans le
-// fichier — pas ici — car cette fonction dépend de loadDailyFor/toNumber/
-// dayStr/currentDayStr, définies plus loin.
-</script>
 
-<script>
-// --- Weekly cumulative targets, from "Prévue_par_semaine.xlsx" (Scénario Cadences, objectif 30/11/2026) ---
+renderProjectionChart();
 </script>
 
 <script>
@@ -1249,8 +1082,10 @@ const EMBEDDED_DATA = {
   "daily-realise:2026-08-15": "{\"OBAMA\":\"15084,88\",\"BOUHOU\":\"71839,59\",\"AITALI\":\"48439,68\",\"NABLI\":\"25939,34\",\"HAMADA\":\"2116,79\"}",
   "daily-realise:2026-08-17": "{\"AITALI\":\"48439,68\",\"OBAMA\":\"15329,23\",\"NABLI\":\"25939,34\",\"HAMADA\":\"2116,79\",\"BOUHOU\":\"72101,27\"}",
   "daily-realise:2026-08-20": "{\"BOUHOU\":\"72452,90\",\"AITALI\":\"49040,23\",\"NABLI\":\"26042,50\",\"OBAMA\":\"15653,53\",\"HAMADA\":\"2160,22\"}",
+  "daily-realise:2026-08-31": "{\"AITALI\":\"50137,63\",\"BOUHOU\":\"73581,71\",\"NABLI\":\"26583,07\",\"OBAMA\":\"16631,80\",\"HAMADA\":\"2275,36\"}",
   "daily-realise:2026-08-16": "{\"BOUHOU\":\"71839,59\",\"AITALI\":\"48439,68\",\"NABLI\":\"25939,34\",\"OBAMA\":\"15084,88\",\"HAMADA\":\"2116,79\"}",
-  "daily-realise:2026-08-23": "{\"BOUHOU\":\"72959,80\",\"AITALI\":\"49392,16\",\"NABLI\":\"26250,25\",\"OBAMA\":\"15978,02\",\"HAMADA\":\"2190,26\"}"
+  "daily-realise:2026-08-23": "{\"BOUHOU\":\"72959,80\",\"AITALI\":\"49392,16\",\"NABLI\":\"26250,25\",\"OBAMA\":\"15978,02\",\"HAMADA\":\"2190,26\"}",
+  "daily-realise:2026-08-30": "{\"AITALI\":\"49915,28\",\"OBAMA\":\"16493,46\",\"HAMADA\":\"2270,36\",\"NABLI\":\"26542,70\",\"BOUHOU\":\"73379,73\"}"
 };
 
 // ── Couche de stockage universelle ────────────────────────────────────────────
@@ -1622,7 +1457,7 @@ async function computeWeekDailySeries(){
   return { series, boundaryRealise, boundaryHasData, boundaryPrevu };
 }
 
-// ── Cadence hebdomadaire : Réalisé (delta jusqu'au jour sélectionné) vs objectif conducteurs (prorata) ──
+// ── Cadence hebdomadaire : Réalisé (delta sur 7 jours) vs objectif conducteurs (cadence × 7) ──
 async function renderWeeklyCadenceBars(){
   const box = document.getElementById('cadenceBars');
   if (!box) return;
@@ -1633,33 +1468,28 @@ async function renderWeeklyCadenceBars(){
   const boundaryDate = new Date(prevRow.date + 'T00:00:00');
   const weekEndDate = new Date(boundaryDate); weekEndDate.setDate(weekEndDate.getDate() + 7);
 
-  // Jour de référence = "Date du jour" sélectionnée (pas forcément la fin de
-  // semaine). Bornée à l'intérieur de la semaine affichée (1..7 jours écoulés).
-  const refDate = currentDayStr ? new Date(currentDayStr + 'T00:00:00') : weekEndDate;
-  let daysElapsed = Math.round((refDate - boundaryDate) / 86400000);
-  daysElapsed = Math.max(1, Math.min(7, daysElapsed));
-
-  // Charge uniquement les jours de la veille de semaine jusqu'au jour sélectionné.
+  // Charge les 8 jours (veille du début de semaine + les 7 jours de la semaine),
+  // et fait la somme des deltas jour-a-jour reellement disponibles (au lieu
+  // d'exiger a tout prix une saisie pile sur le 1er et le dernier jour).
   const days = [];
-  for (let i = 0; i <= daysElapsed; i++){
+  for (let i = 0; i <= 7; i++){
     const d = new Date(boundaryDate); d.setDate(d.getDate() + i);
     days.push(d);
   }
   const valsPerDay = await Promise.all(days.map(d => loadDailyFor(dayStr(d))));
 
   document.getElementById('cadenceAsOf').textContent =
-    `Semaine du ${new Date(boundaryDate.getTime()+86400000).toLocaleDateString('fr-FR')} au ${weekEndDate.toLocaleDateString('fr-FR')} · avancement au ${refDate.toLocaleDateString('fr-FR')}`;
+    `Semaine du ${new Date(boundaryDate.getTime()+86400000).toLocaleDateString('fr-FR')} au ${weekEndDate.toLocaleDateString('fr-FR')}`;
 
   const conducteurs = visibleConducteurs();
   let totalRealise = 0, totalTarget = 0, anyData = false;
   let html = '';
 
   conducteurs.forEach(c=>{
-    // Objectif FIXE de la semaine entière (ne dépend pas du jour sélectionné).
     const target = WEEKLY_CADENCE_TARGETS[c.key];
     totalTarget += target;
 
-    // Somme des deltas jour-a-jour disponibles, jusqu'au jour sélectionné seulement.
+    // Somme des deltas jour-a-jour disponibles pour ce conducteur sur la semaine
     let realise = 0, hasAny = false;
     for (let i = 1; i < valsPerDay.length; i++){
       const prevV = valsPerDay[i-1][c.key];
@@ -1708,17 +1538,9 @@ async function renderWeeklyCadenceBars(){
 async function renderWeeklyRecapAndEvolution(){
   const { series, boundaryRealise, boundaryHasData, boundaryPrevu } = await computeWeekDailySeries();
 
-  // Jour de référence = "Date du jour" sélectionnée, borné à l'intérieur de
-  // la semaine affichée (index 0=dimanche ... 6=samedi).
-  const refDate = currentDayStr ? new Date(currentDayStr + 'T00:00:00') : new Date(series[6].date + 'T00:00:00');
-  let selectedIdx = Math.round((refDate - new Date(series[0].date + 'T00:00:00')) / 86400000);
-  selectedIdx = Math.max(0, Math.min(6, selectedIdx));
-
-  // --- Récapitulatif hebdomadaire : uniquement les jours JUSQU'À la date
-  // sélectionnée (inclus), pas ceux d'après, en ordre décroissant.
+  // --- Récapitulatif hebdomadaire (jours en ordre décroissant, comme la capture) ---
   const tbody = document.getElementById('weeklyRecapBody');
-  const visibleSeries = series.slice(0, selectedIdx + 1);
-  const rows = [...visibleSeries].reverse();
+  const rows = [...series].reverse();
   const qteValues = []; // conserve chaque Qte réalisé journalier (non-null) pour le TOTAL SEMAINE
   tbody.innerHTML = rows.map((r, i)=>{
     const ecart = r.realise - r.prevu;
@@ -1741,14 +1563,12 @@ async function renderWeeklyRecapAndEvolution(){
     </tr>`;
   }).join('');
 
-  // TOTAL SEMAINE : Réalisé ET Prévu s'arrêtent tous les deux au jour
-  // sélectionné dans "Date du jour" — on compare l'avancement réel à ce
-  // jour-là à ce qui était attendu à ce même jour-là (pas l'objectif de fin
-  // de semaine complète).
-
-  // Dernier jour AVEC DONNÉES, mais sans dépasser le jour sélectionné.
+  // TOTAL SEMAINE : le Réalisé reste PARTIEL (jusqu'au dernier jour saisi),
+  // mais le Prévu affiche désormais l'OBJECTIF COMPLET de la semaine entière
+  // (Samedi fin - Samedi début), pas une valeur au prorata des jours saisis —
+  // ainsi on voit toujours la cible réelle de la semaine (ex: 4 900 m³).
   let lastFilledIdx = -1;
-  for (let i = selectedIdx; i >= 0; i--){
+  for (let i = series.length - 1; i >= 0; i--){
     if (series[i].hasData){ lastFilledIdx = i; break; }
   }
   const useBoundary = boundaryHasData;
@@ -1757,7 +1577,7 @@ async function renderWeeklyRecapAndEvolution(){
   const baseHasData = useBoundary ? true : series[0].hasData;
   const hasEnoughData = lastFilledIdx >= 0 && baseHasData && (useBoundary || lastFilledIdx > 0);
   const totalRealise = hasEnoughData ? series[lastFilledIdx].realise - baseRealise : null;
-  const totalPrevu = series[6].prevu - basePrevu; // objectif FIXE de la semaine entière (ne dépend pas du jour sélectionné)
+  const totalPrevu = series[6].prevu - basePrevu; // toujours la semaine complète
   const totalEcart = hasEnoughData ? totalRealise - totalPrevu : null;
   const totalPct = (hasEnoughData && totalPrevu) ? (totalEcart / totalPrevu * 100) : 0;
   const totalQte = qteValues.length ? qteValues.reduce((a,b)=>a+b, 0) : null;
@@ -2081,33 +1901,25 @@ async function init(){
   const today = new Date();
   today.setHours(0,0,0,0);
   await applyDateAndWeek(today);
-  await renderProjectionChart(today);
 
   document.getElementById('weekSelect').addEventListener('change', (e)=>{
     selectWeek(parseInt(e.target.value, 10));
   });
 
-  document.getElementById('dayPicker').addEventListener('change', async (e)=>{
+  document.getElementById('dayPicker').addEventListener('change', (e)=>{
     const d = new Date(e.target.value+'T00:00:00');
-    if (!isNaN(d)){
-      await applyDateAndWeek(d);
-      await renderProjectionChart(d);
-    }
+    if (!isNaN(d)) applyDateAndWeek(d);
   });
 
-  document.getElementById('applyBtn').addEventListener('click', async ()=>{
+  document.getElementById('applyBtn').addEventListener('click', ()=>{
     const v = document.getElementById('dayPicker').value;
     const d = new Date(v+'T00:00:00');
-    if (!isNaN(d)){
-      await applyDateAndWeek(d);
-      await renderProjectionChart(d);
-    }
+    if (!isNaN(d)) applyDateAndWeek(d);
   });
 
-  document.getElementById('resetAllBtn').addEventListener('click', async ()=>{
+  document.getElementById('resetAllBtn').addEventListener('click', ()=>{
     const t = new Date(); t.setHours(0,0,0,0);
-    await applyDateAndWeek(t);
-    await renderProjectionChart(t);
+    applyDateAndWeek(t);
   });
 
   document.getElementById('exportPdfBtn').addEventListener('click', ()=>{
@@ -2126,7 +1938,6 @@ async function init(){
     await renderCadenceCompareChart();
     await renderWeeklyCadenceBars();
     await renderWeeklyRecapAndEvolution();
-    await renderProjectionChart(currentDayStr ? new Date(currentDayStr+'T00:00:00') : new Date());
     syncCadenceChartWidth();
   });
 
